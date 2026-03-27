@@ -1,0 +1,13 @@
+{{ define "main" }}
+<main class="section">
+  <div class="container">
+    <article class="post-article">
+      <p class="eyebrow">Article</p>
+      <h1>{{ .Title }}</h1>
+      <p class="post-card-date">{{ .Date.Format "2 January 2006" }}</p>
+      {{ with .Params.summary }}<p class="about-lead">{{ . }}</p>{{ end }}
+      {{ .Content }}
+    </article>
+  </div>
+</main>
+{{ end }}

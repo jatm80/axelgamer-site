@@ -1,0 +1,35 @@
+{{ $articlesContent := site.GetPage "/sections/homepage/articles" }}
+{{ $limit := $articlesContent.Params.limit | default 3 }}
+{{ $postsSection := site.GetPage "/sections/posts" }}
+{{ $posts := where $postsSection.RegularPages "Draft" "ne" true }}
+<section class="section posts-section" id="articles">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">{{ $articlesContent.Params.eyebrow }}</p>
+      <h2>{{ $articlesContent.Params.headline }}</h2>
+      <p>{{ $articlesContent.Params.intro }}</p>
+    </div>
+
+    <div class="posts-grid">
+      {{ range first $limit ($posts.ByDate.Reverse) }}
+      <article class="post-card">
+        <p class="post-card-date">{{ .Date.Format "2 January 2006" }}</p>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Params.summary }}</p>
+        <div class="post-card-actions">
+          <a class="card-btn secondary" href="{{ .RelPermalink }}">Read article</a>
+        </div>
+      </article>
+      {{ else }}
+      <article class="post-card">
+        <h3>Articles are on the way</h3>
+        <p>Add Markdown posts under <code>src/content/sections/posts/</code> to fill this section automatically.</p>
+      </article>
+      {{ end }}
+    </div>
+
+    <div class="posts-actions">
+      <a class="btn btn-secondary" href="{{ $articlesContent.Params.cta_target | relURL }}">{{ $articlesContent.Params.cta_label }}</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+{{ $resources := site.GetPage "/sections/homepage/resources" }}
+<section class="section resources-section" aria-labelledby="resources-title">
+  <div class="container">
+    <div class="resources-header">
+      <p class="eyebrow">{{ $resources.Params.eyebrow }}</p>
+      <h2 id="resources-title">{{ $resources.Params.headline }}</h2>
+      <p>{{ $resources.Params.intro }}</p>
+    </div>
+
+    <div class="resources-grid">
+      {{ range $resources.Params.links }}
+      <a class="resource-card" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+        <h3>{{ .title }}</h3>
+        <p>{{ .description }}</p>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>

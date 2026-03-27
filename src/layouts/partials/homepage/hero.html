@@ -1,0 +1,18 @@
+{{ $hero := site.GetPage "/sections/homepage/hero" }}
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <h1>{{ $hero.Params.headline_before }} <span>{{ $hero.Params.headline_highlight }}</span></h1>
+    </div>
+
+    <div class="hero-panel">
+      <div class="panel-card panel-card-main hero-panel-media">
+        <img src="{{ site.Params.heroMedia | relURL }}" alt="{{ $hero.Params.media_alt }}" loading="eager" decoding="async">
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="{{ $hero.Params.cta_primary_target }}">{{ $hero.Params.cta_primary_label }}</a>
+        <a class="btn btn-secondary" href="{{ $hero.Params.cta_secondary_target }}" target="_blank" rel="noopener noreferrer">{{ $hero.Params.cta_secondary_label }}</a>
+      </div>
+    </div>
+  </div>
+</section>

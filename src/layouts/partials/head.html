@@ -1,0 +1,107 @@
+{{ $isSectionHelper := in .Permalink "/sections/" }}
+{{ $title := cond .IsHome "AxelGamer.com | Minecraft Videos, Builds & Gameplay" (printf "%s | %s" .Title site.Title) }}
+{{ $pageDescription := or .Params.summary .Description .Summary site.Params.description }}
+{{ $description := cond .IsHome "AxelGamer.com is a website featuring Minecraft-themed gameplay videos, thumbnails, and direct embeds for Axel Gamer's YouTube content." $pageDescription }}
+{{ $canonical := .RelPermalink | absURL }}
+{{ $ogImage := absURL site.Params.ogImage }}
+{{ $siteNameJson := site.Params.siteName | jsonify }}
+{{ $baseUrlJson := site.BaseURL | jsonify }}
+{{ $logoJson := absURL site.Params.logo | jsonify }}
+{{ $permalinkJson := .Permalink | jsonify }}
+{{ $descriptionJson := $description | jsonify }}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+<meta name="keywords" content="{{ site.Params.keywords }}">
+<meta name="author" content="{{ site.Params.author }}">
+<meta name="robots" content="{{ if $isSectionHelper }}noindex,nofollow{{ else }}index,follow,max-image-preview:large{{ end }}">
+<link rel="canonical" href="{{ $canonical }}">
+
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ if .IsHome }}A Minecraft-inspired static website for Axel Gamer featuring embedded YouTube videos, thumbnails, and creator highlights.{{ else }}{{ $description }}{{ end }}">
+<meta property="og:url" content="{{ $canonical }}">
+<meta property="og:site_name" content="{{ site.Params.siteName }}">
+<meta property="og:image" content="{{ $ogImage }}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ if .IsHome }}Watch Axel Gamer videos on a Minecraft-inspired static website.{{ else }}{{ $description }}{{ end }}">
+<meta name="twitter:image" content="{{ $ogImage }}">
+{{ if and (eq .Type "posts") (not .IsNode) }}
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+{{ end }}
+
+<link rel="icon" href="{{ site.Params.favicon | relURL }}">
+<link rel="preconnect" href="https://www.youtube-nocookie.com">
+<link rel="preconnect" href="https://i.ytimg.com">
+<link rel="stylesheet" href="{{ `styles.css` | relURL }}">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ $siteNameJson | safeJS }},
+  "url": {{ $baseUrlJson | safeJS }},
+  "alternateName": "Axel Gamer",
+  "description": "Website for Axel Gamer.",
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ $siteNameJson | safeJS }},
+    "url": {{ $baseUrlJson | safeJS }},
+    "logo": {{ $logoJson | safeJS }}
+  }
+}
+</script>
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Axel Gamer Video Collection",
+  "url": {{ $permalinkJson | safeJS }},
+  "description": "A collection page featuring Axel Gamer YouTube videos and thumbnails.",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "url": "https://www.youtube.com/watch?v=5ukjMUGGssA"},
+      {"@type": "ListItem", "position": 2, "url": "https://www.youtube.com/watch?v=N5duVGlTe7k"},
+      {"@type": "ListItem", "position": 3, "url": "https://www.youtube.com/watch?v=UFrJgbcMKTY"},
+      {"@type": "ListItem", "position": 4, "url": "https://www.youtube.com/watch?v=f4GemvGLqGw"},
+      {"@type": "ListItem", "position": 5, "url": "https://www.youtube.com/watch?v=2RshEm0oBr8"},
+      {"@type": "ListItem", "position": 6, "url": "https://www.youtube.com/watch?v=dG3GncrBSF0"},
+      {"@type": "ListItem", "position": 7, "url": "https://www.youtube.com/watch?v=gtW4Vwx26p8"},
+      {"@type": "ListItem", "position": 8, "url": "https://www.youtube.com/watch?v=h7P-BxM9iMQ"},
+      {"@type": "ListItem", "position": 9, "url": "https://www.youtube.com/watch?v=c2J0Hxi1qUQ"},
+      {"@type": "ListItem", "position": 10, "url": "https://www.youtube.com/watch?v=qJchhPqhz7U"}
+    ]
+  }
+}
+</script>
+{{ else if and (eq .Type "posts") (not .IsNode) }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ .Title | jsonify | safeJS }},
+  "description": {{ $descriptionJson | safeJS }},
+  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+  "mainEntityOfPage": {{ $permalinkJson | safeJS }},
+  "author": {
+    "@type": "Person",
+    "name": "Axel Gamer"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ $siteNameJson | safeJS }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ $logoJson | safeJS }}
+    }
+  },
+  "image": {{ $ogImage | jsonify | safeJS }}
+}
+</script>
+{{ end }}

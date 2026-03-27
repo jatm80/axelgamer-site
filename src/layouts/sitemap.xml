@@ -1,0 +1,15 @@
+{{- printf "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" | safeHTML -}}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {{- range site.AllPages }}
+    {{- if and .Permalink (not (hasPrefix .RelPermalink "/sections/")) (or .IsHome (eq .Type "posts")) }}
+  <url>
+    <loc>{{ .Permalink }}</loc>
+    {{- if not .Date.IsZero }}
+    <lastmod>{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}</lastmod>
+    {{- end }}
+    <changefreq>{{ if .IsHome }}weekly{{ else }}monthly{{ end }}</changefreq>
+    <priority>{{ if .IsHome }}1.0{{ else if .IsNode }}0.8{{ else }}0.7{{ end }}</priority>
+  </url>
+    {{- end }}
+  {{- end }}
+</urlset>

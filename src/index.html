@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AxelGamer.com | Minecraft Videos, Builds & Gameplay</title>
+  <meta name="description" content="AxelGamer.com is a website featuring Minecraft-themed gameplay videos, thumbnails, and direct embeds for Axel Gamer's YouTube content." />
+  <meta name="keywords" content="Axel Gamer, AxelGamer, Minecraft videos, gaming videos, Roblox, Kirby, YouTube creator, axelgamer.com" />
+  <meta name="author" content="AxelGamer.com" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://www.axelgamer.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AxelGamer.com | Minecraft Videos, Builds & Gameplay" />
+  <meta property="og:description" content="A Minecraft-inspired static website for Axel Gamer featuring embedded YouTube videos, thumbnails, and creator highlights." />
+  <meta property="og:url" content="https://www.axelgamer.com/" />
+  <meta property="og:site_name" content="AxelGamer.com" />
+  <meta property="og:image" content="https://www.axelgamer.com/assets/og-cover.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AxelGamer.com | Minecraft Videos, Builds & Gameplay" />
+  <meta name="twitter:description" content="Watch Axel Gamer videos on a Minecraft-inspired static website." />
+  <meta name="twitter:image" content="https://www.axelgamer.com/assets/og-cover.jpg" />
+
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="preconnect" href="https://www.youtube-nocookie.com" />
+  <link rel="preconnect" href="https://i.ytimg.com" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AxelGamer.com",
+    "url": "https://www.axelgamer.com/",
+    "alternateName": "Axel Gamer",
+    "description": "Website for Axel Gamer.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "AxelGamer.com",
+      "url": "https://www.axelgamer.com/",
+      "logo": "https://www.axelgamer.com/assets/logo.png"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Axel Gamer Video Collection",
+    "url": "https://www.axelgamer.com/",
+    "description": "A collection page featuring Axel Gamer YouTube videos and thumbnails.",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "url": "https://www.youtube.com/watch?v=5ukjMUGGssA"},
+        {"@type": "ListItem", "position": 2, "url": "https://www.youtube.com/watch?v=N5duVGlTe7k"},
+        {"@type": "ListItem", "position": 3, "url": "https://www.youtube.com/watch?v=UFrJgbcMKTY"},
+        {"@type": "ListItem", "position": 4, "url": "https://www.youtube.com/watch?v=f4GemvGLqGw"},
+        {"@type": "ListItem", "position": 5, "url": "https://www.youtube.com/watch?v=2RshEm0oBr8"},
+        {"@type": "ListItem", "position": 6, "url": "https://www.youtube.com/watch?v=dG3GncrBSF0"},
+        {"@type": "ListItem", "position": 7, "url": "https://www.youtube.com/watch?v=gtW4Vwx26p8"},
+        {"@type": "ListItem", "position": 8, "url": "https://www.youtube.com/watch?v=h7P-BxM9iMQ"},
+        {"@type": "ListItem", "position": 9, "url": "https://www.youtube.com/watch?v=c2J0Hxi1qUQ"},
+        {"@type": "ListItem", "position": 10, "url": "https://www.youtube.com/watch?v=qJchhPqhz7U"}
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#videos">Skip to videos</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="AxelGamer home">
+        <img src="assets/logo-no-bg.png" alt="AxelGamer logo" class="brand-logo" />
+        <span class="brand-text">AxelGamer<span>.com</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#videos">Videos</a>
+        <a href="#about">About</a>
+        <a href="https://www.youtube.com/@axelgamer_dot_com" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Blocks, builds, gameplay and fun videos from <span>Axel Gamer</span></h1>
+        </div>
+
+        <div class="hero-panel">
+          <div class="panel-card panel-card-main hero-panel-media">
+            <img src="assets/intro.gif" alt="Axel Gamer intro animation" loading="eager" decoding="async">
+          </div>
+           <div class="hero-actions">
+            <a class="btn btn-primary" href="#videos">Watch videos</a>
+            <a class="btn btn-secondary" href="https://www.youtube.com/@axelgamer_dot_com" target="_blank" rel="noopener noreferrer">Visit YouTube channel</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="videos">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Video vault</p>
+          <h2>Featured uploads</h2>
+        </div>
+
+        <div id="video-grid" class="video-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <p class="eyebrow">About me</p>
+          <h2>Hello everyone, welcome to my channel!</h2>
+          <p class="about-lead">
+            Hi! My name is Axel and I live in Australia. I am a kid who loves playing video games, especially Minecraft.
+          </p>
+          <p>
+            I like building bases, finding diamonds, making secret redstone doors, and sometimes accidentally blowing up my own house with TNT. It was just a test, I promise.
+          </p>
+          <p>
+            I also enjoy mixing coding and Minecraft ideas together because maybe one day I want to make my own game.
+          </p>
+        </div>
+
+        <aside class="about-box">
+          <h3>Things I like</h3>
+          <ul>
+            <li>Learning about Minecraft potions and what they do</li>
+            <li>Reading Diary of a Minecraft Zombie</li>
+            <li>Watching Minecraft YouTube videos</li>
+            <li>Doing a bit of coding</li>
+            <li>Maths and Wordle every day because it feels like solving puzzles</li>
+            <li>Making cool ideas for games</li>
+          </ul>
+        </aside>
+
+        <aside class="about-box">
+          <h3>Funny facts</h3>
+          <ul>
+            <li>I once mined for 2 hours and found no diamonds, but I found 64 gravel.</li>
+            <li>My Minecraft dog fell in lava and I am still emotionally recovering.</li>
+            <li>I tried making a secret base and forgot where I hid it.</li>
+            <li>I say "just one more block" and then suddenly it is bedtime.</li>
+            <li>Never dig straight down. Never trust a creeper. Always bring extra torches.</li>
+          </ul>
+        </aside>
+
+        <aside class="about-box">
+          <h3>What I want to do</h3>
+          <ul>
+            <li>Share my videos</li>
+            <li>Show my Minecraft builds</li>
+            <li>Learn more coding</li>
+            <li>Maybe become a YouTuber someday</li>
+            <li>Have fun and make cool things</li>
+          </ul>
+          <p class="about-signoff">If you like Minecraft too, then you are automatically cool. Thanks for visiting my website.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section resources-section" aria-labelledby="resources-title">
+      <div class="container">
+        <div class="resources-header">
+          <p class="eyebrow">Cool links</p>
+          <h2 id="resources-title">Gaming and coding sites I like</h2>
+          <p>Some fun places to explore for Minecraft mods, flight games, and coding.</p>
+        </div>
+
+        <div class="resources-grid">
+          <a class="resource-card" href="https://www.curseforge.com/" target="_blank" rel="noopener noreferrer">
+            <h3>CurseForge</h3>
+            <p>Minecraft mods and add-ons to try in your worlds.</p>
+          </a>
+          <a class="resource-card" href="https://www.geo-fs.com/" target="_blank" rel="noopener noreferrer">
+            <h3>Geo-FS</h3>
+            <p>A nice flight simulator you can play in the browser.</p>
+          </a>
+          <a class="resource-card" href="https://nate-games.com/0/g/" target="_blank" rel="noopener noreferrer">
+            <h3>Nate Games</h3>
+            <p>Fun collection of games to play in the browser.</p>
+          </a>
+          <a class="resource-card" href="https://www.codemonkey.com/" target="_blank" rel="noopener noreferrer">
+            <h3>CodeMonkey</h3>
+            <p>A fun way to learn coding with games and challenges.</p>
+          </a>
+          <a class="resource-card" href="https://codekingdoms.com/code-your-own-minecraft-mods/" target="_blank" rel="noopener noreferrer">
+            <h3>Code Kingdoms</h3>
+            <p>Learn to code your own Minecraft mods and build cool ideas.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="video-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-backdrop" data-close-modal="true"></div>
+    <div class="modal-dialog">
+      <button class="modal-close" type="button" aria-label="Close video player" data-close-modal="true">×</button>
+      <h2 id="modal-title">Now playing</h2>
+      <div class="video-frame-wrap">
+        <iframe
+          id="video-player"
+          src=""
+          title="AxelGamer video player"
+          allow="autoplay; encrypted-media"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p><a id="video-link" href="#" target="_blank" rel="noopener noreferrer">Open on YouTube</a></p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>Copyright @AxelGamer 2026</p>
+      <div class="footer-links">
+        <a href="https://www.axelgamer.com/">www.axelgamer.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

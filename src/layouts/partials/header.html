@@ -1,0 +1,17 @@
+<a class="skip-link" href="#videos">Skip to videos</a>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="{{ if .IsHome }}#top{{ else }}{{ `/` | relURL }}{{ end }}" aria-label="AxelGamer home">
+      <img src="{{ site.Params.logoNoBg | relURL }}" alt="AxelGamer logo" class="brand-logo">
+      <span class="brand-text">AxelGamer<span>.com</span></span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="{{ if .IsHome }}#videos{{ else }}{{ `/#videos` | relURL }}{{ end }}">Videos</a>
+      <a href="{{ `/posts/` | relURL }}">Articles</a>
+      <a href="{{ if .IsHome }}#about{{ else }}{{ `/#about` | relURL }}{{ end }}">About</a>
+      <a href="{{ site.Params.youtubeChannelUrl }}" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </nav>
+  </div>
+</header>

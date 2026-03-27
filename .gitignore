@@ -1,0 +1,8 @@
+infra/.terraform
+__pycache__
+src/public
+_docs
+CLAUDE.md
+TASKS.md
+.codex
+.claude

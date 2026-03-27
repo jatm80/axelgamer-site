@@ -1,0 +1,31 @@
+{{ $videosPage := site.GetPage "/sections/videos" }}
+{{ $videos := $videosPage.RegularPages.ByWeight }}
+<section class="section" id="videos">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Video vault</p>
+      <h2>Featured uploads</h2>
+    </div>
+
+    <div id="video-grid" class="video-grid" aria-live="polite">
+      {{ range $videos }}
+      <article class="video-card">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/{{ .Params.video_id }}/hqdefault.jpg" alt="Thumbnail for {{ .Title }}" loading="lazy">
+        </div>
+        <div class="video-body">
+          <h3>{{ .Title }}</h3>
+          <div class="video-meta">
+            <span>{{ .Params.category }}</span>
+            <span>{{ .Params.game }}</span>
+          </div>
+          <div class="video-actions">
+            <button class="card-btn primary" type="button" data-video-id="{{ .Params.video_id }}" data-video-title="{{ .Title }}">Watch here</button>
+            <a class="card-btn secondary" href="https://www.youtube.com/watch?v={{ .Params.video_id }}" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>

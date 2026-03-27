@@ -1,0 +1,41 @@
+{{ $about := site.GetPage "/sections/homepage/about" }}
+<section class="section about-section" id="about">
+  <div class="container about-grid">
+    <div class="about-copy">
+      <p class="eyebrow">About me</p>
+      <h2>{{ $about.Params.headline }}</h2>
+      <p class="about-lead">{{ $about.Params.lead }}</p>
+      {{ range $about.Params.body }}
+      <p>{{ . }}</p>
+      {{ end }}
+    </div>
+
+    <aside class="about-box">
+      <h3>Things I like</h3>
+      <ul>
+        {{ range $about.Params.likes }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+    </aside>
+
+    <aside class="about-box">
+      <h3>Funny facts</h3>
+      <ul>
+        {{ range $about.Params.facts }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+    </aside>
+
+    <aside class="about-box">
+      <h3>What I want to do</h3>
+      <ul>
+        {{ range $about.Params.goals }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+      <p class="about-signoff">{{ $about.Params.signoff }}</p>
+    </aside>
+  </div>
+</section>

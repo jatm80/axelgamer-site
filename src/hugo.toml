@@ -1,0 +1,55 @@
+baseURL = "https://axelgamer.com/"
+title = "AxelGamer.com"
+languageCode = "en-au"
+defaultContentLanguage = "en"
+
+disableKinds = ["taxonomy", "term", "RSS"]
+enableRobotsTXT = true
+
+[params]
+siteName = "AxelGamer.com"
+tagline = "Minecraft videos, builds, gameplay, and articles from Axel Gamer."
+description = "AxelGamer.com is a Hugo-powered website for Axel Gamer featuring videos, creator content, and articles."
+copyright = "Copyright AxelGamer 2026"
+youtubeChannelUrl = "https://www.youtube.com/@axelgamer_dot_com"
+keywords = "Axel Gamer, AxelGamer, Minecraft videos, gaming videos, Roblox, Kirby, YouTube creator, axelgamer.com"
+author = "AxelGamer.com"
+ogImage = "/assets/og-cover.jpg"
+logo = "/assets/logo.png"
+logoNoBg = "/assets/logo-no-bg.png"
+favicon = "/assets/favicon.ico"
+heroMedia = "/assets/intro.gif"
+
+[permalinks]
+posts = "/posts/:slugorfilename/"
+video = "/videos/:slugorfilename/"
+
+[module]
+  [[module.mounts]]
+    source = "archetypes"
+    target = "archetypes"
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+  [[module.mounts]]
+    source = "styles.css"
+    target = "static/styles.css"
+  [[module.mounts]]
+    source = "script.js"
+    target = "static/script.js"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[[server.headers]]
+  for = "/.well-known/nostr.json"
+  [server.headers.values]
+    Access-Control-Allow-Origin = "*"

@@ -1,0 +1,31 @@
+{{ define "main" }}
+<main class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Articles</p>
+      <h1>{{ .Title }}</h1>
+      <div class="about-copy">
+        {{ .Content }}
+      </div>
+    </div>
+
+    <div class="posts-grid">
+      {{ range .RegularPages.ByDate.Reverse }}
+      <article class="post-card">
+        <p class="post-card-date">{{ .Date.Format "2 January 2006" }}</p>
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p>{{ .Params.summary }}</p>
+        <div class="post-card-actions">
+          <a class="card-btn secondary" href="{{ .RelPermalink }}">Read article</a>
+        </div>
+      </article>
+      {{ else }}
+      <article class="post-card">
+        <h2>No articles yet</h2>
+        <p>Add Markdown files under <code>src/content/sections/posts/</code> to publish articles here.</p>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</main>
+{{ end }}
