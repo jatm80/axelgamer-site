@@ -1,53 +1,68 @@
-# AxelGamer.com Hugo Website
+# AxelGamer.com
 
-A Hugo-powered, static, Minecraft-inspired content website for **axelgamer.com** and **www.axelgamer.com**.
+Static Hugo website for **axelgamer.com** and **www.axelgamer.com**.
 
-## Features
+## What is in this repo
 
-- Static site, easy to maintain
-- Hugo-based content structure under `src/`
-- Gaming / Minecraft-inspired original design
-- YouTube embeds using `youtube-nocookie.com`
-- Markdown-authored posts and section content
-- SEO basics included
-- Asset-based branding under `src/static/assets/`
-- Docker and CI build the site before publishing
+- Hugo site source under `src/`
+- Markdown content for posts and videos
+- Static assets under `src/static/assets/`
+- GitHub Actions workflow for GitHub Pages deployment
 
 ## Project structure
 
 ```text
 .
+├── .github/workflows/github-pages.yml
 ├── src/
 │   ├── content/
 │   ├── layouts/
 │   ├── static/
+│   │   ├── CNAME
+│   │   └── assets/
 │   ├── hugo.toml
 │   ├── styles.css
 │   └── script.js
-├── Dockerfile
-├── docker-compose.yaml
-├── .gitignore
-├── AGENTS.md
-├── TASKS.md
-└── scripts/
-    └── hugo-build-docker.sh
+└── README.md
 ```
 
-## Required assets
+## Local preview
 
-Place your real branding files in `src/static/assets/`:
+From the repository root:
 
-- `src/static/assets/logo.png`
-- `src/static/assets/favicon.ico`
-- `src/static/assets/og-cover.jpg`
+```bash
+cd src
+hugo server
+```
 
-You can also add optional decorative textures or background images there.
+Then open:
 
-## How to update videos
+```text
+http://localhost:1313
+```
 
-Add or edit Markdown entries in `src/content/sections/videos/`.
+## Build locally
 
-Each video uses front matter like this:
+```bash
+cd src
+hugo --minify
+```
+
+The static output is written to:
+
+```text
+src/public/
+```
+
+## Add or edit videos
+
+Create or edit Markdown files in:
+
+```text
+src/content/sections/videos/
+```
+
+Example:
 
 ```toml
 +++
@@ -60,11 +75,15 @@ weight = 10
 +++
 ```
 
-## How to update posts
+## Add or edit posts
 
-Add Markdown files under `src/content/sections/posts/`.
+Create or edit Markdown files in:
 
-You can use the `posts` archetype pattern:
+```text
+src/content/sections/posts/
+```
+
+Example:
 
 ```toml
 +++
@@ -78,173 +97,46 @@ url = "/posts/post-title/"
 +++
 ```
 
-## Local preview
+## GitHub Pages deployment
 
-Use Docker Compose for Hugo-based preview and validation.
+The workflow at `.github/workflows/github-pages.yml` runs on every push to `main`.
 
-### Live preview
+It:
 
-```bash
-docker compose up hugo
-```
+1. Installs Hugo extended.
+2. Builds the site from `src/` with `hugo --minify`.
+3. Uploads `src/public` as the Pages artifact.
+4. Deploys the static site to GitHub Pages.
 
-Then open:
-
-```text
-http://localhost:1313
-```
-
-### One-off Hugo build validation
-
-```bash
-docker compose run --rm hugo-build
-```
-
-You can also use:
-
-```bash
-./scripts/hugo-build-docker.sh
-```
-
-## Docker deployment
-
-The production `Dockerfile` now uses Hugo directly as the runtime:
-
-- The container serves the site with `hugo server`
-- The Hugo source remains under `src/`
-- The container listens on port `1313`
-- The runtime base URL defaults to `https://www.axelgamer.com/` and can be overridden with `HUGO_BASEURL`
-- TLS termination is expected to happen outside the container if needed
-
-### Build
-
-```bash
-docker build -t axelgamer-site .
-```
-
-### Build and push to Docker Hub
-
-```bash
-docker build -t jatm80/ag-static-website:$(git rev-parse HEAD) .
-docker push jatm80/ag-static-website:$(git rev-parse HEAD)
-```
-
-This builds the image from the repository root and pushes it as:
+The custom domain is configured by:
 
 ```text
-jatm80/ag-static-website:<current git commit sha>
+src/static/CNAME
 ```
 
-### GitLab CI
+Current value:
 
-The repository includes a `.gitlab-ci.yml` pipeline with separate Hugo and image stages:
-
-- `hugo_build`: runs `hugo --minify` inside `src/`
-- `build_image`: builds the Hugo runtime image
-- `build_and_push_image`: rebuilds and pushes the Hugo runtime image
-
-Published image tag:
-
-`jatm80/ag-static-website:<CI_COMMIT_SHA>`
-
-Set these GitLab CI/CD variables before running the pipeline:
-
-- `DOCKERHUB_USERNAME`
-- `DOCKERHUB_TOKEN`
-
-Optional GitLab CI/CD variable:
-
-- `SERVER_NAME`
-
-### Run
-
-```bash
-docker run --rm -p 1313:1313 axelgamer-site
+```text
+axelgamer.com
 ```
 
-To override the runtime base URL:
+## DNS notes
 
-```bash
-docker run --rm -p 1313:1313 -e HUGO_BASEURL=https://www.axelgamer.com/ axelgamer-site
-```
+For GitHub Pages custom domains:
 
-For HTTPS, terminate TLS at your reverse proxy, load balancer, ingress, or hosting platform instead of inside the container.
+- Apex domain: point `axelgamer.com` to GitHub Pages using the GitHub Pages A records, or ALIAS/ANAME if your DNS provider supports it.
+- `www`: CNAME to `jatm80.github.io`.
 
-## Deployment options
+## SEO
 
-## Kubernetes deployment
+The site includes Hugo templates for:
 
-Raw Kubernetes manifests are available in `infra/k8s/`:
-
-- `infra/k8s/deployment.yaml`
-- `infra/k8s/service.yaml`
-- `infra/k8s/ingress.yaml`
-- `infra/k8s/kustomization.yaml`
-
-They deploy the site into the `axelgamer-site` namespace and expose it at `ag.jatm.link` through the `nginx-public` ingress class with cert-manager TLS annotations.
-The pod serves Hugo on container port `1313`, and the Service exposes it internally on port `80`.
-
-Argo CD should target `infra/k8s/` as a Kustomize application. The GitLab pipeline updates `infra/k8s/kustomization.yaml` so the deployed image tag matches `CI_PIPELINE_ID` with `CI_JOB_ID` as a fallback.
-
-### Option 1: GitHub Pages
-
-1. Create a GitHub repository.
-2. Upload all files.
-3. In GitHub repo settings, enable **Pages**.
-4. Deploy from the main branch root.
-5. Point your domain:
-   - `axelgamer.com`
-   - `www.axelgamer.com`
-
-Recommended DNS:
-
-- Apex domain: A/ALIAS/ANAME depending on DNS provider
-- `www`: CNAME to your Pages hostname
-
-### Option 2: Netlify
-
-1. Create a new Netlify site from Git.
-2. Build command: `hugo --minify --source src`
-3. Publish directory: `src/public`
-4. Add both custom domains in Netlify:
-   - `axelgamer.com`
-   - `www.axelgamer.com`
-
-### Option 3: Cloudflare Pages
-
-1. Connect repository.
-2. Framework preset: Hugo
-3. Build command: `hugo --minify --source src`
-4. Output directory: `src/public`
-5. Add both custom domains.
-
-## SEO notes
-
-This site includes:
-
-- page title and description
-- canonical URL
-- Open Graph and Twitter tags
+- page titles and descriptions
+- canonical links
+- Open Graph and Twitter metadata
 - JSON-LD structured data
-- robots.txt
-- sitemap.xml
-- crawlable YouTube links
-- semantic headings and accessible navigation
-
-## Notes
-
-- The site is intentionally original and only **inspired by** the references, not copied from them.
-- The bundled container config lives under `scripts/docker/`.
-- The video player uses this pattern:
-
-```html
-<iframe
-  src="https://www.youtube-nocookie.com/embed/VIDEO_ID?autoplay=1&mute=1"
-  allow="autoplay; encrypted-media"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen>
-</iframe>
-```
+- `robots.txt`
+- `sitemap.xml`
 
 ## Copyright
 
