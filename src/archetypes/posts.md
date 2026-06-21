@@ -5,7 +5,7 @@ date = {{ .Date }}
 draft = false
 summary = ""
 slug = "{{ .File.ContentBaseName }}"
-url = "posts/{{ .File.ContentBaseName }}/"
+url = "/posts/{{ .File.ContentBaseName }}/"
 +++
 
 Write your article content here.

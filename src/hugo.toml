@@ -14,15 +14,15 @@ copyright = "Copyright AxelGamer 2026"
 youtubeChannelUrl = "https://www.youtube.com/@axelgamer_dot_com"
 keywords = "Axel Gamer, AxelGamer, Minecraft videos, gaming videos, Roblox, Kirby, YouTube creator, axelgamer.com"
 author = "AxelGamer.com"
-ogImage = "assets/og-cover.jpg"
-logo = "assets/logo.png"
-logoNoBg = "assets/logo-no-bg.png"
-favicon = "assets/favicon.ico"
-heroMedia = "assets/intro.gif"
+ogImage = "/assets/og-cover.jpg"
+logo = "/assets/logo.png"
+logoNoBg = "/assets/logo-no-bg.png"
+favicon = "/assets/favicon.ico"
+heroMedia = "/assets/intro.gif"
 
 [permalinks]
-posts = "posts/:slugorcontentbasename/"
-video = "videos/:slugorcontentbasename/"
+posts = "/posts/:slugorfilename/"
+video = "/videos/:slugorfilename/"
 
 [module]
   [[module.mounts]]

@@ -5,7 +5,7 @@ date = 2026-06-04T20:01:00+10:00
 draft = false
 summary = "My excited recap of Minecraft Live May 2026, focusing on Chaos Cubed, sulfur cubes, geysers, TNT feeding, and the silly physics chaos coming next."
 slug = "minecraft-live-may-2026-chaos-cubed-sulfur-cubes"
-url = "posts/minecraft-live-may-2026-chaos-cubed-sulfur-cubes/"
+url = "/posts/minecraft-live-may-2026-chaos-cubed-sulfur-cubes/"
 +++
 
 ## Minecraft Live May 2026 was all about chaos
