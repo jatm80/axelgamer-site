@@ -5,7 +5,7 @@ date = 2026-06-01T20:01:00+10:00
 draft = false
 summary = "A fun look at a Minecraft custom challenge where farming turns into a mad race for wild items, seed tiers, and a final multiplayer fight."
 slug = "minecraft-custom-crop-challenges-make-farming-exciting"
-url = "/posts/minecraft-custom-crop-challenges-make-farming-exciting/"
+url = "posts/minecraft-custom-crop-challenges-make-farming-exciting/"
 +++
 
 Minecraft farming is usually the bit I do when I am trying to be sensible. You make a little wheat patch, maybe some carrots, then forget it until you need bread or villagers get annoying. It is useful, but not exactly the most exciting part of the game.

@@ -5,7 +5,7 @@ date = 2026-06-15T20:01:00+10:00
 draft = false
 summary = "A kid friendly AxelGamer look at Bad Piggies, the funny physics puzzle game where building wobbly carts, planes, and egg chasing machines is the whole adventure."
 slug = "bad-piggies-building-chaos"
-url = "/posts/bad-piggies-building-chaos/"
+url = "posts/bad-piggies-building-chaos/"
 +++
 
 Bad Piggies is one of those games that looks really simple at first, then suddenly your brain is doing proper engineering without you even noticing. I like it because it is not just about tapping fast or shooting things. It is about staring at a pile of wheels, boxes, balloons, fans, bottles, motors, and other weird bits, then thinking, all right, how am I going to get this green pig to the finish without him flipping upside down like a pancake?

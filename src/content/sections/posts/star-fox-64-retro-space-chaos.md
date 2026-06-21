@@ -5,7 +5,7 @@ date = 2026-06-11T23:01:00+10:00
 draft = false
 summary = "A kid friendly look at why Star Fox 64 is still exciting, from barrel rolls and boss fights to team radio chatter and classic arcade space action."
 slug = "star-fox-64-retro-space-chaos"
-url = "/posts/star-fox-64-retro-space-chaos/"
+url = "posts/star-fox-64-retro-space-chaos/"
 +++
 
 ## Star Fox 64 is old but not boring

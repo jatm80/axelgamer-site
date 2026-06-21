@@ -5,7 +5,7 @@ date = 2026-06-18T20:01:00+10:00
 draft = false
 summary = "A kid friendly AxelGamer look at Plants vs Zombies Battle for Neighborville, with silly zombie missions, plant battles, hidden gnomes, and heaps of backyard chaos."
 slug = "plants-vs-zombies-neighborville-zombie-chaos"
-url = "/posts/plants-vs-zombies-neighborville-zombie-chaos/"
+url = "posts/plants-vs-zombies-neighborville-zombie-chaos/"
 +++
 
 Plants vs Zombies Battle for Neighborville is one of those games where the idea sounds completely cooked, but then you play it and it somehow makes sense. Plants are fighting zombies, zombies are launching rockets, and everyone is running around a colourful town like the garden has turned into a giant playground battle. It is not trying to be serious, and that is why I reckon it works.

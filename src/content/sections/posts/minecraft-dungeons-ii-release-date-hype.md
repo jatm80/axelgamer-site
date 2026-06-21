@@ -5,7 +5,7 @@ date = 2026-06-08T20:01:00+10:00
 draft = false
 summary = "My excited kid friendly look at the Minecraft Dungeons II release date news, the scary new story, co op chaos, platforms, and why this sequel could be massive."
 slug = "minecraft-dungeons-ii-release-date-hype"
-url = "/posts/minecraft-dungeons-ii-release-date-hype/"
+url = "posts/minecraft-dungeons-ii-release-date-hype/"
 +++
 
 ## Minecraft Dungeons II is actually happening
