@@ -150,6 +150,7 @@
   let angle = 42;
   let power = 80;
   let wind = 0;
+  let gameOver = false;
   let lastTime = 0;
   let message = 'Procedural art demo: buildings, gorillas, banana arc, wind, hit particles.';
 
@@ -217,6 +218,7 @@
     angle = 42;
     power = 80;
     wind = Math.round(rand(-18, 18)) / 10;
+    gameOver = false;
     message = 'Use controls or press Space to throw. This is a drawing/physics demo, not the full game yet.';
   }
 
@@ -398,7 +400,7 @@
   }
 
   function drawAimingGuide() {
-    if (banana) return;
+    if (banana || gameOver) return;
     const p = players[activePlayer];
     const dir = p.facing;
     const radians = angle * Math.PI / 180;
@@ -420,7 +422,7 @@
   }
 
   function throwBanana() {
-    if (banana) return;
+    if (banana || gameOver) return;
     const p = players[activePlayer];
     const radians = angle * Math.PI / 180;
     banana = {
@@ -462,9 +464,9 @@
       if (dx * dx + dy * dy < 30 * 30) {
         spawnExplosion(banana.x, banana.y, '#ffd166');
         players[activePlayer].score += 1;
-        message = 'Hit! ' + players[activePlayer].name + ' scores. Press Space to throw again.';
+        gameOver = true;
+        message = '🏆 Winner: ' + players[activePlayer].name + '! New skyline to play again.';
         banana = null;
-        activePlayer = 1 - activePlayer;
         return;
       }
 

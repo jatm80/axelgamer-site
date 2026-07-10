@@ -64,4 +64,15 @@ describe('AxelGamer games section', () => {
     assert.match(banana, /if \(action === 'power-down'\) power = clamp\(power - 2, MIN_POWER, MAX_POWER\);/, 'Power minus should decrease power');
     assert.match(banana, /let ignoreNextSyntheticClick = false;/, 'Touch controls should suppress the follow-up synthetic click on mobile');
   });
+
+  it('ends Banana Battle with a trophy winner when a monkey is hit', () => {
+    const banana = read('src/static/games/banana-battle/index.html');
+
+    assert.match(banana, /let gameOver = false;/, 'Banana Battle should track game-over state');
+    assert.match(banana, /gameOver = true;/, 'A hit should end the game');
+    assert.match(banana, /🏆/, 'Winner message should include a trophy');
+    assert.match(banana, /Winner:/, 'Winner message should clearly name the winner');
+    assert.match(banana, /if \(banana \|\| gameOver\) return;/, 'No more bananas should be thrown after game over');
+    assert.doesNotMatch(banana, /Press Space to throw again\./, 'A hit should not prompt another throw');
+  });
 });
