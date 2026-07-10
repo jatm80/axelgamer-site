@@ -138,12 +138,17 @@
   };
 
   let buildings = [];
+  const MIN_ANGLE = 10;
+  const MAX_ANGLE = 80;
+  const MIN_POWER = 25;
+  const MAX_POWER = 160;
+
   let players = [];
   let banana = null;
   let particles = [];
   let activePlayer = 0;
   let angle = 42;
-  let power = 62;
+  let power = 80;
   let wind = 0;
   let lastTime = 0;
   let message = 'Procedural art demo: buildings, gorillas, banana arc, wind, hit particles.';
@@ -210,7 +215,7 @@
     particles = [];
     activePlayer = 0;
     angle = 42;
-    power = 62;
+    power = 80;
     wind = Math.round(rand(-18, 18)) / 10;
     message = 'Use controls or press Space to throw. This is a drawing/physics demo, not the full game yet.';
   }
@@ -549,13 +554,15 @@
     requestAnimationFrame(loop);
   }
 
+  let ignoreNextSyntheticClick = false;
+
   function handleControlAction(action) {
     if (action === 'reset') resetScene();
     if (action === 'throw') throwBanana();
-    if (action === 'angle-up') angle = clamp(angle + 2, 10, 80);
-    if (action === 'angle-down') angle = clamp(angle - 2, 10, 80);
-    if (action === 'power-up') power = clamp(power + 2, 25, 100);
-    if (action === 'power-down') power = clamp(power - 2, 25, 100);
+    if (action === 'angle-up') angle = clamp(angle + 2, MIN_ANGLE, MAX_ANGLE);
+    if (action === 'angle-down') angle = clamp(angle - 2, MIN_ANGLE, MAX_ANGLE);
+    if (action === 'power-up') power = clamp(power + 2, MIN_POWER, MAX_POWER);
+    if (action === 'power-down') power = clamp(power - 2, MIN_POWER, MAX_POWER);
   }
 
   window.addEventListener('keydown', (event) => {
@@ -572,9 +579,16 @@
   document.querySelectorAll('[data-action]').forEach((button) => {
     button.addEventListener('touchstart', (event) => {
       event.preventDefault();
+      ignoreNextSyntheticClick = true;
       handleControlAction(button.dataset.action);
     }, { passive: false });
-    button.addEventListener('click', () => handleControlAction(button.dataset.action));
+    button.addEventListener('click', () => {
+      if (ignoreNextSyntheticClick) {
+        ignoreNextSyntheticClick = false;
+        return;
+      }
+      handleControlAction(button.dataset.action);
+    });
   });
 
   canvas.addEventListener('pointerdown', (event) => {
