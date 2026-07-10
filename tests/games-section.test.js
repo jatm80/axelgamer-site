@@ -35,4 +35,22 @@ describe('AxelGamer games section', () => {
     assert.match(snake, /addEventListener\('touchstart'/, 'Snake should handle touchstart to avoid mobile scrolling lag');
     assert.match(snake, /function setDirection\(direction\)/, 'Keyboard and touch controls should share direction logic');
   });
+
+  it('publishes Banana Battle at /games/banana-battle/ with mobile controls', () => {
+    const homeGames = read('src/layouts/partials/homepage/games.html');
+    const banana = read('src/static/games/banana-battle/index.html');
+
+    assert.match(homeGames, /\/games\/banana-battle\//, 'homepage games grid should link to Banana Battle');
+    assert.match(homeGames, /Banana Battle/, 'homepage games grid should name Banana Battle');
+    assert.match(banana, /<title>Banana Battle Demo/, 'Banana Battle page should keep the demo title');
+    assert.match(banana, /class="mobile-controls"/, 'Banana Battle should render mobile controls');
+    assert.match(banana, /data-action="angle-down"/, 'Banana Battle should include touch angle-down control');
+    assert.match(banana, /data-action="angle-up"/, 'Banana Battle should include touch angle-up control');
+    assert.match(banana, /data-action="power-down"/, 'Banana Battle should include touch power-down control');
+    assert.match(banana, /data-action="power-up"/, 'Banana Battle should include touch power-up control');
+    assert.match(banana, /data-action="throw"/, 'Banana Battle should include touch throw control');
+    assert.match(banana, /touch-action:\s*none/, 'Canvas should suppress browser gestures while playing on mobile');
+    assert.match(banana, /addEventListener\('touchstart'/, 'Mobile controls should use touchstart to avoid tap delay');
+    assert.match(banana, /function handleControlAction\(action\)/, 'Keyboard and touch controls should share control logic');
+  });
 });
