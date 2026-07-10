@@ -23,4 +23,16 @@ describe('AxelGamer games section', () => {
     assert.doesNotMatch(snake, /head\.x\s*=\s*GRID\s*-\s*1|head\.x\s*=\s*0|head\.y\s*=\s*GRID\s*-\s*1|head\.y\s*=\s*0/, 'Snake should not teleport across edges');
     assert.match(snake, /head\.x\s*<\s*0[\s\S]*head\.x\s*>=\s*GRID[\s\S]*head\.y\s*<\s*0[\s\S]*head\.y\s*>=\s*GRID/, 'Snake should detect edge collisions');
   });
+
+  it('supports mobile touch controls for Snake', () => {
+    const snake = read('src/static/games/snake/index.html');
+
+    assert.match(snake, /class="touch-controls"/, 'Snake should render on-screen mobile controls');
+    assert.match(snake, /data-direction="up"/, 'Snake should include an up touch button');
+    assert.match(snake, /data-direction="down"/, 'Snake should include a down touch button');
+    assert.match(snake, /data-direction="left"/, 'Snake should include a left touch button');
+    assert.match(snake, /data-direction="right"/, 'Snake should include a right touch button');
+    assert.match(snake, /addEventListener\('touchstart'/, 'Snake should handle touchstart to avoid mobile scrolling lag');
+    assert.match(snake, /function setDirection\(direction\)/, 'Keyboard and touch controls should share direction logic');
+  });
 });

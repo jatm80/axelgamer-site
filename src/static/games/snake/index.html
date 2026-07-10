@@ -53,9 +53,44 @@ canvas {
   font-size: 0.8rem;
   color: #66ff66;
 }
+.touch-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(56px, 74px));
+  grid-template-areas:
+    ". up ."
+    "left down right";
+  gap: 0.55rem;
+  justify-content: center;
+  margin: 0.9rem auto 0;
+  touch-action: manipulation;
+  user-select: none;
+}
+.touch-controls button {
+  min-height: 54px;
+  border: 1px solid #33ff33;
+  border-radius: 12px;
+  background: rgba(51,255,51,0.08);
+  color: #66ff66;
+  font-size: 1.35rem;
+  font-weight: 800;
+  box-shadow: 0 0 12px rgba(51,255,51,0.12);
+}
+.touch-controls button:active,
+.touch-controls button:focus-visible {
+  background: rgba(51,255,51,0.22);
+  outline: 2px solid #66ff66;
+  outline-offset: 2px;
+}
+.touch-controls [data-direction="up"] { grid-area: up; }
+.touch-controls [data-direction="left"] { grid-area: left; }
+.touch-controls [data-direction="down"] { grid-area: down; }
+.touch-controls [data-direction="right"] { grid-area: right; }
 @media (max-width: 600px) {
-  .game-wrapper { padding: 0.6rem; }
+  body { align-items: flex-start; padding: 0.6rem; }
+  .game-wrapper { width: 100%; padding: 0.6rem; }
   h1 { font-size: 1rem; }
+  .touch-controls { grid-template-columns: repeat(3, minmax(64px, 82px)); }
+  .touch-controls button { min-height: 60px; font-size: 1.55rem; }
 }
 </style>
 </head>
@@ -68,6 +103,12 @@ canvas {
     <span>HI: <span id="hiScore">0</span></span>
   </div>
   <div class="msg" id="msg">arrows / wasd · p pause · r restart · edges are danger</div>
+  <div class="touch-controls" aria-label="Snake touch controls">
+    <button type="button" data-direction="up" aria-label="Move up">▲</button>
+    <button type="button" data-direction="left" aria-label="Move left">◀</button>
+    <button type="button" data-direction="down" aria-label="Move down">▼</button>
+    <button type="button" data-direction="right" aria-label="Move right">▶</button>
+  </div>
   <a class="back-link" href="/">← Back to AxelGamer</a>
 </div>
 <script>
@@ -226,6 +267,23 @@ canvas {
     requestAnimationFrame(loop);
   }
 
+  function setDirection(direction) {
+    if (done || paused) return;
+    if (direction === 'up' && nextDir.y !== 1) nextDir = {x: 0, y: -1};
+    if (direction === 'down' && nextDir.y !== -1) nextDir = {x: 0, y: 1};
+    if (direction === 'left' && nextDir.x !== 1) nextDir = {x: -1, y: 0};
+    if (direction === 'right' && nextDir.x !== -1) nextDir = {x: 1, y: 0};
+  }
+
+  function directionFromKey(key) {
+    const k = key.toLowerCase();
+    if (k === 'w' || key === 'ArrowUp') return 'up';
+    if (k === 's' || key === 'ArrowDown') return 'down';
+    if (k === 'a' || key === 'ArrowLeft') return 'left';
+    if (k === 'd' || key === 'ArrowRight') return 'right';
+    return null;
+  }
+
   // keyboard
   document.addEventListener('keydown', (e) => {
     const key = e.key;
@@ -235,13 +293,18 @@ canvas {
 
     if (key === 'r' || key === 'R') { init(); return; }
     if (key === 'p' || key === 'P') { paused = !paused; return; }
-    if (done || paused) return;
 
-    const k = key.toLowerCase();
-    if ((k === 'w' || key === 'ArrowUp') && nextDir.y !== 1) nextDir = {x: 0, y: -1};
-    if ((k === 's' || key === 'ArrowDown') && nextDir.y !== -1) nextDir = {x: 0, y: 1};
-    if ((k === 'a' || key === 'ArrowLeft') && nextDir.x !== 1) nextDir = {x: -1, y: 0};
-    if ((k === 'd' || key === 'ArrowRight') && nextDir.x !== -1) nextDir = {x: 1, y: 0};
+    const direction = directionFromKey(key);
+    if (direction) setDirection(direction);
+  });
+
+  document.querySelectorAll('[data-direction]').forEach((button) => {
+    const move = (event) => {
+      event.preventDefault();
+      setDirection(button.dataset.direction);
+    };
+    button.addEventListener('click', move);
+    button.addEventListener('touchstart', move, {passive: false});
   });
 
   // responsive canvas
