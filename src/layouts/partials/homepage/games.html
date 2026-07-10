@@ -1,0 +1,36 @@
+<section class="section games-section" id="games">
+  <div class="container">
+    <div class="section-heading games-header">
+      <p class="eyebrow">Play zone</p>
+      <h2>Games you can play here</h2>
+      <p>First up: a retro Snake challenge. Grab snacks, dodge yourself, and don’t hit the walls.</p>
+    </div>
+
+    <div class="games-grid" aria-live="polite">
+      <article class="video-card game-card">
+        <a class="game-thumb snake-thumb" href="{{ `/games/snake/` | relURL }}" aria-label="Play Snake">
+          <span class="snake-thumb-grid" aria-hidden="true">
+            <span class="snake-pixel snake-pixel-1"></span>
+            <span class="snake-pixel snake-pixel-2"></span>
+            <span class="snake-pixel snake-pixel-3"></span>
+            <span class="snake-pixel snake-pixel-4"></span>
+            <span class="snake-food"></span>
+          </span>
+          <span class="game-thumb-title">SNAKE</span>
+        </a>
+        <div class="video-body">
+          <h3>Snake</h3>
+          <div class="video-meta">
+            <span>Arcade</span>
+            <span>Keyboard</span>
+            <span>No wall wrap</span>
+          </div>
+          <p>Guide the snake to food, grow your score, and avoid the edges.</p>
+          <div class="video-actions">
+            <a class="card-btn primary" href="{{ `/games/snake/` | relURL }}">Play Snake</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

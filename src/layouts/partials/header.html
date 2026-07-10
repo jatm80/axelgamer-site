@@ -9,6 +9,7 @@
 
     <nav class="main-nav" aria-label="Main navigation">
       <a href="{{ if .IsHome }}#videos{{ else }}{{ `/#videos` | relURL }}{{ end }}">Videos</a>
+      <a href="{{ if .IsHome }}#games{{ else }}{{ `/#games` | relURL }}{{ end }}">Games</a>
       <a href="{{ `/posts/` | relURL }}">Articles</a>
       <a href="{{ if .IsHome }}#about{{ else }}{{ `/#about` | relURL }}{{ end }}">About</a>
       <a href="{{ site.Params.youtubeChannelUrl }}" target="_blank" rel="noopener noreferrer">YouTube</a>

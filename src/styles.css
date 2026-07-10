@@ -270,10 +270,76 @@ code {
   color: var(--muted);
 }
 
-.video-grid {
+.video-grid,
+.games-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+}
+.games-section {
+  padding-top: 0;
+}
+.games-header {
+  max-width: 58ch;
+}
+.game-card p {
+  margin: 0;
+  color: var(--muted);
+}
+.game-thumb {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top right, rgba(247, 201, 72, 0.16), transparent 24%),
+    linear-gradient(145deg, rgba(51, 255, 51, 0.16), rgba(10, 10, 10, 0.98));
+}
+.snake-thumb {
+  color: #33ff33;
+  font-family: "Courier New", Courier, monospace;
+  border-bottom: 1px solid var(--border);
+}
+.snake-thumb-grid {
+  position: absolute;
+  inset: 12%;
+  border: 1px solid rgba(51, 255, 51, 0.42);
+  background-image:
+    linear-gradient(rgba(51, 255, 51, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(51, 255, 51, 0.12) 1px, transparent 1px);
+  background-size: 12.5% 20%;
+  box-shadow: inset 0 0 22px rgba(51, 255, 51, 0.08);
+}
+.snake-pixel,
+.snake-food {
+  position: absolute;
+  width: 12.5%;
+  height: 20%;
+  border-radius: 3px;
+}
+.snake-pixel {
+  background: #33ff33;
+  box-shadow: 0 0 14px rgba(51, 255, 51, 0.5);
+}
+.snake-pixel-1 { left: 25%; top: 40%; }
+.snake-pixel-2 { left: 37.5%; top: 40%; }
+.snake-pixel-3 { left: 50%; top: 40%; }
+.snake-pixel-4 { left: 62.5%; top: 40%; background: #66ff66; }
+.snake-food {
+  right: 12.5%;
+  top: 20%;
+  background: #ff6633;
+  border-radius: 50%;
+  box-shadow: 0 0 14px rgba(255, 102, 51, 0.7);
+}
+.game-thumb-title {
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.28em;
+  font-size: clamp(1.4rem, 3.6vw, 2.6rem);
+  font-weight: 900;
+  text-shadow: 0 0 12px rgba(51, 255, 51, 0.75), 0 3px 0 rgba(0, 0, 0, 0.55);
 }
 .video-card {
   overflow: hidden;
@@ -555,6 +621,7 @@ code {
 @media (max-width: 1024px) {
   .hero-grid,
   .video-grid,
+  .games-grid,
   .intro-grid,
   .about-grid,
   .posts-grid {
@@ -577,6 +644,7 @@ code {
 
   .hero-grid,
   .video-grid,
+  .games-grid,
   .intro-grid,
   .about-grid,
   .posts-grid,

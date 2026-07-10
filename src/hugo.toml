@@ -21,8 +21,8 @@ favicon = "/assets/favicon.ico"
 heroMedia = "/assets/intro.gif"
 
 [permalinks]
-posts = "/posts/:slugorfilename/"
-video = "/videos/:slugorfilename/"
+posts = "/posts/:slugorcontentbasename/"
+video = "/videos/:slugorcontentbasename/"
 
 [module]
   [[module.mounts]]

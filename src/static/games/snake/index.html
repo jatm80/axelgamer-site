@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snake — AxelGamer Games</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0a0a0a;
+  color: #33ff33;
+  font-family: 'Courier New', Courier, monospace;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game-wrapper {
+  background: #0d0d0d;
+  border: 2px solid #33ff33;
+  padding: 1.2rem 1.5rem 1.5rem;
+  box-shadow: 0 0 20px rgba(51,255,51,0.15);
+  text-align: center;
+}
+h1 {
+  font-size: 1.3rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: #33ff33;
+  text-shadow: 0 0 8px rgba(51,255,51,0.5);
+}
+canvas {
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #33ff33;
+  background: #0a0a0a;
+  image-rendering: pixelated;
+  max-width: 100%;
+  height: auto;
+}
+.hud {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.25rem 0;
+  font-size: 0.9rem;
+}
+.hud span { color: #33ff33; }
+.hud .score { color: #66ff66; font-weight: bold; }
+.msg {
+  min-height: 1.3rem;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  color: #66ff66;
+}
+@media (max-width: 600px) {
+  .game-wrapper { padding: 0.6rem; }
+  h1 { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="game-wrapper">
+  <h1>🐍 Snake</h1>
+  <canvas id="game" width="400" height="400"></canvas>
+  <div class="hud">
+    <span>SCORE: <span class="score" id="score">0</span></span>
+    <span>HI: <span id="hiScore">0</span></span>
+  </div>
+  <div class="msg" id="msg">arrows / wasd · p pause · r restart · edges are danger</div>
+  <a class="back-link" href="/">← Back to AxelGamer</a>
+</div>
+<script>
+(function(){
+  const canvas = document.getElementById('game');
+  const ctx = canvas.getContext('2d');
+  const scoreEl = document.getElementById('score');
+  const hiScoreEl = document.getElementById('hiScore');
+  const msgEl = document.getElementById('msg');
+
+  const GRID = 20;
+  const SIZE = 400;
+  const TILE = SIZE / GRID;
+  const TICK_MS = 1000 / 8;  // ~8 moves/sec
+
+  let snake, dir, nextDir, food, score, hiScore, done, paused, winFlag, lastUpdate;
+
+  function init() {
+    snake = [{x: 10, y: 10}];
+    dir = {x: 1, y: 0};
+    nextDir = {x: 1, y: 0};
+    score = 0;
+    hiScore = parseInt(localStorage.getItem('snakeHiScore')) || 0;
+    hiScoreEl.textContent = hiScore;
+    done = false;
+    paused = false;
+    winFlag = false;
+    lastUpdate = 0;
+    spawnFood();
+    updateScore();
+    msgEl.textContent = 'arrows / wasd · p pause · r restart · edges are danger';
+  }
+
+  function spawnFood() {
+    const free = [];
+    for (let x = 0; x < GRID; x++) {
+      for (let y = 0; y < GRID; y++) {
+        if (!snake.some(s => s.x === x && s.y === y)) free.push({x, y});
+      }
+    }
+    if (free.length === 0) {
+      winFlag = true;
+      done = true;
+      msgEl.textContent = '🏆 YOU WIN! press r to restart';
+      // Keep food at its last position so draw() can paint it one final time
+      return false;
+    }
+    food = free[Math.floor(Math.random() * free.length)];
+    return true;
+  }
+
+  function update() {
+    if (done || paused) return;
+
+    dir = {...nextDir};
+    const head = {x: snake[0].x + dir.x, y: snake[0].y + dir.y};
+
+    // edge collision: walls are solid, no teleporting across the board
+    if (head.x < 0 || head.x >= GRID || head.y < 0 || head.y >= GRID) {
+      endGame();
+      return;
+    }
+
+    // self collision
+    if (snake.some(s => s.x === head.x && s.y === head.y)) {
+      endGame();
+      return;
+    }
+
+    snake.unshift(head);
+
+    if (head.x === food.x && head.y === food.y) {
+      score++;
+      updateScore();
+      if (!spawnFood()) return;  // win condition handled in spawnFood
+    } else {
+      snake.pop();
+    }
+  }
+
+  function updateScore() {
+    scoreEl.textContent = score;
+  }
+
+  function endGame() {
+    done = true;
+    msgEl.textContent = '💀 GAME OVER · press r to restart';
+    if (score > hiScore) {
+      hiScore = score;
+      hiScoreEl.textContent = hiScore;
+      localStorage.setItem('snakeHiScore', hiScore);
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, SIZE, SIZE);
+
+    // grid lines (subtle)
+    ctx.strokeStyle = '#1a331a';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= GRID; i++) {
+      ctx.beginPath();
+      ctx.moveTo(i * TILE, 0);
+      ctx.lineTo(i * TILE, SIZE);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(0, i * TILE);
+      ctx.lineTo(SIZE, i * TILE);
+      ctx.stroke();
+    }
+
+    // snake
+    snake.forEach((seg, i) => {
+      const alpha = 0.5 + (i / snake.length) * 0.5;
+      ctx.fillStyle = `rgba(51, 255, 51, ${alpha})`;
+      ctx.fillRect(seg.x * TILE + 1, seg.y * TILE + 1, TILE - 2, TILE - 2);
+    });
+
+    // head brighter
+    const h = snake[0];
+    ctx.fillStyle = '#66ff66';
+    ctx.shadowColor = '#33ff33';
+    ctx.shadowBlur = 8;
+    ctx.fillRect(h.x * TILE + 1, h.y * TILE + 1, TILE - 2, TILE - 2);
+    ctx.shadowBlur = 0;
+
+    // food — paint even on win for one last display
+    if (food) {
+      ctx.fillStyle = '#ff6633';
+      ctx.shadowColor = '#ff6633';
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      ctx.arc(food.x * TILE + TILE / 2, food.y * TILE + TILE / 2, TILE / 2 - 2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+
+    // pause overlay
+    if (paused && !done) {
+      ctx.fillStyle = 'rgba(0,0,0,0.6)';
+      ctx.fillRect(0, 0, SIZE, SIZE);
+      ctx.fillStyle = '#33ff33';
+      ctx.font = '20px "Courier New", monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('⏸ PAUSED', SIZE / 2, SIZE / 2);
+    }
+  }
+
+  function loop() {
+    const now = Date.now();
+    if (now - lastUpdate >= TICK_MS) {
+      update();
+      lastUpdate = now;
+    }
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  // keyboard
+  document.addEventListener('keydown', (e) => {
+    const key = e.key;
+    if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','w','W','a','A','s','S','d','D','p','P','r','R'].includes(key)) {
+      e.preventDefault();
+    }
+
+    if (key === 'r' || key === 'R') { init(); return; }
+    if (key === 'p' || key === 'P') { paused = !paused; return; }
+    if (done || paused) return;
+
+    const k = key.toLowerCase();
+    if ((k === 'w' || key === 'ArrowUp') && nextDir.y !== 1) nextDir = {x: 0, y: -1};
+    if ((k === 's' || key === 'ArrowDown') && nextDir.y !== -1) nextDir = {x: 0, y: 1};
+    if ((k === 'a' || key === 'ArrowLeft') && nextDir.x !== 1) nextDir = {x: -1, y: 0};
+    if ((k === 'd' || key === 'ArrowRight') && nextDir.x !== -1) nextDir = {x: 1, y: 0};
+  });
+
+  // responsive canvas
+  function resize() {
+    const maxW = window.innerWidth - 40;
+    const maxH = window.innerHeight - 180;
+    const size = Math.min(400, maxW, maxH);
+    canvas.style.width = size + 'px';
+    canvas.style.height = size + 'px';
+  }
+  window.addEventListener('resize', resize);
+
+  init();
+  resize();
+  loop();
+})();
+</script>
+</body>
+</html>
