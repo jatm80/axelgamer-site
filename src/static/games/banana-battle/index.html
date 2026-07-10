@@ -537,6 +537,24 @@
     ctx.restore();
   }
 
+  function drawWinnerOverlay() {
+    if (!gameOver) return;
+    ctx.save();
+    ctx.fillStyle = 'rgba(7,9,20,0.72)';
+    ctx.fillRect(0, H / 2 - 52, W, 104);
+    ctx.strokeStyle = 'rgba(255,209,102,0.9)';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(80, H / 2 - 46, W - 160, 92);
+    ctx.fillStyle = '#ffd166';
+    ctx.font = '32px Courier New, monospace';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.shadowColor = 'rgba(255,209,102,0.75)';
+    ctx.shadowBlur = 16;
+    ctx.fillText(message, W / 2, H / 2);
+    ctx.restore();
+  }
+
   function render() {
     drawSky();
     drawWindFlag();
@@ -546,6 +564,7 @@
     if (banana) drawBanana(banana.x, banana.y, banana.rotation);
     drawParticles();
     drawHud();
+    drawWinnerOverlay();
   }
 
   function loop(timestamp) {

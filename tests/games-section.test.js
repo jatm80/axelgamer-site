@@ -72,6 +72,10 @@ describe('AxelGamer games section', () => {
     assert.match(banana, /gameOver = true;/, 'A hit should end the game');
     assert.match(banana, /🏆/, 'Winner message should include a trophy');
     assert.match(banana, /Winner:/, 'Winner message should clearly name the winner');
+    assert.match(banana, /function drawWinnerOverlay\(\)/, 'Winner should be drawn as a dedicated centered overlay');
+    assert.match(banana, /if \(!gameOver\) return;/, 'Winner overlay should only render after game over');
+    assert.match(banana, /ctx\.font = '32px Courier New, monospace';/, 'Winner overlay should be 2x the current 16px HUD message size');
+    assert.match(banana, /ctx\.textAlign = 'center';[\s\S]*ctx\.fillText\(message, W \/ 2, H \/ 2\)/, 'Winner overlay should be centered on the canvas');
     assert.match(banana, /if \(banana \|\| gameOver\) return;/, 'No more bananas should be thrown after game over');
     assert.doesNotMatch(banana, /Press Space to throw again\./, 'A hit should not prompt another throw');
   });
