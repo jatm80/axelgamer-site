@@ -117,4 +117,19 @@ describe('AxelGamer games section', () => {
     assert.match(game, /Math\.min\(GROUND_MISS_SCORE_CAP/);
     assert.doesNotMatch(game, /\bdemo\b/i, 'Perfect Landing production page should not describe itself as a demo');
   });
+
+  it('draws Perfect Landing with the requested red-and-white pixel airplane sprite', () => {
+    const game = read('src/static/games/perfect-landing/index.html');
+
+    assert.match(game, /const PLANE_SPRITE_SCALE = 0\.72;/, 'Plane sprite should use a named scale constant');
+    assert.match(game, /function drawPixelAirplaneSprite\(\)/, 'Plane should be drawn by a dedicated pixel-airplane sprite function');
+    assert.match(game, /#a63a24/, 'Sprite should use the requested red fuselage color');
+    assert.match(game, /#f3efe0/, 'Sprite should use the requested cream-white wing and tail color');
+    assert.match(game, /#bff3ff/, 'Sprite should use pale blue cockpit windows');
+    assert.match(game, /#5f6872/, 'Sprite should include grey landing gear / propeller details');
+    assert.match(game, /ctx\.fillRect\(43, -12, 46, 18\)/, 'Sprite should have a long red nose section');
+    assert.match(game, /ctx\.fillRect\(-90, -16, 26, 36\)/, 'Sprite should have a tall cream tail fin');
+    assert.match(game, /ctx\.fillRect\(72, -30, 4, 60\)/, 'Sprite should have a vertical propeller blade');
+    assert.match(game, /drawPixelAirplaneSprite\(\);/, 'drawPlane should render the new sprite');
+  });
 });
