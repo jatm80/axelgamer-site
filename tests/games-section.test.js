@@ -111,6 +111,7 @@ describe('AxelGamer games section', () => {
     assert.match(game, /const AIRPORT_APPROACH_DISTANCE = 300;/);
     assert.match(game, /const AIRPORT_APPROACH_HEIGHT_CAP = 59;/, 'Airport approach buildings should be half the previous 118 cap');
     assert.match(game, /if \(event\.code === 'KeyR'\) handleControlAction\('reset'\);/, 'R should reset the game');
+    assert.match(game, /R\s*=\s*Restart/, 'Perfect Landing should visibly explain that R restarts the game');
     assert.match(game, /const speedEnergy = clamp\(plane\.vx - 2\.25, 0, 1\.85\);/);
     assert.match(game, /const recoveryLift = noseUp > 0 \? speedEnergy \* RECOVERY_LIFT_FROM_SPEED : 0;/);
     assert.match(game, /nearRunway \? AIRPORT_APPROACH_HEIGHT_CAP : Math\.round\(rand\(125, 270\)\)/);
