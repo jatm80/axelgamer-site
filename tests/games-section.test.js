@@ -58,6 +58,8 @@ describe('AxelGamer games section', () => {
   it('maps Banana Battle plus/minus controls correctly and allows harder throws', () => {
     const banana = read('src/static/games/banana-battle/index.html');
 
+    assert.match(banana, /const MIN_ANGLE = -90;/, 'Banana Battle should allow straight-down negative angles');
+    assert.match(banana, /const MAX_ANGLE = 90;/, 'Banana Battle should allow straight-up angles');
     assert.match(banana, /const MAX_POWER = 1000000;/, 'Banana Battle should allow absurdly hard throws on request');
     assert.match(banana, /if \(action === 'angle-up'\) angle = clamp\(angle \+ 2, MIN_ANGLE, MAX_ANGLE\);/, 'Angle plus should increase angle');
     assert.match(banana, /if \(action === 'angle-down'\) angle = clamp\(angle - 2, MIN_ANGLE, MAX_ANGLE\);/, 'Angle minus should decrease angle');
