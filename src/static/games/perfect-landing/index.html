@@ -100,11 +100,11 @@
     </div>
     <canvas id="game" width="900" height="520" aria-label="Perfect Landing engine-out glide game"></canvas>
     <div class="mobile-controls" aria-label="Mobile pitch controls">
-      <button data-action="pitch-up">⬆ Nose Up</button>
-      <button data-action="pitch-down">⬇ Nose Down</button>
+      <button data-action="pitch-up">⬆ HOLD NOSE UP</button>
+      <button data-action="pitch-down">⬇ HOLD NOSE DOWN</button>
       <button id="reset" data-action="reset">NEW SKYLINE</button>
     </div>
-    <p class="instructions">Engine failed. Glide over the skyline and touch down softly on the runway. 80+ wins. Keyboard: ↑/↓ pitch · R = Restart.</p>
+    <p class="instructions">Engine failed. Glide over the skyline and touch down softly on the runway. 70+ wins. Keyboard: ↑/↓ pitch · R = Restart.</p>
   </main>
 <script>
 (() => {
@@ -116,12 +116,13 @@
   const H = canvas.height;
   const GROUND_Y = 450;
   const ENGINE_OUT_MESSAGE = 'ENGINE OUT! GLIDE TO THE RUNWAY';
-  const WIN_SCORE = 80;
-  const GROUND_MISS_SCORE_CAP = 79;
+  const WIN_SCORE = 70;
+  const GROUND_MISS_SCORE_CAP = 69;
   const DIVE_SPEED_GAIN = 0.018;
   const RECOVERY_LIFT_FROM_SPEED = 0.036;
   const AIRPORT_APPROACH_DISTANCE = 300;
   const AIRPORT_APPROACH_HEIGHT_CAP = 59;
+  const RUNWAY_CLEARANCE_MULTIPLIER = 1;
   const PLANE_IMAGE_SRC = 'plane.png';
   const PLANE_DRAW_W = 96;
   const PLANE_DRAW_H = 52;
@@ -136,6 +137,7 @@
   let status = ENGINE_OUT_MESSAGE;
   let lastTime = 0;
   let keys = new Set();
+  const activeControls = new Set();
   let ignoreNextSyntheticClick = false;
   const planeImage = new Image();
   planeImage.src = PLANE_IMAGE_SRC;
@@ -169,7 +171,8 @@
     while (x < W) {
       const width = Math.round(rand(34, 66));
       const gap = Math.round(rand(5, 15));
-      const overlapsRunway = x + width > runway.x - 16 && x < runway.x + runway.w + 20;
+      const leftRunwayClearance = runway.w * RUNWAY_CLEARANCE_MULTIPLIER;
+      const overlapsRunway = x + width > runway.x - leftRunwayClearance && x < runway.x + runway.w + 20;
       if (!overlapsRunway) {
         const approachDistance = Math.max(0, runway.x - x);
         const nearRunway = approachDistance < AIRPORT_APPROACH_DISTANCE && x < runway.x;
@@ -193,6 +196,8 @@
     if (gameOver) return;
     if (keys.has('ArrowUp') || keys.has('KeyW')) handleControlAction('pitch-up');
     if (keys.has('ArrowDown') || keys.has('KeyS')) handleControlAction('pitch-down');
+    if (activeControls.has('pitch-up')) handleControlAction('pitch-up');
+    if (activeControls.has('pitch-down')) handleControlAction('pitch-down');
 
     const noseUp = -plane.pitch;
     const speedEnergy = clamp(plane.vx - 2.25, 0, 1.85);
@@ -364,10 +369,21 @@
   }
 
   document.querySelectorAll('[data-action]').forEach(button => {
-    button.addEventListener('touchstart', event => {
+    button.addEventListener('pointerdown', event => {
       event.preventDefault();
+      button.setPointerCapture?.(event.pointerId);
       ignoreNextSyntheticClick = true;
-      handleControlAction(button.dataset.action);
+      const action = button.dataset.action;
+      if (action === 'reset') handleControlAction(action);
+      else activeControls.add(action);
+    });
+    button.addEventListener('pointerup', event => {
+      event.preventDefault();
+      activeControls.delete(button.dataset.action);
+    });
+    button.addEventListener('pointercancel', () => activeControls.delete(button.dataset.action));
+    button.addEventListener('pointerleave', () => {
+      if (button.dataset.action !== 'reset') activeControls.delete(button.dataset.action);
     }, { passive: false });
     button.addEventListener('click', event => {
       if (ignoreNextSyntheticClick) { ignoreNextSyntheticClick = false; event.preventDefault(); return; }

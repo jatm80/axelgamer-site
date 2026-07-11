@@ -95,21 +95,26 @@ describe('AxelGamer games section', () => {
     assert.match(game, /<canvas id="game"/, 'Perfect Landing should render a canvas game');
     assert.match(game, /data-action="pitch-up"/, 'Perfect Landing should include touch nose-up control');
     assert.match(game, /data-action="pitch-down"/, 'Perfect Landing should include touch nose-down control');
+    assert.match(game, /HOLD NOSE UP/, 'Mobile pitch-up control should clearly indicate hold controls');
+    assert.match(game, /HOLD NOSE DOWN/, 'Mobile pitch-down control should clearly indicate hold controls');
     assert.match(game, /touch-action:\s*none/, 'Perfect Landing should suppress browser gestures while playing on mobile');
-    assert.match(game, /addEventListener\('touchstart'/, 'Mobile controls should use touchstart to avoid tap delay');
-    assert.match(game, /let ignoreNextSyntheticClick = false;/, 'Touch controls should suppress the follow-up synthetic click on mobile');
+    assert.match(game, /addEventListener\('pointerdown'/, 'Mobile controls should support press-and-hold pointer controls');
+    assert.match(game, /const activeControls = new Set\(\);/, 'Mobile controls should track held pitch buttons continuously');
   });
 
   it('keeps Perfect Landing engine-out rules, reset key, and lower airport approach buildings', () => {
     const game = read('src/static/games/perfect-landing/index.html');
 
     assert.match(game, /const ENGINE_OUT_MESSAGE = 'ENGINE OUT! GLIDE TO THE RUNWAY';/);
-    assert.match(game, /const WIN_SCORE = 80;/);
-    assert.match(game, /const GROUND_MISS_SCORE_CAP = 79;/);
+    assert.match(game, /const WIN_SCORE = 70;/);
+    assert.match(game, /const GROUND_MISS_SCORE_CAP = 69;/);
     assert.match(game, /const DIVE_SPEED_GAIN = 0\.018;/);
     assert.match(game, /const RECOVERY_LIFT_FROM_SPEED = 0\.036;/);
     assert.match(game, /const AIRPORT_APPROACH_DISTANCE = 300;/);
     assert.match(game, /const AIRPORT_APPROACH_HEIGHT_CAP = 59;/, 'Airport approach buildings should be half the previous 118 cap');
+    assert.match(game, /const RUNWAY_CLEARANCE_MULTIPLIER = 1;/, 'Left-side runway approach should keep at least one runway width clear before touchdown');
+    assert.match(game, /const leftRunwayClearance = runway\.w \* RUNWAY_CLEARANCE_MULTIPLIER;/);
+    assert.match(game, /x \+ width > runway\.x - leftRunwayClearance/, 'Buildings before the runway should be kept at least one runway width away');
     assert.match(game, /if \(event\.code === 'KeyR'\) handleControlAction\('reset'\);/, 'R should reset the game');
     assert.match(game, /R\s*=\s*Restart/, 'Perfect Landing should visibly explain that R restarts the game');
     assert.match(game, /const speedEnergy = clamp\(plane\.vx - 2\.25, 0, 1\.85\);/);
