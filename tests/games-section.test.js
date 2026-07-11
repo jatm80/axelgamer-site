@@ -120,10 +120,10 @@ describe('AxelGamer games section', () => {
 
   it('draws Perfect Landing with the actual user-provided airplane image', () => {
     const game = read('src/static/games/perfect-landing/index.html');
-    const planeImage = fs.readFileSync(path.join(root, 'src/static/games/perfect-landing/plane.jpg'));
+    const planeImage = fs.readFileSync(path.join(root, 'src/static/games/perfect-landing/plane.png'));
 
-    assert.ok(planeImage.length > 50000, 'actual uploaded airplane image should be included as a static asset');
-    assert.match(game, /const PLANE_IMAGE_SRC = 'plane\.jpg';/, 'Plane image should load from the route-local uploaded asset');
+    assert.equal(planeImage.toString('ascii', 1, 4), 'PNG', 'actual uploaded airplane image should be converted to a transparent PNG asset');
+    assert.match(game, /const PLANE_IMAGE_SRC = 'plane\.png';/, 'Plane image should load from the route-local transparent asset');
     assert.match(game, /const PLANE_DRAW_W = 96;/, 'Plane should be drawn at a game-appropriate width');
     assert.match(game, /const PLANE_DRAW_H = 37;/, 'Plane should preserve the source image aspect ratio');
     assert.match(game, /const PLANE_W = 70;/, 'Collision box should be smaller than the drawn airplane');
@@ -133,5 +133,8 @@ describe('AxelGamer games section', () => {
     assert.match(game, /function drawActualAirplaneImage\(\)/);
     assert.match(game, /ctx\.drawImage\(planeImage, -PLANE_DRAW_W \/ 2, -PLANE_DRAW_H \/ 2, PLANE_DRAW_W, PLANE_DRAW_H\);/);
     assert.match(game, /drawActualAirplaneImage\(\);/, 'drawPlane should render the actual image');
+
+    const colorType = planeImage[25];
+    assert.ok(colorType === 4 || colorType === 6, 'transparent airplane PNG should have an alpha channel');
   });
 });
