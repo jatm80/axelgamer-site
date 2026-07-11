@@ -118,18 +118,20 @@ describe('AxelGamer games section', () => {
     assert.doesNotMatch(game, /\bdemo\b/i, 'Perfect Landing production page should not describe itself as a demo');
   });
 
-  it('draws Perfect Landing with the requested red-and-white pixel airplane sprite', () => {
+  it('draws Perfect Landing with the actual user-provided airplane image', () => {
     const game = read('src/static/games/perfect-landing/index.html');
+    const planeImage = fs.readFileSync(path.join(root, 'src/static/games/perfect-landing/plane.jpg'));
 
-    assert.match(game, /const PLANE_SPRITE_SCALE = 0\.72;/, 'Plane sprite should use a named scale constant');
-    assert.match(game, /function drawPixelAirplaneSprite\(\)/, 'Plane should be drawn by a dedicated pixel-airplane sprite function');
-    assert.match(game, /#a63a24/, 'Sprite should use the requested red fuselage color');
-    assert.match(game, /#f3efe0/, 'Sprite should use the requested cream-white wing and tail color');
-    assert.match(game, /#bff3ff/, 'Sprite should use pale blue cockpit windows');
-    assert.match(game, /#5f6872/, 'Sprite should include grey landing gear / propeller details');
-    assert.match(game, /ctx\.fillRect\(43, -12, 46, 18\)/, 'Sprite should have a long red nose section');
-    assert.match(game, /ctx\.fillRect\(-90, -16, 26, 36\)/, 'Sprite should have a tall cream tail fin');
-    assert.match(game, /ctx\.fillRect\(72, -30, 4, 60\)/, 'Sprite should have a vertical propeller blade');
-    assert.match(game, /drawPixelAirplaneSprite\(\);/, 'drawPlane should render the new sprite');
+    assert.ok(planeImage.length > 50000, 'actual uploaded airplane image should be included as a static asset');
+    assert.match(game, /const PLANE_IMAGE_SRC = 'plane\.jpg';/, 'Plane image should load from the route-local uploaded asset');
+    assert.match(game, /const PLANE_DRAW_W = 96;/, 'Plane should be drawn at a game-appropriate width');
+    assert.match(game, /const PLANE_DRAW_H = 37;/, 'Plane should preserve the source image aspect ratio');
+    assert.match(game, /const PLANE_W = 70;/, 'Collision box should be smaller than the drawn airplane');
+    assert.match(game, /const PLANE_H = 28;/, 'Collision box should fit the real airplane image height');
+    assert.match(game, /const planeImage = new Image\(\);/);
+    assert.match(game, /planeImage\.src = PLANE_IMAGE_SRC;/);
+    assert.match(game, /function drawActualAirplaneImage\(\)/);
+    assert.match(game, /ctx\.drawImage\(planeImage, -PLANE_DRAW_W \/ 2, -PLANE_DRAW_H \/ 2, PLANE_DRAW_W, PLANE_DRAW_H\);/);
+    assert.match(game, /drawActualAirplaneImage\(\);/, 'drawPlane should render the actual image');
   });
 });

@@ -122,9 +122,11 @@
   const RECOVERY_LIFT_FROM_SPEED = 0.036;
   const AIRPORT_APPROACH_DISTANCE = 300;
   const AIRPORT_APPROACH_HEIGHT_CAP = 59;
-  const PLANE_SPRITE_SCALE = 0.72;
-  const PLANE_W = 92;
-  const PLANE_H = 40;
+  const PLANE_IMAGE_SRC = 'plane.jpg';
+  const PLANE_DRAW_W = 96;
+  const PLANE_DRAW_H = 37;
+  const PLANE_W = 70;
+  const PLANE_H = 28;
 
   let buildings = [];
   let runway = null;
@@ -135,6 +137,8 @@
   let lastTime = 0;
   let keys = new Set();
   let ignoreNextSyntheticClick = false;
+  const planeImage = new Image();
+  planeImage.src = PLANE_IMAGE_SRC;
 
   function rand(min, max) { return min + Math.random() * (max - min); }
   function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
@@ -301,60 +305,15 @@
     for (let x = runway.x + 12; x < runway.x + runway.w - 8; x += 30) ctx.fillRect(x, runway.y + 7, 14, 2);
   }
 
-  function drawPixelAirplaneSprite() {
-    ctx.scale(PLANE_SPRITE_SCALE, PLANE_SPRITE_SCALE);
-    ctx.fillStyle = '#6f1f16';
-    ctx.fillRect(-82, 9, 116, 8);
+  function drawActualAirplaneImage() {
+    if (planeImage.complete && planeImage.naturalWidth > 0) {
+      ctx.drawImage(planeImage, -PLANE_DRAW_W / 2, -PLANE_DRAW_H / 2, PLANE_DRAW_W, PLANE_DRAW_H);
+      return;
+    }
     ctx.fillStyle = '#a63a24';
-    ctx.fillRect(-86, -8, 132, 24);
-    ctx.fillRect(43, -12, 46, 18);
-    ctx.fillStyle = '#c84f34';
-    ctx.fillRect(-70, -12, 116, 6);
-    ctx.fillRect(49, -18, 34, 6);
+    ctx.fillRect(-PLANE_DRAW_W / 2, -PLANE_DRAW_H / 4, PLANE_DRAW_W, PLANE_DRAW_H / 2);
     ctx.fillStyle = '#f3efe0';
-    ctx.fillRect(-90, -16, 26, 36);
-    ctx.fillRect(-76, -1, 72, 8);
-    ctx.fillRect(-40, 16, 116, 7);
-    ctx.fillStyle = '#d8d0bd';
-    ctx.fillRect(-86, 19, 74, 5);
-    ctx.fillRect(-68, 7, 58, 4);
-    ctx.fillStyle = '#7b2a1b';
-    ctx.fillRect(8, -11, 3, 28);
-    ctx.fillRect(42, -13, 3, 25);
-    ctx.fillRect(82, -12, 4, 20);
-    ctx.fillStyle = '#bff3ff';
-    ctx.fillRect(-6, -31, 34, 18);
-    ctx.fillRect(33, -30, 33, 17);
-    ctx.fillRect(60, -29, 18, 16);
-    ctx.fillStyle = 'rgba(255,255,255,0.35)';
-    ctx.fillRect(2, -27, 15, 4);
-    ctx.fillRect(41, -26, 17, 4);
-    ctx.fillStyle = '#b13f2a';
-    ctx.fillRect(-7, -39, 70, 8);
-    ctx.fillRect(2, -45, 56, 8);
-    ctx.fillStyle = '#6f1f16';
-    ctx.fillRect(54, -42, 7, 11);
-    ctx.fillStyle = '#facc15';
-    ctx.fillRect(-13, -34, 9, 8);
-    ctx.fillStyle = '#5f6872';
-    ctx.fillRect(72, -30, 4, 60);
-    ctx.fillStyle = '#b13f2a';
-    ctx.fillRect(70, -35, 7, 12);
-    ctx.fillRect(70, 24, 7, 12);
-    ctx.fillStyle = '#d8d0bd';
-    ctx.fillRect(84, -4, 8, 8);
-    ctx.fillStyle = '#5f6872';
-    ctx.fillRect(4, 23, 4, 20);
-    ctx.fillRect(55, 19, 4, 22);
-    ctx.fillStyle = '#a63a24';
-    ctx.fillRect(-6, 39, 32, 9);
-    ctx.fillRect(45, 37, 35, 9);
-    ctx.fillStyle = '#111827';
-    ctx.fillRect(5, 47, 14, 10);
-    ctx.fillRect(56, 45, 15, 10);
-    ctx.fillStyle = '#9ca3af';
-    ctx.fillRect(9, 48, 6, 5);
-    ctx.fillRect(60, 46, 7, 5);
+    ctx.fillRect(-PLANE_DRAW_W / 3, -PLANE_DRAW_H / 2, PLANE_DRAW_W / 2, PLANE_DRAW_H / 5);
   }
 
   function drawPlane() {
@@ -365,7 +324,7 @@
     ctx.save();
     ctx.translate(plane.x, plane.y);
     ctx.rotate(plane.pitch * Math.PI / 180);
-    drawPixelAirplaneSprite();
+    drawActualAirplaneImage();
     ctx.restore();
   }
 
