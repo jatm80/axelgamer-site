@@ -125,9 +125,9 @@ describe('AxelGamer games section', () => {
     assert.equal(planeImage.toString('ascii', 1, 4), 'PNG', 'actual uploaded airplane image should be converted to a transparent PNG asset');
     assert.match(game, /const PLANE_IMAGE_SRC = 'plane\.png';/, 'Plane image should load from the route-local transparent asset');
     assert.match(game, /const PLANE_DRAW_W = 96;/, 'Plane should be drawn at a game-appropriate width');
-    assert.match(game, /const PLANE_DRAW_H = 37;/, 'Plane should preserve the source image aspect ratio');
+    assert.match(game, /const PLANE_DRAW_H = 52;/, 'Plane should preserve the new biplane source image aspect ratio');
     assert.match(game, /const PLANE_W = 70;/, 'Collision box should be smaller than the drawn airplane');
-    assert.match(game, /const PLANE_H = 28;/, 'Collision box should fit the real airplane image height');
+    assert.match(game, /const PLANE_H = 34;/, 'Collision box should fit the new biplane image height');
     assert.match(game, /const planeImage = new Image\(\);/);
     assert.match(game, /planeImage\.src = PLANE_IMAGE_SRC;/);
     assert.match(game, /function drawActualAirplaneImage\(\)/);
