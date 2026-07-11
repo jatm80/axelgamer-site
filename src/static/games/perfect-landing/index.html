@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Perfect Landing — Engine Out</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px;
+    background: radial-gradient(circle at 50% 10%, #28476f 0%, #10182e 48%, #05070e 100%);
+    color: #fff0b8;
+    font-family: "Courier New", Courier, monospace;
+    overflow-x: hidden;
+  }
+  .shell {
+    width: min(980px, 100%);
+    background: rgba(6, 10, 22, 0.94);
+    border: 2px solid #facc15;
+    box-shadow: 0 0 28px rgba(250, 204, 21, 0.25), inset 0 0 20px rgba(125, 211, 252, 0.08);
+    padding: 14px;
+  }
+  h1 {
+    margin: 0 0 8px;
+    text-align: center;
+    letter-spacing: 0.14em;
+    font-size: clamp(1.1rem, 4vw, 1.8rem);
+    color: #fde68a;
+    text-shadow: 0 0 12px rgba(253, 230, 138, 0.45);
+  }
+  .hud {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: clamp(0.78rem, 2vw, 1rem);
+  }
+  .status { color: #f87171; font-weight: 700; }
+  .score { text-align: center; color: #7dd3fc; font-weight: 700; }
+  .hint { text-align: right; color: #d9f99d; }
+  canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(250, 204, 21, 0.72);
+    background: #172554;
+    image-rendering: pixelated;
+    touch-action: none;
+  }
+  .mobile-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+    touch-action: none;
+  }
+  button {
+    font: inherit;
+    min-height: 48px;
+    color: #07111f;
+    background: linear-gradient(#fde68a, #facc15);
+    border: 2px solid #fef3c7;
+    border-radius: 10px;
+    box-shadow: 0 4px 0 #a16207;
+    cursor: pointer;
+    touch-action: none;
+    user-select: none;
+  }
+  button:active { transform: translateY(3px); box-shadow: 0 1px 0 #a16207; }
+  #reset { background: linear-gradient(#bae6fd, #38bdf8); box-shadow: 0 4px 0 #0369a1; }
+  .instructions {
+    margin: 10px 0 0;
+    color: #cbd5e1;
+    text-align: center;
+    font-size: clamp(0.76rem, 2vw, 0.95rem);
+  }
+  @media (max-width: 680px) {
+    body { padding: 8px; align-items: flex-start; }
+    .shell { padding: 10px; }
+    .hud { grid-template-columns: 1fr; text-align: center; }
+    .hint { text-align: center; }
+    .mobile-controls { grid-template-columns: 1fr 1fr; }
+    #reset { grid-column: 1 / -1; }
+  }
+</style>
+</head>
+<body>
+  <main class="shell">
+    <h1>✈️ Perfect Landing</h1>
+    <div class="hud" aria-live="polite">
+      <div id="status" class="status">ENGINE OUT!</div>
+      <div id="score" class="score">Score: --</div>
+      <div class="hint">Pitch only · avoid buildings</div>
+    </div>
+    <canvas id="game" width="900" height="520" aria-label="Perfect Landing engine-out glide game"></canvas>
+    <div class="mobile-controls" aria-label="Mobile pitch controls">
+      <button data-action="pitch-up">⬆ Nose Up</button>
+      <button data-action="pitch-down">⬇ Nose Down</button>
+      <button id="reset" data-action="reset">NEW SKYLINE</button>
+    </div>
+    <p class="instructions">Engine failed. Glide over the skyline and touch down softly on the runway. 80+ wins.</p>
+  </main>
+<script>
+(() => {
+  const canvas = document.getElementById('game');
+  const ctx = canvas.getContext('2d');
+  const statusEl = document.getElementById('status');
+  const scoreEl = document.getElementById('score');
+  const W = canvas.width;
+  const H = canvas.height;
+  const GROUND_Y = 450;
+  const ENGINE_OUT_MESSAGE = 'ENGINE OUT! GLIDE TO THE RUNWAY';
+  const WIN_SCORE = 80;
+  const GROUND_MISS_SCORE_CAP = 79;
+  const DIVE_SPEED_GAIN = 0.018;
+  const RECOVERY_LIFT_FROM_SPEED = 0.036;
+  const AIRPORT_APPROACH_DISTANCE = 300;
+  const AIRPORT_APPROACH_HEIGHT_CAP = 59;
+  const PLANE_W = 34;
+  const PLANE_H = 16;
+
+  let buildings = [];
+  let runway = null;
+  let plane = null;
+  let score = null;
+  let gameOver = false;
+  let status = ENGINE_OUT_MESSAGE;
+  let lastTime = 0;
+  let keys = new Set();
+  let ignoreNextSyntheticClick = false;
+
+  function rand(min, max) { return min + Math.random() * (max - min); }
+  function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
+
+  function resetGame() {
+    generateSkyline();
+    plane = { x: 60, y: 155, vx: 2.55, vy: 0.1, pitch: -4, smoke: [] };
+    score = null;
+    gameOver = false;
+    status = ENGINE_OUT_MESSAGE;
+    lastTime = performance.now();
+    updateHud();
+  }
+
+  function generateSkyline() {
+    buildings = [];
+    const runwayWidth = Math.round(rand(150, 205));
+    const runwayX = Math.round(rand(650, 740));
+    runway = {
+      x: runwayX,
+      y: GROUND_Y,
+      w: Math.min(runwayWidth, W - runwayX - 20),
+      h: 16,
+      targetX: runwayX + runwayWidth * 0.42
+    };
+
+    let x = 0;
+    while (x < W) {
+      const width = Math.round(rand(34, 66));
+      const gap = Math.round(rand(5, 15));
+      const overlapsRunway = x + width > runway.x - 16 && x < runway.x + runway.w + 20;
+      if (!overlapsRunway) {
+        const approachDistance = Math.max(0, runway.x - x);
+        const nearRunway = approachDistance < AIRPORT_APPROACH_DISTANCE && x < runway.x;
+        const maxHeight = nearRunway ? AIRPORT_APPROACH_HEIGHT_CAP : Math.round(rand(125, 270));
+        const minHeight = nearRunway ? 34 : 46;
+        const height = Math.round(rand(minHeight, maxHeight));
+        buildings.push({ x, y: GROUND_Y - height, w: width, h: height, lit: Math.random() > 0.45 });
+      }
+      x += width + gap;
+    }
+  }
+
+  function handleControlAction(action) {
+    if (action === 'reset') { resetGame(); return; }
+    if (gameOver) return;
+    if (action === 'pitch-up') plane.pitch = clamp(plane.pitch - 3.4, -24, 18);
+    if (action === 'pitch-down') plane.pitch = clamp(plane.pitch + 3.4, -24, 18);
+  }
+
+  function updatePlane() {
+    if (gameOver) return;
+    if (keys.has('ArrowUp') || keys.has('KeyW')) handleControlAction('pitch-up');
+    if (keys.has('ArrowDown') || keys.has('KeyS')) handleControlAction('pitch-down');
+
+    const noseUp = -plane.pitch;
+    const speedEnergy = clamp(plane.vx - 2.25, 0, 1.85);
+    const baseLift = clamp((noseUp + 7) * 0.006, -0.035, 0.11);
+    const recoveryLift = noseUp > 0 ? speedEnergy * RECOVERY_LIFT_FROM_SPEED : 0;
+    const lift = baseLift + recoveryLift;
+    const drag = Math.abs(noseUp) * 0.0015;
+    const stall = plane.vx < 1.6 && noseUp > 6;
+
+    plane.vy += 0.052 - lift + (stall ? 0.075 : 0);
+    plane.vx += plane.pitch > 0 ? DIVE_SPEED_GAIN : -drag;
+    plane.vx = clamp(plane.vx, 1.15, 3.65);
+    plane.vy = clamp(plane.vy, -2.2, 4.7);
+    plane.x += plane.vx;
+    plane.y += plane.vy;
+    plane.smoke.push({ x: plane.x - 23, y: plane.y + 3, life: 28 });
+    plane.smoke = plane.smoke.filter(p => --p.life > 0).slice(-36);
+  }
+
+  function rectsOverlap(a, b) {
+    return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
+  }
+
+  function planeRect() {
+    return { x: plane.x - PLANE_W / 2, y: plane.y - PLANE_H / 2, w: PLANE_W, h: PLANE_H };
+  }
+
+  function checkCollisions() {
+    if (gameOver) return;
+    const p = planeRect();
+    for (const b of buildings) {
+      if (rectsOverlap(p, b)) {
+        score = 0;
+        endGame('💥 CRASH!', 'Building hit. Score: 0');
+        return;
+      }
+    }
+
+    if (plane.x > W + 60 || plane.y < -80) {
+      score = scoreGroundMiss();
+      endGame('💥 CRASH!', `Missed the airport. Score: ${score}`);
+      return;
+    }
+
+    if (p.y + p.h >= GROUND_Y) {
+      const onRunway = plane.x >= runway.x && plane.x <= runway.x + runway.w;
+      if (onRunway) {
+        score = scoreRunwayLanding();
+        if (score >= WIN_SCORE) endGame('🏆 PERFECT LANDING!', `Score: ${score}`);
+        else endGame('🛬 ROUGH LANDING!', `Score: ${score}`);
+      } else {
+        score = scoreGroundMiss();
+        endGame('💥 CRASH!', `Short/long of runway. Score: ${score}`);
+      }
+    }
+  }
+
+  function scoreRunwayLanding() {
+    const distance = Math.abs(plane.x - runway.targetX);
+    const distanceScore = clamp(62 - distance * 0.42, 0, 62);
+    const softnessScore = clamp(42 - Math.abs(plane.vy) * 15, 0, 38);
+    return Math.round(clamp(distanceScore + softnessScore, 0, 100));
+  }
+
+  function scoreGroundMiss() {
+    const distance = plane.x < runway.x ? runway.x - plane.x : plane.x - (runway.x + runway.w);
+    return Math.round(Math.min(GROUND_MISS_SCORE_CAP, clamp(78 - distance * 0.28, 0, GROUND_MISS_SCORE_CAP)));
+  }
+
+  function endGame(title, detail) {
+    gameOver = true;
+    status = `${title} ${detail}`;
+    updateHud();
+  }
+
+  function updateHud() {
+    statusEl.textContent = status;
+    scoreEl.textContent = score === null ? 'Score: --' : `Score: ${score}`;
+  }
+
+  function drawSky() {
+    const grad = ctx.createLinearGradient(0, 0, 0, H);
+    grad.addColorStop(0, '#1d4ed8');
+    grad.addColorStop(0.58, '#38bdf8');
+    grad.addColorStop(1, '#0f172a');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = 'rgba(255,255,255,0.9)';
+    for (let i = 0; i < 26; i++) ctx.fillRect((i * 83 + 30) % W, 36 + (i * 29) % 120, 2, 2);
+    ctx.fillStyle = '#fef3c7';
+    ctx.fillRect(760, 45, 38, 38);
+  }
+
+  function drawCity() {
+    ctx.fillStyle = '#172033';
+    ctx.fillRect(0, GROUND_Y, W, H - GROUND_Y);
+    for (const b of buildings) {
+      ctx.fillStyle = '#1e293b';
+      ctx.fillRect(b.x, b.y, b.w, b.h);
+      ctx.fillStyle = b.lit ? '#fde68a' : '#334155';
+      for (let wx = b.x + 8; wx < b.x + b.w - 5; wx += 14) {
+        for (let wy = b.y + 10; wy < GROUND_Y - 8; wy += 18) ctx.fillRect(wx, wy, 5, 7);
+      }
+    }
+    ctx.fillStyle = '#111827';
+    ctx.fillRect(runway.x, runway.y - 3, runway.w, runway.h + 6);
+    ctx.fillStyle = '#facc15';
+    ctx.fillRect(runway.targetX - 18, runway.y + 3, 36, 4);
+    ctx.fillStyle = '#f8fafc';
+    for (let x = runway.x + 12; x < runway.x + runway.w - 8; x += 30) ctx.fillRect(x, runway.y + 7, 14, 2);
+  }
+
+  function drawPlane() {
+    for (const p of plane.smoke) {
+      ctx.fillStyle = `rgba(30, 41, 59, ${p.life / 42})`;
+      ctx.fillRect(p.x, p.y, 8, 8);
+    }
+    ctx.save();
+    ctx.translate(plane.x, plane.y);
+    ctx.rotate(plane.pitch * Math.PI / 180);
+    ctx.fillStyle = '#f8fafc';
+    ctx.fillRect(-18, -5, 36, 10);
+    ctx.fillStyle = '#facc15';
+    ctx.fillRect(6, -9, 13, 6);
+    ctx.fillStyle = '#38bdf8';
+    ctx.fillRect(-5, -13, 18, 7);
+    ctx.fillStyle = '#ef4444';
+    ctx.fillRect(-20, -8, 7, 16);
+    ctx.fillStyle = '#020617';
+    ctx.fillRect(13, -2, 4, 4);
+    ctx.restore();
+  }
+
+  function drawOverlay() {
+    if (!gameOver) return;
+    ctx.fillStyle = 'rgba(2, 6, 23, 0.72)';
+    ctx.fillRect(0, 0, W, H);
+    ctx.textAlign = 'center';
+    ctx.fillStyle = score >= WIN_SCORE ? '#bbf7d0' : '#fecaca';
+    ctx.font = '34px Courier New, monospace';
+    const headline = score >= WIN_SCORE ? '🏆 PERFECT LANDING!' : (score > 0 ? '🛬 ROUGH LANDING!' : '💥 CRASH!');
+    ctx.fillText(headline, W / 2, H / 2 - 18);
+    ctx.fillStyle = '#fef3c7';
+    ctx.font = '20px Courier New, monospace';
+    ctx.fillText(`Score: ${score}`, W / 2, H / 2 + 18);
+    ctx.fillText('Tap NEW SKYLINE to try again', W / 2, H / 2 + 52);
+  }
+
+  function drawHudText() {
+    ctx.textAlign = 'left';
+    ctx.fillStyle = '#fee2e2';
+    ctx.font = '16px Courier New, monospace';
+    ctx.fillText(status, 16, 28);
+  }
+
+  function frame(now) {
+    const steps = Math.max(1, Math.min(3, Math.round((now - lastTime) / 16.67)));
+    lastTime = now;
+    for (let i = 0; i < steps; i++) { updatePlane(); checkCollisions(); }
+    updateHud();
+    drawSky();
+    drawCity();
+    drawPlane();
+    drawHudText();
+    drawOverlay();
+    requestAnimationFrame(frame);
+  }
+
+  document.querySelectorAll('[data-action]').forEach(button => {
+    button.addEventListener('touchstart', event => {
+      event.preventDefault();
+      ignoreNextSyntheticClick = true;
+      handleControlAction(button.dataset.action);
+    }, { passive: false });
+    button.addEventListener('click', event => {
+      if (ignoreNextSyntheticClick) { ignoreNextSyntheticClick = false; event.preventDefault(); return; }
+      handleControlAction(button.dataset.action);
+    });
+  });
+
+  window.addEventListener('keydown', event => {
+    if (['ArrowUp', 'ArrowDown', 'KeyW', 'KeyS', 'KeyR'].includes(event.code)) event.preventDefault();
+    if (event.code === 'KeyR') handleControlAction('reset');
+    keys.add(event.code);
+  });
+  window.addEventListener('keyup', event => keys.delete(event.code));
+
+  resetGame();
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

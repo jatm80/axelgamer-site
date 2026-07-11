@@ -384,6 +384,49 @@ code {
 .banana-thumb .game-thumb-title {
   text-shadow: 0 0 12px rgba(255, 209, 102, 0.8), 0 3px 0 rgba(0, 0, 0, 0.55);
 }
+.perfect-landing-thumb {
+  color: #bae6fd;
+  font-family: "Courier New", Courier, monospace;
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(circle at 78% 22%, rgba(254, 243, 199, 0.9), transparent 8%),
+    linear-gradient(180deg, #1d4ed8 0%, #38bdf8 54%, #0f172a 100%);
+}
+.landing-skyline {
+  position: absolute;
+  inset: 12%;
+  overflow: hidden;
+}
+.landing-building {
+  position: absolute;
+  bottom: 0;
+  width: 18%;
+  background: #1e293b;
+  border: 1px solid rgba(186, 230, 253, 0.2);
+}
+.landing-building-1 { left: 8%; height: 46%; }
+.landing-building-2 { left: 32%; height: 30%; }
+.landing-runway {
+  position: absolute;
+  right: 6%;
+  bottom: 0;
+  width: 34%;
+  height: 7%;
+  background: #111827;
+  border-top: 2px dashed #f8fafc;
+}
+.landing-plane {
+  position: absolute;
+  left: 45%;
+  top: 23%;
+  font-size: 1.7rem;
+  transform: rotate(12deg);
+  color: #f8fafc;
+  filter: drop-shadow(0 0 8px rgba(186, 230, 253, 0.9));
+}
+.perfect-landing-thumb .game-thumb-title {
+  text-shadow: 0 0 12px rgba(186, 230, 253, 0.9), 0 3px 0 rgba(0, 0, 0, 0.55);
+}
 .video-card {
   overflow: hidden;
   display: flex;

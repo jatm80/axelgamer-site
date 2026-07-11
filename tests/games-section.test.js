@@ -82,4 +82,39 @@ describe('AxelGamer games section', () => {
     assert.match(banana, /if \(banana \|\| gameOver\) return;/, 'No more bananas should be thrown after game over');
     assert.doesNotMatch(banana, /Press Space to throw again\./, 'A hit should not prompt another throw');
   });
+
+  it('publishes Perfect Landing at /games/perfect-landing/ with homepage card and mobile controls', () => {
+    const homeGames = read('src/layouts/partials/homepage/games.html');
+    const styles = read('src/styles.css');
+    const game = read('src/static/games/perfect-landing/index.html');
+
+    assert.match(homeGames, /\/games\/perfect-landing\//, 'homepage games grid should link to Perfect Landing');
+    assert.match(homeGames, /Perfect Landing/, 'homepage games grid should name Perfect Landing');
+    assert.match(styles, /\.perfect-landing-thumb/, 'Perfect Landing should have a custom homepage thumbnail style');
+    assert.match(game, /<title>Perfect Landing — Engine Out<\/title>/, 'Perfect Landing page should have a clear title');
+    assert.match(game, /<canvas id="game"/, 'Perfect Landing should render a canvas game');
+    assert.match(game, /data-action="pitch-up"/, 'Perfect Landing should include touch nose-up control');
+    assert.match(game, /data-action="pitch-down"/, 'Perfect Landing should include touch nose-down control');
+    assert.match(game, /touch-action:\s*none/, 'Perfect Landing should suppress browser gestures while playing on mobile');
+    assert.match(game, /addEventListener\('touchstart'/, 'Mobile controls should use touchstart to avoid tap delay');
+    assert.match(game, /let ignoreNextSyntheticClick = false;/, 'Touch controls should suppress the follow-up synthetic click on mobile');
+  });
+
+  it('keeps Perfect Landing engine-out rules, reset key, and lower airport approach buildings', () => {
+    const game = read('src/static/games/perfect-landing/index.html');
+
+    assert.match(game, /const ENGINE_OUT_MESSAGE = 'ENGINE OUT! GLIDE TO THE RUNWAY';/);
+    assert.match(game, /const WIN_SCORE = 80;/);
+    assert.match(game, /const GROUND_MISS_SCORE_CAP = 79;/);
+    assert.match(game, /const DIVE_SPEED_GAIN = 0\.018;/);
+    assert.match(game, /const RECOVERY_LIFT_FROM_SPEED = 0\.036;/);
+    assert.match(game, /const AIRPORT_APPROACH_DISTANCE = 300;/);
+    assert.match(game, /const AIRPORT_APPROACH_HEIGHT_CAP = 59;/, 'Airport approach buildings should be half the previous 118 cap');
+    assert.match(game, /if \(event\.code === 'KeyR'\) handleControlAction\('reset'\);/, 'R should reset the game');
+    assert.match(game, /const speedEnergy = clamp\(plane\.vx - 2\.25, 0, 1\.85\);/);
+    assert.match(game, /const recoveryLift = noseUp > 0 \? speedEnergy \* RECOVERY_LIFT_FROM_SPEED : 0;/);
+    assert.match(game, /nearRunway \? AIRPORT_APPROACH_HEIGHT_CAP : Math\.round\(rand\(125, 270\)\)/);
+    assert.match(game, /Math\.min\(GROUND_MISS_SCORE_CAP/);
+    assert.doesNotMatch(game, /\bdemo\b/i, 'Perfect Landing production page should not describe itself as a demo');
+  });
 });
