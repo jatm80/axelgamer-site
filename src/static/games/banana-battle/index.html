@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Banana Battle Demo — Pixel Gorillas</title>
+<title>Banana Battle — Pixel Gorillas</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; min-height: 100%; }
@@ -98,10 +98,10 @@
 </head>
 <body>
   <main class="shell">
-    <h1>🍌 Banana Battle Drawing Demo</h1>
-    <canvas id="game" width="900" height="520" aria-label="Canvas demo showing procedurally drawn buildings, gorillas, banana arc, wind and explosion"></canvas>
+    <h1>🍌 Banana Battle</h1>
+    <canvas id="game" width="900" height="520" aria-label="Canvas game showing procedurally drawn buildings, gorillas, banana arc, wind and explosion"></canvas>
     <div class="panel">
-      <div><strong>Demo:</strong> procedural skyline + canvas gorillas</div>
+      <div><strong>Game:</strong> procedural skyline + canvas gorillas</div>
       <div class="center">A/D angle · W/S power · Space throw · R reset</div>
       <div class="right"><button id="reset">New skyline</button></div>
     </div>
@@ -152,7 +152,7 @@
   let wind = 0;
   let gameOver = false;
   let lastTime = 0;
-  let message = 'Procedural art demo: buildings, gorillas, banana arc, wind, hit particles.';
+  let message = 'Procedural art: buildings, gorillas, banana arc, wind, hit particles.';
 
   function rand(min, max) { return min + Math.random() * (max - min); }
   function pick(items) { return items[Math.floor(Math.random() * items.length)]; }
@@ -219,7 +219,7 @@
     power = 80;
     wind = Math.round(rand(-18, 18)) / 10;
     gameOver = false;
-    message = 'Use controls or press Space to throw. This is a drawing/physics demo, not the full game yet.';
+    message = 'Use controls or press Space to throw. Hit the other gorilla to win.';
   }
 
   function drawSky() {

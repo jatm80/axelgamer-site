@@ -42,7 +42,8 @@ describe('AxelGamer games section', () => {
 
     assert.match(homeGames, /\/games\/banana-battle\//, 'homepage games grid should link to Banana Battle');
     assert.match(homeGames, /Banana Battle/, 'homepage games grid should name Banana Battle');
-    assert.match(banana, /<title>Banana Battle Demo/, 'Banana Battle page should keep the demo title');
+    assert.match(banana, /<title>Banana Battle — Pixel Gorillas<\/title>/, 'Banana Battle page should use a finished-game title');
+    assert.doesNotMatch(banana, /\bdemo\b/i, 'Banana Battle should not describe itself as a demo');
     assert.match(banana, /class="mobile-controls"/, 'Banana Battle should render mobile controls');
     assert.match(banana, /data-action="angle-down"/, 'Banana Battle should include touch angle-down control');
     assert.match(banana, /data-action="angle-up"/, 'Banana Battle should include touch angle-up control');
