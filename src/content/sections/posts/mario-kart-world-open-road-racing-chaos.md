@@ -3,7 +3,7 @@ title = "Mario Kart World makes racing feel bigger than ever"
 type = "posts"
 date = 2026-07-06T20:01:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at Mario Kart World, with open road racing, Free Roam exploring, Knockout Tour madness, 24 racer chaos, and silly items on Nintendo Switch 2."
+summary = "Open roads connect Free Roam exploring, Knockout Tour madness, 24 racer showdowns, and ridiculous items in Mario Kart World on Nintendo Switch 2."
 slug = "mario-kart-world-open-road-racing-chaos"
 url = "/posts/mario-kart-world-open-road-racing-chaos/"
 +++

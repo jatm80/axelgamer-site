@@ -3,7 +3,7 @@ title = "Pikmin 4 makes tiny helpers feel like a big adventure"
 type = "posts"
 date = 2026-08-24T20:01:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at Pikmin 4, with tiny plant helpers, Oatchi the space dog, treasure hunting, Dandori battles, caves, night expeditions, and cosy garden strategy."
+summary = "Tiny plant helpers and Oatchi the space dog tackle treasure hunts, caves, Dandori battles, and night expeditions in the cosy strategy world of Pikmin 4."
 slug = "pikmin-4-tiny-helpers-big-garden-chaos"
 url = "/posts/pikmin-4-tiny-helpers-big-garden-chaos/"
 +++

@@ -3,7 +3,7 @@ title = "Roblox Rainbow Friends makes hiding in a box feel scary fun"
 type = "posts"
 date = 2026-07-09T20:01:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at Roblox Rainbow Friends, with Chapter 1, Blue, box hiding, collecting blocks, teamwork, jump scares, and colourful spooky chaos."
+summary = "Collect blocks, hide inside a box, help your team, and try not to scream when Blue appears in the colourful spooky halls of Roblox Rainbow Friends."
 slug = "roblox-rainbow-friends-box-hiding-chaos"
 url = "/posts/roblox-rainbow-friends-box-hiding-chaos/"
 +++

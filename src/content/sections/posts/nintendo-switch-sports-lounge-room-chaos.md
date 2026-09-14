@@ -3,7 +3,7 @@ title = "Nintendo Switch Sports turns the lounge room into a mini sports day"
 type = "posts"
 date = 2026-08-06T20:01:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at Nintendo Switch Sports, with bowling, tennis, golf, basketball, family matches, motion controls, and why lounge room sport can be so funny."
+summary = "Bowling, tennis, golf, basketball, motion controls, and funny family matches turn Nintendo Switch Sports into a lounge room competition."
 slug = "nintendo-switch-sports-lounge-room-chaos"
 url = "/posts/nintendo-switch-sports-lounge-room-chaos/"
 +++

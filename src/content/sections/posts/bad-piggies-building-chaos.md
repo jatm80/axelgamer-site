@@ -3,7 +3,7 @@ title = "Bad Piggies makes building silly machines feel clever"
 type = "posts"
 date = 2026-06-15T20:01:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at Bad Piggies, the funny physics puzzle game where building wobbly carts, planes, and egg chasing machines is the whole adventure."
+summary = "Build wobbly carts, strange planes, and egg chasing machines in Bad Piggies, where every funny physics puzzle rewards a clever contraption."
 slug = "bad-piggies-building-chaos"
 url = "/posts/bad-piggies-building-chaos/"
 +++

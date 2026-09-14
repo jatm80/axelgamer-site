@@ -3,7 +3,7 @@ title = "Untitled Goose Game makes being a silly goose feel brilliant"
 type = "posts"
 date = 2026-07-30T20:01:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at Untitled Goose Game, with honking, sneaky puzzles, village chores, two player goose chaos, and why being annoying can be weirdly clever."
+summary = "Honk, sneak, steal useful objects, solve village puzzles, and cause twice the trouble with a friend in Untitled Goose Game."
 slug = "untitled-goose-game-village-chaos"
 url = "/posts/untitled-goose-game-village-chaos/"
 +++

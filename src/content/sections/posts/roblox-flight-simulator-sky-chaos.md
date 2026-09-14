@@ -3,7 +3,7 @@ title = "Roblox Flight Simulator makes sky chaos feel awesome"
 type = "posts"
 date = 2026-06-25T20:01:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at Roblox Flight Simulator, with wobbly take offs, helicopters, big planes, silly crashes, and heaps of sky adventure."
+summary = "Take offs get wobbly, helicopters spin, big planes soar, and silly crashes turn Roblox Flight Simulator into a sky adventure worth remembering."
 slug = "roblox-flight-simulator-sky-chaos"
 url = "/posts/roblox-flight-simulator-sky-chaos/"
 +++

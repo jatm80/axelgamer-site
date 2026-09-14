@@ -3,7 +3,7 @@ title = "Bluey: The Videogame turns family chaos into a playable episode"
 type = "posts"
 date = 2026-08-17T20:01:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at Bluey: The Videogame, with local multiplayer, four interactive adventures, familiar places from the show, sticker collecting, outfits, and family couch chaos."
+summary = "Explore familiar places, collect stickers and outfits, and play four interactive adventures together in the cheerful couch co op world of Bluey: The Videogame."
 slug = "bluey-the-videogame-family-chaos"
 url = "/posts/bluey-the-videogame-family-chaos/"
 +++

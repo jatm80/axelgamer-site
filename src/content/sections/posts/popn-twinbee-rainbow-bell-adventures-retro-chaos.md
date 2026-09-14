@@ -3,7 +3,7 @@ title = "Pop'n TwinBee Rainbow Bell Adventures is retro platforming chaos"
 type = "posts"
 date = 2026-06-22T20:02:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at Pop'n TwinBee Rainbow Bell Adventures, the colourful Konami platform game with bells, flying heroes, bright stages, and proper retro chaos."
+summary = "Bells, flying heroes, bright stages, and proper retro chaos fill Konami's colourful platform adventure Pop'n TwinBee Rainbow Bell Adventures."
 slug = "popn-twinbee-rainbow-bell-adventures-retro-chaos"
 url = "/posts/popn-twinbee-rainbow-bell-adventures-retro-chaos/"
 +++

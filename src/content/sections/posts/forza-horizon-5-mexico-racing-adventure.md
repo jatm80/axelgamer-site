@@ -3,7 +3,7 @@ title = "Forza Horizon 5 makes Mexico feel like one giant racing playground"
 type = "posts"
 date = 2026-07-27T20:01:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at Forza Horizon 5, with open world racing, Mexico, wild weather, heaps of cars, festival events, and why cruising can be just as fun as winning."
+summary = "Race across Mexico through wild weather and festival events, collect heaps of cars, or forget the finish line and enjoy an open world cruise."
 slug = "forza-horizon-5-mexico-racing-adventure"
 url = "/posts/forza-horizon-5-mexico-racing-adventure/"
 +++

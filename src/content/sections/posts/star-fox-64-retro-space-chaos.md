@@ -3,7 +3,7 @@ title = "Star Fox 64 still feels like proper space chaos"
 type = "posts"
 date = 2026-06-11T23:01:00+10:00
 draft = false
-summary = "A kid friendly look at why Star Fox 64 is still exciting, from barrel rolls and boss fights to team radio chatter and classic arcade space action."
+summary = "Barrel rolls, giant bosses, team radio chatter, and nonstop lasers help Star Fox 64 prove that classic arcade space action can still feel exciting."
 slug = "star-fox-64-retro-space-chaos"
 url = "/posts/star-fox-64-retro-space-chaos/"
 +++

@@ -3,7 +3,7 @@ title = "Animal Crossing New Horizons makes island life feel cosy"
 type = "posts"
 date = 2026-08-13T20:01:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at Animal Crossing New Horizons, with island decorating, fishing, bug catching, villagers, multiplayer visits, and cosy Nintendo Switch island life."
+summary = "Build a cosy island life in Animal Crossing New Horizons through decorating, fishing, bug catching, friendly villagers, and multiplayer visits."
 slug = "animal-crossing-new-horizons-island-life-chaos"
 url = "/posts/animal-crossing-new-horizons-island-life-chaos/"
 +++

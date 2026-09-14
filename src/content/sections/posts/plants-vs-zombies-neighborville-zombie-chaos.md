@@ -3,7 +3,7 @@ title = "Plants vs Zombies Neighborville makes zombie chaos fun"
 type = "posts"
 date = 2026-06-18T20:01:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at Plants vs Zombies Battle for Neighborville, with silly zombie missions, plant battles, hidden gnomes, and heaps of backyard chaos."
+summary = "Silly zombie missions, plant battles, hidden gnomes, and colourful backyard mayhem collide in Plants vs Zombies Battle for Neighborville."
 slug = "plants-vs-zombies-neighborville-zombie-chaos"
 url = "/posts/plants-vs-zombies-neighborville-zombie-chaos/"
 +++

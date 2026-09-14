@@ -3,7 +3,7 @@ title = "Yoshi's Crafted World makes cardboard adventures feel huge"
 type = "posts"
 date = 2026-08-20T20:01:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at Yoshi's Crafted World, with cardboard worlds, egg throwing, hidden flowers, costumes, two player exploring, and cosy Nintendo Switch platforming."
+summary = "Cardboard worlds, egg throwing, hidden flowers, costumes, and two player exploring make Yoshi's Crafted World a cosy Nintendo Switch adventure."
 slug = "yoshis-crafted-world-cardboard-adventure"
 url = "/posts/yoshis-crafted-world-cardboard-adventure/"
 +++

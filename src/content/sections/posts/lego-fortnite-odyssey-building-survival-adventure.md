@@ -3,7 +3,7 @@ title = "LEGO Fortnite Odyssey makes survival feel bright and buildy"
 type = "posts"
 date = 2026-08-10T20:01:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at LEGO Fortnite Odyssey, with brick building, survival exploring, crafting, creatures, friends, and why it feels like a huge toy box adventure."
+summary = "LEGO Fortnite Odyssey turns survival exploring into a giant toy box adventure filled with brick building, crafting, creatures, villages, and friends."
 slug = "lego-fortnite-odyssey-building-survival-adventure"
 url = "/posts/lego-fortnite-odyssey-building-survival-adventure/"
 +++

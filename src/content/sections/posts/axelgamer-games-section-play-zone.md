@@ -3,7 +3,7 @@ title = "The AxelGamer Games section is open and I am keen"
 type = "posts"
 date = 2026-07-16T20:01:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at the new Games section, with Snake, Banana Battle, Perfect Landing, and why it is exciting to see what gets added next."
+summary = "Snake, Banana Battle, and Perfect Landing have arrived in the AxelGamer Games section, opening a new place to play with more additions still to come."
 slug = "axelgamer-games-section-play-zone"
 url = "/posts/axelgamer-games-section-play-zone/"
 +++

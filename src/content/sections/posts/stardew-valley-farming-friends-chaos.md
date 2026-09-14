@@ -3,7 +3,7 @@ title = "Stardew Valley makes farming feel like a tiny adventure"
 type = "posts"
 date = 2026-08-27T20:01:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at Stardew Valley, with farming, fishing, mining, animals, festivals, multiplayer, and why a quiet pixel farm can still feel exciting."
+summary = "A quiet pixel farm becomes a busy adventure in Stardew Valley, with crops, fishing, mining, animals, festivals, friendships, and multiplayer fun."
 slug = "stardew-valley-farming-friends-chaos"
 url = "/posts/stardew-valley-farming-friends-chaos/"
 +++

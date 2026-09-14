@@ -3,7 +3,7 @@ title = "Donkey Kong Bananza makes smashing stuff feel awesome"
 type = "posts"
 date = 2026-07-13T20:01:00+10:00
 draft = false
-summary = "A kid friendly AxelGamer look at Donkey Kong Bananza on Nintendo Switch 2, with underground exploring, Pauline, big smashing moves, gold hunting, and silly platforming chaos."
+summary = "Donkey Kong and Pauline explore underground, hunt for gold, unleash huge moves, and smash through a silly platforming adventure on Nintendo Switch 2."
 slug = "donkey-kong-bananza-underground-smashing-chaos"
 url = "/posts/donkey-kong-bananza-underground-smashing-chaos/"
 +++
