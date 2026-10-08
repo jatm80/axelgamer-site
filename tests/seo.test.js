@@ -43,6 +43,16 @@ describe('AxelGamer SEO architecture', () => {
     }
   });
 
+  it('keeps public game landing pages separate from noindex game embeds', () => {
+    for (const slug of ['snake', 'banana-battle', 'perfect-landing']) {
+      const landing = read('src/content/games', `${slug}.md`);
+      const embed = read('src/static/game-embeds', slug, 'index.html');
+      assert.match(landing, new RegExp(`slug = "${slug}"`));
+      assert.match(landing, new RegExp(`embed = "/game-embeds/${slug}/"`));
+      assert.match(embed, /<meta name="robots" content="noindex,nofollow">/);
+    }
+  });
+
   it('links articles to shared-topic related content', () => {
     const related = read('src/layouts/partials/related-content.html');
     assert.match(related, /\.Params\.topics/);

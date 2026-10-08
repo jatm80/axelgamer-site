@@ -1,0 +1,14 @@
+{{ define "main" }}
+<main class="section">
+  <div class="container game-page">
+    <p class="eyebrow">{{ .Params.genre }} game</p>
+    <h1>{{ .Title }}</h1>
+    <p class="about-lead">{{ .Description }}</p>
+    <div class="game-frame-wrap">
+      <iframe class="game-frame" src="{{ .Params.embed }}" title="Play {{ .Title }}" loading="eager" allow="fullscreen" referrerpolicy="same-origin"></iframe>
+    </div>
+    <div class="about-copy">{{ .Content }}</div>
+    {{ partial "related-content.html" . }}
+  </div>
+</main>
+{{ end }}
