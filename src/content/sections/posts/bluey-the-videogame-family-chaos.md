@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-08-17T20:01:00+10:00
 draft = false
 summary = "Explore familiar places, collect stickers and outfits, and play four interactive adventures together in the cheerful couch co op world of Bluey: The Videogame."
+topics = ['family-gaming']
 slug = "bluey-the-videogame-family-chaos"
 url = "/posts/bluey-the-videogame-family-chaos/"
 +++

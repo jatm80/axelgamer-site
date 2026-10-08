@@ -30,6 +30,13 @@ describe('AxelGamer SEO architecture', () => {
     assert.doesNotMatch(head, /duration"\s+"PT/);
   });
 
+  it('links articles to shared-topic related content', () => {
+    const related = read('src/layouts/partials/related-content.html');
+    assert.match(related, /\.Params\.topics/);
+    assert.match(related, /first 4/);
+    assert.match(related, /ne \.RelPermalink \$page\.RelPermalink/);
+  });
+
   it('excludes homepage helper content from the sitemap', () => {
     for (const helper of ['hero', 'about', 'articles', 'resources']) {
       assert.match(read('src/content/sections/homepage', `${helper}.md`), /\[sitemap\][\s\S]*disable = true/);

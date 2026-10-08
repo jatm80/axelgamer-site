@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-08-24T20:01:00+10:00
 draft = false
 summary = "Tiny plant helpers and Oatchi the space dog tackle treasure hunts, caves, Dandori battles, and night expeditions in the cosy strategy world of Pikmin 4."
+topics = ['nintendo', 'family-gaming']
 slug = "pikmin-4-tiny-helpers-big-garden-chaos"
 url = "/posts/pikmin-4-tiny-helpers-big-garden-chaos/"
 +++

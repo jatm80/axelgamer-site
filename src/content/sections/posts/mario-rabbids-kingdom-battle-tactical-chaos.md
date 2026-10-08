@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-09-24T20:01:00+10:00
 draft = false
 summary = "Mario, Rabbid Peach, silly weapons, clever cover, colourful puzzles, and turn based battles collide in one surprisingly funny strategy adventure."
+topics = ['nintendo', 'family-gaming']
 slug = "mario-rabbids-kingdom-battle-tactical-chaos"
 url = "/posts/mario-rabbids-kingdom-battle-tactical-chaos/"
 +++

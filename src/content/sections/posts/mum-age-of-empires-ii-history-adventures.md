@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-06-12T00:05:00+10:00
 draft = false
 summary = "A special AxelGamer article about Mum loving Age of Empires II on Steam, the Return of Rome expansion, and why the series is fun, clever, and packed with history."
+topics = ['family-gaming']
 slug = "mum-age-of-empires-ii-history-adventures"
 url = "/posts/mum-age-of-empires-ii-history-adventures/"
 +++

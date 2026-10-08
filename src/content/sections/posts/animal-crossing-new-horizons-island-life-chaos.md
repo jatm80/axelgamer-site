@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-08-13T20:01:00+10:00
 draft = false
 summary = "Build a cosy island life in Animal Crossing New Horizons through decorating, fishing, bug catching, friendly villagers, and multiplayer visits."
+topics = ['nintendo', 'family-gaming']
 slug = "animal-crossing-new-horizons-island-life-chaos"
 url = "/posts/animal-crossing-new-horizons-island-life-chaos/"
 +++

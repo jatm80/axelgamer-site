@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-09-03T20:01:00+10:00
 draft = false
 summary = "Type wild words, create ridiculous objects, and help Maxwell and Lily solve clever puzzles using pure imagination in Scribblenauts Unlimited."
+topics = ['family-gaming']
 slug = "scribblenauts-unlimited-imagination-puzzle-chaos"
 url = "/posts/scribblenauts-unlimited-imagination-puzzle-chaos/"
 +++

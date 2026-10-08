@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-08-06T20:01:00+10:00
 draft = false
 summary = "Bowling, tennis, golf, basketball, motion controls, and funny family matches turn Nintendo Switch Sports into a lounge room competition."
+topics = ['nintendo', 'family-gaming']
 slug = "nintendo-switch-sports-lounge-room-chaos"
 url = "/posts/nintendo-switch-sports-lounge-room-chaos/"
 +++

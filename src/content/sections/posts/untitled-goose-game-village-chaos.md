@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-07-30T20:01:00+10:00
 draft = false
 summary = "Honk, sneak, steal useful objects, solve village puzzles, and cause twice the trouble with a friend in Untitled Goose Game."
+topics = ['family-gaming']
 slug = "untitled-goose-game-village-chaos"
 url = "/posts/untitled-goose-game-village-chaos/"
 +++
