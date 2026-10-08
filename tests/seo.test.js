@@ -85,6 +85,45 @@ describe('AxelGamer SEO architecture', () => {
     assert.match(related, /ne \.RelPermalink \$page\.RelPermalink/);
   });
 
+  it('publishes the complete Chaos Cubed content cluster with required navigation and metadata', () => {
+    const clusterDir = 'src/content/minecraft/chaos-cubed';
+    const articleNames = [
+      'how-to-find-sulfur-caves.md',
+      'how-to-find-a-sulfur-cube.md',
+      'what-sulfur-cubes-eat.md',
+      'how-to-bucket-a-sulfur-cube.md',
+      'how-minecraft-geysers-work.md',
+      'how-to-get-cinnabar.md',
+      'what-potent-sulfur-does.md',
+      'java-vs-bedrock.md',
+      'tnt-sulfur-cube-interactions.md',
+      'useful-sulfur-cube-experiments.md',
+    ];
+    const hub = read(clusterDir, '_index.md');
+    assert.match(hub, /layout = "topic"/);
+    assert.match(hub, /topic = "chaos-cubed"/);
+
+    const seoTitles = new Set();
+    const descriptions = new Set();
+    for (const filename of articleNames) {
+      const article = read(clusterDir, filename);
+      const seoTitle = article.match(/^seo_title = "(.+)"$/m);
+      const description = article.match(/^description = "(.+)"$/m);
+      assert.ok(seoTitle, `${filename} needs an SEO title`);
+      assert.ok(description, `${filename} needs a description`);
+      assert.match(article, /^topics = \[.*"minecraft".*"chaos-cubed".*\]$/m);
+      assert.match(article, /\]\(\/minecraft\/chaos-cubed\/\)/);
+      assert.match(article, /\]\(\/minecraft\/\)/);
+      assert.match(article, /\]\(\/minecraft\/chaos-cubed\/.+\/\)/);
+      assert.match(article, /\]\(\/videos\/.+\/\)/);
+      assert.doesNotMatch(article, /^robots\s*=/m);
+      assert.ok(!seoTitles.has(seoTitle[1]), `duplicate SEO title: ${seoTitle[1]}`);
+      assert.ok(!descriptions.has(description[1]), `duplicate description: ${description[1]}`);
+      seoTitles.add(seoTitle[1]);
+      descriptions.add(description[1]);
+    }
+  });
+
   it('excludes homepage helper content from the sitemap', () => {
     for (const helper of ['hero', 'about', 'articles', 'resources']) {
       assert.match(read('src/content/sections/homepage', `${helper}.md`), /\[sitemap\][\s\S]*disable = true/);
