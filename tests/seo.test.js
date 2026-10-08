@@ -30,6 +30,19 @@ describe('AxelGamer SEO architecture', () => {
     assert.doesNotMatch(head, /duration"\s+"PT/);
   });
 
+  it('publishes crawlable video pages and links to them from the homepage', () => {
+    const homeVideos = read('src/layouts/partials/homepage/videos.html');
+    const videoFiles = frontMatterFiles('src/content/videos');
+    assert.ok(videoFiles.length > 0, 'dedicated video content should exist');
+    assert.match(homeVideos, /site\.GetPage "\/videos"/);
+    assert.match(homeVideos, /<a[^>]+href="{{ \.RelPermalink }}"/);
+    for (const video of videoFiles) {
+      assert.match(video, /type = "video"/);
+      assert.match(video, /summary = ".+"/);
+      assert.match(video, /video_id = ".+"/);
+    }
+  });
+
   it('links articles to shared-topic related content', () => {
     const related = read('src/layouts/partials/related-content.html');
     assert.match(related, /\.Params\.topics/);
