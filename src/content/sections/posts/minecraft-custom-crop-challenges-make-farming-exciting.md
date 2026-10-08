@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-06-01T20:01:00+10:00
 draft = false
 summary = "A fun look at a Minecraft custom challenge where farming turns into a mad race for wild items, seed tiers, and a final multiplayer fight."
+topics = ['minecraft', 'family-gaming']
 slug = "minecraft-custom-crop-challenges-make-farming-exciting"
 url = "/posts/minecraft-custom-crop-challenges-make-farming-exciting/"
 +++

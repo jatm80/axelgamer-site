@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-10-01T20:01:00+10:00
 draft = false
 summary = "Ride through beaches, jungles, deserts, and glowing caves while photographing wild Pokémon and building a colourful Photodex in New Pokémon Snap."
+topics = ['family-gaming']
 slug = "new-pokemon-snap-camera-safari-adventure"
 url = "/posts/new-pokemon-snap-camera-safari-adventure/"
 +++

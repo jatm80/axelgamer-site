@@ -23,6 +23,10 @@ heroMedia = "/assets/intro.gif"
 [permalinks]
 posts = "/posts/:slugorcontentbasename/"
 video = "/videos/:slugorcontentbasename/"
+games = "/games/:slugorcontentbasename/"
+
+[taxonomies]
+topic = "topics"
 
 [module]
   [[module.mounts]]

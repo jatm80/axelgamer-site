@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-07-06T20:01:00+10:00
 draft = false
 summary = "Open roads connect Free Roam exploring, Knockout Tour madness, 24 racer showdowns, and ridiculous items in Mario Kart World on Nintendo Switch 2."
+topics = ['nintendo', 'family-gaming']
 slug = "mario-kart-world-open-road-racing-chaos"
 url = "/posts/mario-kart-world-open-road-racing-chaos/"
 +++

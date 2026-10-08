@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-07-09T20:01:00+10:00
 draft = false
 summary = "Collect blocks, hide inside a box, help your team, and try not to scream when Blue appears in the colourful spooky halls of Roblox Rainbow Friends."
+topics = ['roblox', 'family-gaming']
 slug = "roblox-rainbow-friends-box-hiding-chaos"
 url = "/posts/roblox-rainbow-friends-box-hiding-chaos/"
 +++

@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-09-21T20:01:00+10:00
 draft = false
 summary = "Vacuum ghosts, explore wildly themed hotel floors, solve puzzles with Gooigi, and rescue Mario in the funny spooky adventure of Luigi's Mansion 3."
+topics = ['nintendo', 'family-gaming']
 slug = "luigis-mansion-3-haunted-hotel-chaos"
 url = "/posts/luigis-mansion-3-haunted-hotel-chaos/"
 +++

@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-08-31T20:01:00+10:00
 draft = false
 summary = "Bright ink flies everywhere in Splatoon 3, from Turf War and Salmon Run to story mode, lockers, cool gear, and frantic Nintendo Switch battles."
+topics = ['nintendo', 'family-gaming']
 slug = "splatoon-3-ink-battle-chaos"
 url = "/posts/splatoon-3-ink-battle-chaos/"
 +++

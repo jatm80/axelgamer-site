@@ -15,7 +15,7 @@ describe('AxelGamer games section', () => {
   });
 
   it('publishes Snake at /games/snake/ with no wall wrapping', () => {
-    const snake = read('src/static/games/snake/index.html');
+    const snake = read('src/static/game-embeds/snake/index.html');
 
     assert.match(snake, /<title>Snake/, 'Snake page should have a clear title');
     assert.match(snake, /GAME OVER/, 'Snake should show game-over text');
@@ -25,7 +25,7 @@ describe('AxelGamer games section', () => {
   });
 
   it('supports mobile touch controls for Snake', () => {
-    const snake = read('src/static/games/snake/index.html');
+    const snake = read('src/static/game-embeds/snake/index.html');
 
     assert.match(snake, /class="touch-controls"/, 'Snake should render on-screen mobile controls');
     assert.match(snake, /data-direction="up"/, 'Snake should include an up touch button');
@@ -38,10 +38,11 @@ describe('AxelGamer games section', () => {
 
   it('publishes Banana Battle at /games/banana-battle/ with mobile controls', () => {
     const homeGames = read('src/layouts/partials/homepage/games.html');
-    const banana = read('src/static/games/banana-battle/index.html');
+    const bananaContent = read('src/content/games/banana-battle.md');
+    const banana = read('src/static/game-embeds/banana-battle/index.html');
 
-    assert.match(homeGames, /\/games\/banana-battle\//, 'homepage games grid should link to Banana Battle');
-    assert.match(homeGames, /Banana Battle/, 'homepage games grid should name Banana Battle');
+    assert.match(homeGames, /site\.RegularPages[\s\S]*\.RelPermalink/, 'homepage games should be sourced from Hugo content and link to public game pages');
+    assert.match(bananaContent, /title = "Banana Battle"[\s\S]*slug = "banana-battle"/, 'Banana Battle content should preserve /games/banana-battle/');
     assert.match(banana, /<title>Banana Battle — Pixel Gorillas<\/title>/, 'Banana Battle page should use a finished-game title');
     assert.doesNotMatch(banana, /\bdemo\b/i, 'Banana Battle should not describe itself as a demo');
     assert.match(banana, /class="mobile-controls"/, 'Banana Battle should render mobile controls');
@@ -56,7 +57,7 @@ describe('AxelGamer games section', () => {
   });
 
   it('maps Banana Battle plus/minus controls correctly and allows harder throws', () => {
-    const banana = read('src/static/games/banana-battle/index.html');
+    const banana = read('src/static/game-embeds/banana-battle/index.html');
 
     assert.match(banana, /const MIN_ANGLE = -90;/, 'Banana Battle should allow straight-down negative angles');
     assert.match(banana, /const MAX_ANGLE = 90;/, 'Banana Battle should allow straight-up angles');
@@ -69,7 +70,7 @@ describe('AxelGamer games section', () => {
   });
 
   it('ends Banana Battle with a trophy winner when a monkey is hit', () => {
-    const banana = read('src/static/games/banana-battle/index.html');
+    const banana = read('src/static/game-embeds/banana-battle/index.html');
 
     assert.match(banana, /let gameOver = false;/, 'Banana Battle should track game-over state');
     assert.match(banana, /gameOver = true;/, 'A hit should end the game');
@@ -85,11 +86,12 @@ describe('AxelGamer games section', () => {
 
   it('publishes Perfect Landing at /games/perfect-landing/ with homepage card and mobile controls', () => {
     const homeGames = read('src/layouts/partials/homepage/games.html');
+    const gameContent = read('src/content/games/perfect-landing.md');
     const styles = read('src/styles.css');
-    const game = read('src/static/games/perfect-landing/index.html');
+    const game = read('src/static/game-embeds/perfect-landing/index.html');
 
-    assert.match(homeGames, /\/games\/perfect-landing\//, 'homepage games grid should link to Perfect Landing');
-    assert.match(homeGames, /Perfect Landing/, 'homepage games grid should name Perfect Landing');
+    assert.match(homeGames, /site\.RegularPages[\s\S]*\.RelPermalink/, 'homepage games should use the public Hugo game routes');
+    assert.match(gameContent, /title = "Perfect Landing"[\s\S]*slug = "perfect-landing"/, 'Perfect Landing content should preserve /games/perfect-landing/');
     assert.match(styles, /\.perfect-landing-thumb/, 'Perfect Landing should have a custom homepage thumbnail style');
     assert.match(game, /<title>Perfect Landing — Engine Out<\/title>/, 'Perfect Landing page should have a clear title');
     assert.match(game, /<canvas id="game"/, 'Perfect Landing should render a canvas game');
@@ -103,7 +105,7 @@ describe('AxelGamer games section', () => {
   });
 
   it('keeps Perfect Landing engine-out rules, reset key, and lower airport approach buildings', () => {
-    const game = read('src/static/games/perfect-landing/index.html');
+    const game = read('src/static/game-embeds/perfect-landing/index.html');
 
     assert.match(game, /const ENGINE_OUT_MESSAGE = 'ENGINE OUT! GLIDE TO THE RUNWAY';/);
     assert.match(game, /const WIN_SCORE = 70;/);
@@ -125,8 +127,8 @@ describe('AxelGamer games section', () => {
   });
 
   it('draws Perfect Landing with the actual user-provided airplane image', () => {
-    const game = read('src/static/games/perfect-landing/index.html');
-    const planeImage = fs.readFileSync(path.join(root, 'src/static/games/perfect-landing/plane.png'));
+    const game = read('src/static/game-embeds/perfect-landing/index.html');
+    const planeImage = fs.readFileSync(path.join(root, 'src/static/game-embeds/perfect-landing/plane.png'));
 
     assert.equal(planeImage.toString('ascii', 1, 4), 'PNG', 'actual uploaded airplane image should be converted to a transparent PNG asset');
     assert.match(game, /const PLANE_IMAGE_SRC = 'plane\.png';/, 'Plane image should load from the route-local transparent asset');

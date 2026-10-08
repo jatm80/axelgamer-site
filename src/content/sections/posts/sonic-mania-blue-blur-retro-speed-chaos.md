@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-09-14T20:03:01+10:00
 draft = false
 summary = "Sonic Mania throws Sonic, Tails, and Knuckles into speedy retro stages packed with giant rings, tricky bosses, local multiplayer, and colourful chaos."
+topics = ['family-gaming']
 slug = "sonic-mania-blue-blur-retro-speed-chaos"
 url = "/posts/sonic-mania-blue-blur-retro-speed-chaos/"
 +++

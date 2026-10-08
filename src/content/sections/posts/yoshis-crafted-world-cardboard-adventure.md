@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-08-20T20:01:00+10:00
 draft = false
 summary = "Cardboard worlds, egg throwing, hidden flowers, costumes, and two player exploring make Yoshi's Crafted World a cosy Nintendo Switch adventure."
+topics = ['nintendo', 'family-gaming']
 slug = "yoshis-crafted-world-cardboard-adventure"
 url = "/posts/yoshis-crafted-world-cardboard-adventure/"
 +++

@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-06-18T20:01:00+10:00
 draft = false
 summary = "Silly zombie missions, plant battles, hidden gnomes, and colourful backyard mayhem collide in Plants vs Zombies Battle for Neighborville."
+topics = ['family-gaming']
 slug = "plants-vs-zombies-neighborville-zombie-chaos"
 url = "/posts/plants-vs-zombies-neighborville-zombie-chaos/"
 +++

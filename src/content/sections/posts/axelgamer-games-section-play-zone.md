@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-07-16T20:01:00+10:00
 draft = false
 summary = "Snake, Banana Battle, and Perfect Landing have arrived in the AxelGamer Games section, opening a new place to play with more additions still to come."
+topics = ['family-gaming']
 slug = "axelgamer-games-section-play-zone"
 url = "/posts/axelgamer-games-section-play-zone/"
 +++

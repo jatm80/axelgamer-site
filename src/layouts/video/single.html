@@ -1,0 +1,14 @@
+{{ define "main" }}
+<main class="section">
+  <div class="container">
+    <article class="post-article">
+      <p class="eyebrow">{{ .Params.category }} video</p>
+      <h1>{{ .Title }}</h1>
+      <div class="responsive-video"><iframe src="https://www.youtube-nocookie.com/embed/{{ .Params.video_id }}" title="{{ .Title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="about-copy">{{ .Content }}</div>
+      <p><a class="card-btn secondary" href="https://www.youtube.com/watch?v={{ .Params.video_id }}" rel="noopener noreferrer">Watch on YouTube</a></p>
+      {{ partial "related-content.html" . }}
+    </article>
+  </div>
+</main>
+{{ end }}

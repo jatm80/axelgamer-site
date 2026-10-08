@@ -1,0 +1,30 @@
+{{ define "main" }}
+{{ $topic := .Params.topic }}
+{{ $items := slice }}
+{{ range site.RegularPages }}
+  {{ if and (in (.Params.topics | default (slice)) $topic) (not (hasPrefix .RelPermalink "/sections/homepage/")) }}
+    {{ $items = $items | append . }}
+  {{ end }}
+{{ end }}
+<main class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Topic hub</p>
+      <h1>{{ .Title }}</h1>
+      <div class="about-copy">{{ .Content }}</div>
+    </div>
+    {{ if gt (len $items) 0 }}
+    <div class="posts-grid">
+      {{ range $items.ByTitle }}
+      <article class="post-card">
+        <p class="eyebrow">{{ if eq .Type "video" }}Video{{ else if eq .Type "games" }}Game{{ else }}Article{{ end }}</p>
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p>{{ .Params.description | default .Params.summary | default .Summary }}</p>
+        <div class="post-card-actions"><a class="card-btn secondary" href="{{ .RelPermalink }}">Explore</a></div>
+      </article>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</main>
+{{ end }}

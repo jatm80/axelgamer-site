@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-06-15T20:01:00+10:00
 draft = false
 summary = "Build wobbly carts, strange planes, and egg chasing machines in Bad Piggies, where every funny physics puzzle rewards a clever contraption."
+topics = ['family-gaming']
 slug = "bad-piggies-building-chaos"
 url = "/posts/bad-piggies-building-chaos/"
 +++

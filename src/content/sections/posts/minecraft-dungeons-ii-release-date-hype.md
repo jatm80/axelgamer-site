@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-06-08T20:01:00+10:00
 draft = false
 summary = "Minecraft Dungeons II has a release date, a scary new story, co op action, and plenty of reasons for dungeon crawling fans to get excited."
+topics = ['minecraft', 'family-gaming']
 slug = "minecraft-dungeons-ii-release-date-hype"
 url = "/posts/minecraft-dungeons-ii-release-date-hype/"
 +++

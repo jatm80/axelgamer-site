@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-09-07T20:01:00+10:00
 draft = false
 summary = "Seven boards, over 110 minigames, Jamboree Buddies, Koopathlon, and Bowser Kaboom Squad make Super Mario Party Jamboree a huge family showdown."
+topics = ['nintendo', 'family-gaming']
 slug = "super-mario-party-jamboree-board-game-chaos"
 url = "/posts/super-mario-party-jamboree-board-game-chaos/"
 +++
