@@ -30,6 +30,28 @@ describe('AxelGamer SEO architecture', () => {
     assert.doesNotMatch(head, /duration"\s+"PT/);
   });
 
+  it('stores only the verified YouTube date and duration for confirmed public videos', () => {
+    const confirmed = {
+      'melbourne-motorshow-2026.md': ['85KKWAbUlT4', '2026-04-11', 'PT7M42S'],
+      'camping-day-upper-yarra.md': ['5ukjMUGGssA', '2026-03-26', 'PT13M25S'],
+      'cooking-tuna-casserole-with-my-dad.md': ['vAImg84kS_w', '2026-06-20', 'PT22M5S'],
+      'axel-gamer-on-a-roll-3d.md': ['f4GemvGLqGw', '2024-06-02', 'PT15M29S'],
+    };
+    const videoDir = path.join(root, 'src/content/videos');
+    for (const filename of fs.readdirSync(videoDir).filter((name) => name.endsWith('.md') && name !== '_index.md')) {
+      const video = read('src/content/videos', filename);
+      if (confirmed[filename]) {
+        const [videoId, uploadDate, duration] = confirmed[filename];
+        assert.match(video, new RegExp(`video_id = "${videoId}"`));
+        assert.match(video, new RegExp(`upload_date = "${uploadDate}"`));
+        assert.match(video, new RegExp(`duration = "${duration}"`));
+      } else {
+        assert.doesNotMatch(video, /^upload_date\s*=/m, `${filename} has an unverified upload date`);
+        assert.doesNotMatch(video, /^duration\s*=/m, `${filename} has an unverified duration`);
+      }
+    }
+  });
+
   it('publishes crawlable video pages and links to them from the homepage', () => {
     const homeVideos = read('src/layouts/partials/homepage/videos.html');
     const videoFiles = frontMatterFiles('src/content/videos');
