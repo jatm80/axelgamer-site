@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-09-17T20:01:00+10:00
 draft = false
 summary = "Spin colourful puzzle box stages, hunt for Super Gems, dodge Wingo, and help Captain Toad and Toadette find treasure in a clever Nintendo adventure."
+topics = ['nintendo', 'family-gaming']
 slug = "captain-toad-treasure-tracker-puzzle-box-adventure"
 url = "/posts/captain-toad-treasure-tracker-puzzle-box-adventure/"
 +++

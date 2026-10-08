@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-09-28T20:01:00+10:00
 draft = false
 summary = "Build enormous coasters, manage money, hire staff, and keep every guest smiling in the clever theme park world of RollerCoaster Tycoon Classic."
+topics = ['family-gaming']
 slug = "rollercoaster-tycoon-classic-theme-park-chaos"
 url = "/posts/rollercoaster-tycoon-classic-theme-park-chaos/"
 +++

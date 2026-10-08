@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-06-22T20:02:00+10:00
 draft = false
 summary = "Bells, flying heroes, bright stages, and proper retro chaos fill Konami's colourful platform adventure Pop'n TwinBee Rainbow Bell Adventures."
+topics = ['nintendo', 'family-gaming']
 slug = "popn-twinbee-rainbow-bell-adventures-retro-chaos"
 url = "/posts/popn-twinbee-rainbow-bell-adventures-retro-chaos/"
 +++

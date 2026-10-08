@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-07-27T20:01:00+10:00
 draft = false
 summary = "Race across Mexico through wild weather and festival events, collect heaps of cars, or forget the finish line and enjoy an open world cruise."
+topics = ['family-gaming']
 slug = "forza-horizon-5-mexico-racing-adventure"
 url = "/posts/forza-horizon-5-mexico-racing-adventure/"
 +++

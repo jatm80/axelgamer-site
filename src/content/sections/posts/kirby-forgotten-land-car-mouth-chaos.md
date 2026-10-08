@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-06-29T20:01:00+10:00
 draft = false
 summary = "Kirby races as a car, rescues hidden Waddle Dees, copies abilities, and tackles big bosses in the bright 3D world of Kirby and the Forgotten Land."
+topics = ['nintendo', 'family-gaming']
 slug = "kirby-forgotten-land-car-mouth-chaos"
 url = "/posts/kirby-forgotten-land-car-mouth-chaos/"
 +++

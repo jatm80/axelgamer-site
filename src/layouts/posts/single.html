@@ -6,7 +6,10 @@
       <h1>{{ .Title }}</h1>
       <p class="post-card-date">{{ .Date.Format "2 January 2006" }}</p>
       {{ with .Params.summary }}<p class="about-lead">{{ . }}</p>{{ end }}
+      {{ with .Params.image }}<img class="article-image" src="{{ . | relURL }}" alt="{{ $.Params.image_alt | default $.Title }}">{{ end }}
+      {{ with .Params.topics }}<nav class="topic-links" aria-label="Topics">{{ range . }}{{ if eq . "minecraft" }}<a href="{{ `/minecraft/` | relURL }}">Minecraft</a>{{ else if eq . "nintendo" }}<a href="{{ `/nintendo-switch/` | relURL }}">Nintendo Switch</a>{{ else if eq . "roblox" }}<a href="{{ `/roblox/` | relURL }}">Roblox</a>{{ end }}{{ end }}</nav>{{ end }}
       {{ .Content }}
+      {{ partial "related-content.html" . }}
     </article>
   </div>
 </main>

@@ -1,0 +1,15 @@
+{{ define "main" }}
+<main class="section">
+  <div class="container">
+    <div class="section-heading"><p class="eyebrow">Video vault</p><h1>{{ .Title }}</h1><div class="about-copy">{{ .Content }}</div></div>
+    <div class="video-grid">
+      {{ range .RegularPages.ByWeight }}
+      <article class="video-card">
+        <a class="video-thumb" href="{{ .RelPermalink }}"><img src="https://i.ytimg.com/vi/{{ .Params.video_id }}/hqdefault.jpg" alt="Thumbnail for {{ .Title }}" loading="lazy"></a>
+        <div class="video-body"><h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2><div class="video-meta"><span>{{ .Params.category }}</span><span>{{ .Params.game }}</span></div><div class="video-actions"><a class="card-btn primary" href="{{ .RelPermalink }}">Watch video</a></div></div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</main>
+{{ end }}

@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-08-27T20:01:00+10:00
 draft = false
 summary = "A quiet pixel farm becomes a busy adventure in Stardew Valley, with crops, fishing, mining, animals, festivals, friendships, and multiplayer fun."
+topics = ['family-gaming']
 slug = "stardew-valley-farming-friends-chaos"
 url = "/posts/stardew-valley-farming-friends-chaos/"
 +++

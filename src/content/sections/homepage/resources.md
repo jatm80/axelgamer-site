@@ -29,6 +29,9 @@ description = "A fun way to learn coding with games and challenges."
 title = "Code Kingdoms"
 url = "https://codekingdoms.com/code-your-own-minecraft-mods/"
 description = "Learn to code your own Minecraft mods and build cool ideas."
+
+[sitemap]
+disable = true
 +++
 
 Markdown-managed homepage resources section.

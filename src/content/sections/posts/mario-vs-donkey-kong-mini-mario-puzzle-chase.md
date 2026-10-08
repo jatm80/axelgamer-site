@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-10-05T21:02:20+11:00
 draft = false
 summary = "Chase stolen Mini Marios through clever rooms packed with keys, switches, moving platforms, presents, and local cooperative puzzle solving."
+topics = ['nintendo', 'family-gaming']
 slug = "mario-vs-donkey-kong-mini-mario-puzzle-chase"
 url = "/posts/mario-vs-donkey-kong-mini-mario-puzzle-chase/"
 +++

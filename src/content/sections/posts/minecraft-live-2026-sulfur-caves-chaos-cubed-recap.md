@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-05-25T11:00:00+10:00
 draft = false
 summary = "My Minecraft Live 2026 recap: Bedrock Parties, new servers, Chaos Cubed, sulfur caves, Tiny Takeover, and the ancient city portal tease."
+topics = ['minecraft', 'family-gaming']
 slug = "minecraft-live-2026-sulfur-caves-chaos-cubed-recap"
 url = "/posts/minecraft-live-2026-sulfur-caves-chaos-cubed-recap/"
 +++

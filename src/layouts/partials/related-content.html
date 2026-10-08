@@ -1,0 +1,25 @@
+{{- $page := . -}}
+{{- $pageTopics := $page.Params.topics | default (slice) -}}
+{{- $scored := slice -}}
+{{- range site.RegularPages -}}
+  {{- if and (ne .RelPermalink $page.RelPermalink) (not (hasPrefix .RelPermalink "/sections/homepage/")) -}}
+    {{- $score := 0 -}}
+    {{- range (.Params.topics | default (slice)) -}}
+      {{- if in $pageTopics . -}}{{- $score = add $score 1 -}}{{- end -}}
+    {{- end -}}
+    {{- if gt $score 0 -}}
+      {{- $scored = $scored | append (dict "page" . "score" $score) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $scored = sort $scored "score" "desc" -}}
+{{- if gt (len $scored) 0 }}
+<aside class="related-content" aria-labelledby="related-heading">
+  <h2 id="related-heading">Related content</h2>
+  <ul>
+    {{- range first 4 $scored }}
+    <li><a href="{{ .page.RelPermalink }}">{{ .page.Title }}</a></li>
+    {{- end }}
+  </ul>
+</aside>
+{{- end }}

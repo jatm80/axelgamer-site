@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-08-03T20:01:00+10:00
 draft = false
 summary = "Wonder Flowers twist Mario levels into colourful surprises filled with Elephant Mario, talking flowers, badges, local multiplayer, and Flower Kingdom chaos."
+topics = ['nintendo', 'family-gaming']
 slug = "super-mario-bros-wonder-flower-kingdom-chaos"
 url = "/posts/super-mario-bros-wonder-flower-kingdom-chaos/"
 +++

@@ -8,6 +8,9 @@ intro = "Short posts and more to read 👍."
 cta_label = "View all articles"
 cta_target = "/posts/"
 limit = 3
+
+[sitemap]
+disable = true
 +++
 
 Markdown-managed homepage article teaser section.

@@ -4,6 +4,7 @@ type = "posts"
 date = 2026-08-10T20:01:00+10:00
 draft = false
 summary = "LEGO Fortnite Odyssey turns survival exploring into a giant toy box adventure filled with brick building, crafting, creatures, villages, and friends."
+topics = ['family-gaming']
 slug = "lego-fortnite-odyssey-building-survival-adventure"
 url = "/posts/lego-fortnite-odyssey-building-survival-adventure/"
 +++

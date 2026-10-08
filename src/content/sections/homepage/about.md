@@ -32,6 +32,9 @@ goals = [
 ]
 signoff = "If you like Minecraft too, then you are automatically cool. Thanks for visiting my website."
 weight = 20
+
+[sitemap]
+disable = true
 +++
 
 Homepage about content for the main landing page.
