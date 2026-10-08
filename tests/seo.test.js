@@ -53,7 +53,10 @@ describe('AxelGamer SEO architecture', () => {
     }
   });
 
-  it('links articles to shared-topic related content', () => {
+  it('defines curated topic hubs and shared-topic related content', () => {
+    for (const hub of ['minecraft', 'nintendo-switch', 'roblox']) {
+      assert.match(read('src/content', `${hub}.md`), /layout = "topic"/);
+    }
     const related = read('src/layouts/partials/related-content.html');
     assert.match(related, /\.Params\.topics/);
     assert.match(related, /first 4/);
