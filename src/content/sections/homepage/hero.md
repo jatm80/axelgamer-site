@@ -10,6 +10,9 @@ cta_secondary_label = "Visit YouTube channel"
 cta_secondary_target = "https://www.youtube.com/@axelgamer_dot_com"
 media_alt = "Axel Gamer intro animation"
 weight = 10
+
+[sitemap]
+disable = true
 +++
 
 This content block will drive the homepage hero copy after the layout is migrated into Hugo.
