@@ -14,6 +14,8 @@ tags = ["Minecraft", "Potions", "Java Edition", "Bedrock Edition"]
 
 ## Recipe table
 
+Want every brewable Survival recipe on one page? [Download the Minecraft Potion Brewing Chart](/minecraft/potion-brewing-chart/) as a high-resolution image or printable PDF.
+
 These are drinkable potion durations. Follow an individual guide for the complete recipe and its limitations.
 
 | Potion guide | Ingredient after nether wart | Normal duration | Redstone duration | Glowstone upgrade |

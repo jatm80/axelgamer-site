@@ -51,6 +51,8 @@ Mojang’s [Taking Inventory: Pufferfish](https://www.minecraft.net/en-us/articl
 
 ## Related potion guides
 
+Keep the [printable Minecraft Potion Brewing Chart](/minecraft/potion-brewing-chart/) beside your brewing stand for ingredients, upgrades and timers for all 19 Survival potions.
+
 - [Night Vision potion](/posts/minecraft-night-vision-potion-beginner-guide/)
 - [Fire Resistance potion](/minecraft/potions/fire-resistance/)
 - [Invisibility potion](/minecraft/potions/invisibility/)

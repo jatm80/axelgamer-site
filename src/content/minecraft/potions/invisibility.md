@@ -52,6 +52,8 @@ For the shared base recipe, Mojang’s [Ten Rare Recipes](https://www.minecraft.
 
 ## Related potion guides
 
+Keep the [printable Minecraft Potion Brewing Chart](/minecraft/potion-brewing-chart/) beside your brewing stand for ingredients, upgrades and timers for all 19 Survival potions.
+
 - [Night Vision potion](/posts/minecraft-night-vision-potion-beginner-guide/)
 - [Water Breathing potion](/minecraft/potions/water-breathing/)
 - [Fire Resistance potion](/minecraft/potions/fire-resistance/)

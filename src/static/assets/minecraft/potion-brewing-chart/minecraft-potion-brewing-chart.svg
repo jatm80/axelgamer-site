@@ -1,0 +1,343 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="297mm" height="420mm" viewBox="0 0 1400 1980" role="img" aria-labelledby="title desc">
+<title id="title">Minecraft Potion Brewing Chart</title><desc id="desc">A complete Survival brewing reference: nineteen effect potions, bases, effect ingredients, duration extensions, strength upgrades and Java/Bedrock differences. Read the accessible recipe cards at axelgamer.com/minecraft/potion-brewing-chart/.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#286449"/></marker></defs>
+<g font-family="DejaVu Sans, sans-serif">
+<rect x="0" y="0" width="1400" height="1980" rx="0" fill="#ffffff" stroke="none"/>
+<rect x="0" y="0" width="1400" height="12" rx="0" fill="#286449" stroke="none"/>
+<text x="60" y="65" font-size="21" fill="#286449" font-weight="700" text-anchor="start">AXELGAMER  /  FIELD GUIDE 01</text>
+<text x="60" y="125" font-size="55" fill="#172e30" font-weight="800" text-anchor="start">MINECRAFT</text>
+<text x="60" y="186" font-size="55" fill="#172e30" font-weight="800" text-anchor="start">POTION BREWING CHART</text>
+<text x="60" y="226" font-size="25" fill="#526b6c" font-weight="400" text-anchor="start">19 Survival recipes • Java + Bedrock • Drinkable potion timers</text>
+<g transform="translate(1190 119) scale(1.15)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#719bc8"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<g transform="translate(1240 119) scale(1.15)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#ce8144"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<g transform="translate(1290 119) scale(1.15)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#70a268"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<rect x="60" y="257" width="1280" height="154" rx="16" fill="#edf5ef" stroke="none"/>
+<text x="82" y="287" font-size="19" fill="#286449" font-weight="700" text-anchor="start">01  START HERE</text>
+<text x="82" y="322" font-size="22" fill="#172e30" font-weight="700" text-anchor="start">Fuel the stand</text>
+<text x="82" y="351" font-size="21" fill="#526b6c" font-weight="400" text-anchor="start">Blaze powder</text>
+<text x="82" y="383" font-size="18" fill="#526b6c" font-weight="400" text-anchor="start">1 powder = 20 brews</text>
+<g transform="translate(355 308) scale(1)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#709ec7"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="402" y="330" font-size="20" fill="#172e30" font-weight="700" text-anchor="start">Water bottles</text>
+<text x="402" y="361" font-size="16" fill="#526b6c" font-weight="400" text-anchor="start">Fill 1–3 bottle slots</text>
+<g transform="translate(760 308) scale(1)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#bcced4"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="807" y="330" font-size="20" fill="#172e30" font-weight="700" text-anchor="start">Awkward Potion</text>
+<text x="807" y="361" font-size="16" fill="#526b6c" font-weight="400" text-anchor="start">The base for 15 recipes</text>
+<g transform="translate(1110 308) scale(1)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#61a475"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="1157" y="330" font-size="20" fill="#172e30" font-weight="700" text-anchor="start">Effect potion</text>
+<text x="1157" y="361" font-size="16" fill="#526b6c" font-weight="400" text-anchor="start">Choose a row below</text>
+<path d="M588 337 H734" stroke="#286449" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<text x="661.0" y="290" font-size="19" fill="#286449" font-weight="700" text-anchor="middle">+ Nether wart</text>
+<path d="M1040 337 H1087" stroke="#286449" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<text x="1063.5" y="290" font-size="19" fill="#286449" font-weight="700" text-anchor="middle">+ ingredient</text>
+<text x="355" y="393" font-size="18" fill="#526b6c" font-weight="400" text-anchor="start">Stand: 1 blaze rod + 3 cobblestone • Bottles: 3 glass → 3 bottles</text>
+<text x="60" y="447" font-size="23" fill="#286449" font-weight="700" text-anchor="start">02  PICK YOUR POTION</text>
+<text x="1340" y="447" font-size="19" fill="#526b6c" font-weight="400" text-anchor="end">J = Java  •  B = Bedrock  •  — = no upgrade</text>
+<rect x="60" y="467" width="1280" height="55" rx="9" fill="#172e30" stroke="none"/>
+<text x="78" y="501" font-size="18" fill="#fff" font-weight="700" text-anchor="start">POTION</text>
+<text x="343" y="501" font-size="18" fill="#fff" font-weight="700" text-anchor="start">ADD THIS INGREDIENT</text>
+<text x="666" y="501" font-size="18" fill="#fff" font-weight="700" text-anchor="start">NORMAL</text>
+<text x="816" y="501" font-size="18" fill="#fff" font-weight="700" text-anchor="start">+ REDSTONE</text>
+<text x="1078" y="501" font-size="18" fill="#fff" font-weight="700" text-anchor="start">+ GLOWSTONE</text>
+<rect x="60" y="522" width="1280" height="49" rx="0" fill="#f4f7f5" stroke="none"/>
+<rect x="60" y="529" width="5" height="35" rx="2" fill="#406dc4" stroke="none"/>
+<g transform="translate(77 532) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#406dc4"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="552" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Night Vision</text>
+<text x="343" y="552" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Golden carrot</text>
+<text x="666" y="552" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">3:00</text>
+<text x="816" y="552" font-size="19" fill="#172e30" font-weight="400" text-anchor="start">8:00</text>
+<text x="1078" y="552" font-size="20" fill="#526b6c" font-weight="400" text-anchor="start">—</text>
+<rect x="60" y="571" width="1280" height="49" rx="0" fill="#fff" stroke="none"/>
+<rect x="60" y="578" width="5" height="35" rx="2" fill="#197fba" stroke="none"/>
+<g transform="translate(77 581) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#197fba"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="601" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Water Breathing</text>
+<text x="343" y="601" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Pufferfish</text>
+<text x="666" y="601" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">3:00</text>
+<text x="816" y="601" font-size="19" fill="#172e30" font-weight="400" text-anchor="start">8:00</text>
+<text x="1078" y="601" font-size="20" fill="#526b6c" font-weight="400" text-anchor="start">—</text>
+<rect x="60" y="620" width="1280" height="49" rx="0" fill="#f4f7f5" stroke="none"/>
+<rect x="60" y="627" width="5" height="35" rx="2" fill="#bd5a1d" stroke="none"/>
+<g transform="translate(77 630) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#bd5a1d"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="650" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Fire Resistance</text>
+<text x="343" y="650" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Magma cream</text>
+<text x="666" y="650" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">3:00</text>
+<text x="816" y="650" font-size="19" fill="#172e30" font-weight="400" text-anchor="start">8:00</text>
+<text x="1078" y="650" font-size="20" fill="#526b6c" font-weight="400" text-anchor="start">—</text>
+<rect x="60" y="669" width="1280" height="49" rx="0" fill="#fff" stroke="none"/>
+<rect x="60" y="676" width="5" height="35" rx="2" fill="#b7434a" stroke="none"/>
+<g transform="translate(77 679) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#b7434a"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="699" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Strength</text>
+<text x="343" y="699" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Blaze powder</text>
+<text x="666" y="699" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">3:00</text>
+<text x="816" y="699" font-size="19" fill="#172e30" font-weight="400" text-anchor="start">8:00</text>
+<text x="1078" y="699" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">II · 1:30</text>
+<rect x="60" y="718" width="1280" height="49" rx="0" fill="#f4f7f5" stroke="none"/>
+<rect x="60" y="725" width="5" height="35" rx="2" fill="#328c9d" stroke="none"/>
+<g transform="translate(77 728) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#328c9d"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="748" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Swiftness</text>
+<text x="343" y="748" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Sugar</text>
+<text x="666" y="748" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">3:00</text>
+<text x="816" y="748" font-size="19" fill="#172e30" font-weight="400" text-anchor="start">8:00</text>
+<text x="1078" y="748" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">II · 1:30</text>
+<rect x="60" y="767" width="1280" height="49" rx="0" fill="#fff" stroke="none"/>
+<rect x="60" y="774" width="5" height="35" rx="2" fill="#428136" stroke="none"/>
+<g transform="translate(77 777) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#428136"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="797" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Leaping</text>
+<text x="343" y="797" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Rabbit’s foot</text>
+<text x="666" y="797" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">3:00</text>
+<text x="816" y="797" font-size="19" fill="#172e30" font-weight="400" text-anchor="start">8:00</text>
+<text x="1078" y="797" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">II · 1:30</text>
+<rect x="60" y="816" width="1280" height="49" rx="0" fill="#f4f7f5" stroke="none"/>
+<rect x="60" y="823" width="5" height="35" rx="2" fill="#bb3348" stroke="none"/>
+<g transform="translate(77 826) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#bb3348"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="846" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Healing</text>
+<text x="343" y="846" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Glistering melon slice</text>
+<text x="666" y="846" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">Instant</text>
+<text x="816" y="846" font-size="19" fill="#526b6c" font-weight="400" text-anchor="start">—</text>
+<text x="1078" y="846" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">II · Instant</text>
+<rect x="60" y="865" width="1280" height="49" rx="0" fill="#fff" stroke="none"/>
+<rect x="60" y="872" width="5" height="35" rx="2" fill="#a14893" stroke="none"/>
+<g transform="translate(77 875) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#a14893"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="895" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Regeneration</text>
+<text x="343" y="895" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Ghast tear</text>
+<text x="666" y="895" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">0:45</text>
+<text x="816" y="895" font-size="19" fill="#172e30" font-weight="400" text-anchor="start">J 1:30 / B 2:00</text>
+<text x="1078" y="895" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">II · 0:22</text>
+<rect x="60" y="914" width="1280" height="49" rx="0" fill="#f4f7f5" stroke="none"/>
+<rect x="60" y="921" width="5" height="35" rx="2" fill="#6e8735" stroke="none"/>
+<g transform="translate(77 924) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#6e8735"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="944" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Poison</text>
+<text x="343" y="944" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Spider eye</text>
+<text x="666" y="944" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">0:45</text>
+<text x="816" y="944" font-size="19" fill="#172e30" font-weight="400" text-anchor="start">J 1:30 / B 2:00</text>
+<text x="1078" y="944" font-size="17" fill="#172e30" font-weight="400" text-anchor="start">II · J 0:21 / B 0:22</text>
+<rect x="60" y="963" width="1280" height="49" rx="0" fill="#fff" stroke="none"/>
+<rect x="60" y="970" width="5" height="35" rx="2" fill="#527f86" stroke="none"/>
+<g transform="translate(77 973) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#527f86"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="993" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Slow Falling</text>
+<text x="343" y="993" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Phantom membrane</text>
+<text x="666" y="993" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">1:30</text>
+<text x="816" y="993" font-size="19" fill="#172e30" font-weight="400" text-anchor="start">4:00</text>
+<text x="1078" y="993" font-size="20" fill="#526b6c" font-weight="400" text-anchor="start">—</text>
+<rect x="60" y="1012" width="1280" height="49" rx="0" fill="#f4f7f5" stroke="none"/>
+<rect x="60" y="1019" width="5" height="35" rx="2" fill="#357e66" stroke="none"/>
+<g transform="translate(77 1022) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#357e66"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="1042" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Turtle Master</text>
+<text x="343" y="1042" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Turtle shell</text>
+<text x="666" y="1042" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">0:20</text>
+<text x="816" y="1042" font-size="19" fill="#172e30" font-weight="400" text-anchor="start">0:40</text>
+<text x="1078" y="1042" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">II · 0:20</text>
+<rect x="60" y="1061" width="1280" height="49" rx="0" fill="#fff" stroke="none"/>
+<rect x="60" y="1068" width="5" height="35" rx="2" fill="#4988a1" stroke="none"/>
+<g transform="translate(77 1071) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#4988a1"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="1091" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Wind Charging</text>
+<text x="343" y="1091" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Breeze rod</text>
+<text x="666" y="1091" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">3:00</text>
+<text x="816" y="1091" font-size="19" fill="#526b6c" font-weight="400" text-anchor="start">—</text>
+<text x="1078" y="1091" font-size="20" fill="#526b6c" font-weight="400" text-anchor="start">—</text>
+<rect x="60" y="1110" width="1280" height="49" rx="0" fill="#f4f7f5" stroke="none"/>
+<rect x="60" y="1117" width="5" height="35" rx="2" fill="#7b7295" stroke="none"/>
+<g transform="translate(77 1120) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#7b7295"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="1140" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Weaving</text>
+<text x="343" y="1140" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Cobweb</text>
+<text x="666" y="1140" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">3:00</text>
+<text x="816" y="1140" font-size="19" fill="#526b6c" font-weight="400" text-anchor="start">—</text>
+<text x="1078" y="1140" font-size="20" fill="#526b6c" font-weight="400" text-anchor="start">—</text>
+<rect x="60" y="1159" width="1280" height="49" rx="0" fill="#fff" stroke="none"/>
+<rect x="60" y="1166" width="5" height="35" rx="2" fill="#50853f" stroke="none"/>
+<g transform="translate(77 1169) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#50853f"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="1189" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Oozing</text>
+<text x="343" y="1189" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Slime block</text>
+<text x="666" y="1189" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">3:00</text>
+<text x="816" y="1189" font-size="19" fill="#526b6c" font-weight="400" text-anchor="start">—</text>
+<text x="1078" y="1189" font-size="20" fill="#526b6c" font-weight="400" text-anchor="start">—</text>
+<rect x="60" y="1208" width="1280" height="49" rx="0" fill="#f4f7f5" stroke="none"/>
+<rect x="60" y="1215" width="5" height="35" rx="2" fill="#70788a" stroke="none"/>
+<g transform="translate(77 1218) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#70788a"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="1238" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Infestation</text>
+<text x="343" y="1238" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Stone</text>
+<text x="666" y="1238" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">3:00</text>
+<text x="816" y="1238" font-size="19" fill="#526b6c" font-weight="400" text-anchor="start">—</text>
+<text x="1078" y="1238" font-size="20" fill="#526b6c" font-weight="400" text-anchor="start">—</text>
+<rect x="60" y="1257" width="1280" height="49" rx="0" fill="#f2eef8" stroke="none"/>
+<rect x="60" y="1264" width="5" height="35" rx="2" fill="#727cb7" stroke="none"/>
+<g transform="translate(77 1267) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#727cb7"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="1287" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Invisibility</text>
+<text x="343" y="1278" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Fermented spider eye</text>
+<text x="343" y="1298" font-size="16" fill="#695481" font-weight="400" text-anchor="start">Start: Night Vision</text>
+<text x="666" y="1287" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">3:00</text>
+<text x="816" y="1287" font-size="19" fill="#172e30" font-weight="400" text-anchor="start">8:00</text>
+<text x="1078" y="1287" font-size="20" fill="#526b6c" font-weight="400" text-anchor="start">—</text>
+<rect x="60" y="1306" width="1280" height="49" rx="0" fill="#f2eef8" stroke="none"/>
+<rect x="60" y="1313" width="5" height="35" rx="2" fill="#526ca0" stroke="none"/>
+<g transform="translate(77 1316) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#526ca0"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="1336" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Slowness</text>
+<text x="343" y="1327" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Fermented spider eye</text>
+<text x="343" y="1347" font-size="16" fill="#695481" font-weight="400" text-anchor="start">Start: Swiftness or Leaping</text>
+<text x="666" y="1336" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">1:30</text>
+<text x="816" y="1336" font-size="19" fill="#172e30" font-weight="400" text-anchor="start">4:00</text>
+<text x="1078" y="1336" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">IV · 0:20</text>
+<rect x="60" y="1355" width="1280" height="49" rx="0" fill="#f2eef8" stroke="none"/>
+<rect x="60" y="1362" width="5" height="35" rx="2" fill="#8a4962" stroke="none"/>
+<g transform="translate(77 1365) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#8a4962"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="1385" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Harming</text>
+<text x="343" y="1376" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Fermented spider eye</text>
+<text x="343" y="1396" font-size="16" fill="#695481" font-weight="400" text-anchor="start">Start: Healing or Poison</text>
+<text x="666" y="1385" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">Instant</text>
+<text x="816" y="1385" font-size="19" fill="#526b6c" font-weight="400" text-anchor="start">—</text>
+<text x="1078" y="1385" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">II · Instant</text>
+<rect x="60" y="1404" width="1280" height="49" rx="0" fill="#f2eef8" stroke="none"/>
+<rect x="60" y="1411" width="5" height="35" rx="2" fill="#756652" stroke="none"/>
+<g transform="translate(77 1414) scale(0.6)">
+<path d="M11 0 H27 V13 L34 20 V40 Q34 47 27 47 H11 Q4 47 4 40 V20 L11 13 Z" fill="#fff" stroke="#425e60" stroke-width="2"/>
+<path d="M7 27 H31 V40 Q31 44 27 44 H11 Q7 44 7 40 Z" fill="#756652"/>
+<rect x="10" y="0" width="18" height="5" rx="1" fill="#a67a48" stroke="none"/>
+<path d="M11 24 V36" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="109" y="1434" font-size="21" fill="#172e30" font-weight="700" text-anchor="start">Weakness</text>
+<text x="343" y="1425" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Fermented spider eye</text>
+<text x="343" y="1445" font-size="16" fill="#695481" font-weight="400" text-anchor="start">Start: Water bottle</text>
+<text x="666" y="1434" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">1:30</text>
+<text x="816" y="1434" font-size="19" fill="#172e30" font-weight="400" text-anchor="start">4:00</text>
+<text x="1078" y="1434" font-size="20" fill="#526b6c" font-weight="400" text-anchor="start">—</text>
+<text x="60" y="1482" font-size="19" fill="#526b6c" font-weight="400" text-anchor="start">White/green rows start with Awkward Potion. Purple rows use the named starting bottle.</text>
+<text x="60" y="1510" font-size="23" fill="#286449" font-weight="700" text-anchor="start">03  MODIFY THE FINISHED EFFECT</text>
+<rect x="60" y="1530" width="618" height="161" rx="12" fill="#f9f3e4" stroke="none"/>
+<text x="82" y="1567" font-size="21" fill="#835b19" font-weight="700" text-anchor="start">LONGER OR STRONGER</text>
+<text x="82" y="1602" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">Redstone → longer time (see the table)</text>
+<text x="82" y="1633" font-size="20" fill="#172e30" font-weight="400" text-anchor="start">Glowstone → higher level (II, or Slowness IV)</text>
+<text x="82" y="1667" font-size="19" fill="#526b6c" font-weight="400" text-anchor="start">Choose one. You cannot combine both upgrades.</text>
+<rect x="700" y="1530" width="640" height="161" rx="12" fill="#eaf2f7" stroke="none"/>
+<text x="722" y="1567" font-size="21" fill="#316183" font-weight="700" text-anchor="start">THROW OR LEAVE A CLOUD</text>
+<text x="722" y="1602" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">Drinkable + gunpowder → Splash</text>
+<text x="722" y="1633" font-size="21" fill="#172e30" font-weight="400" text-anchor="start">Splash + dragon’s breath → Lingering</text>
+<text x="722" y="1667" font-size="19" fill="#526b6c" font-weight="400" text-anchor="start">Brew the effect, then upgrade, then change its form.</text>
+<text x="60" y="1731" font-size="23" fill="#286449" font-weight="700" text-anchor="start">DON’T MISS THESE DETAILS</text>
+<text x="60" y="1767" font-size="20" fill="#526b6c" font-weight="400" text-anchor="start">• Weakness skips nether wart: Water bottle + fermented spider eye.</text>
+<text x="60" y="1799" font-size="20" fill="#526b6c" font-weight="400" text-anchor="start">• Fermented spider eye = spider eye + sugar + brown mushroom (crafting).</text>
+<text x="60" y="1831" font-size="20" fill="#526b6c" font-weight="400" text-anchor="start">• Turtle Master II = Resistance IV + Slowness VI; normal = Resistance III + Slowness IV.</text>
+<text x="60" y="1863" font-size="20" fill="#526b6c" font-weight="400" text-anchor="start">• Splash/lingering timers differ from this table; check the bottle tooltip and impact distance.</text>
+<text x="60" y="1895" font-size="20" fill="#526b6c" font-weight="400" text-anchor="start">• Mundane/Thick have no useful Survival branch. Luck/Decay cannot be brewed in Survival.</text>
+<rect x="60" y="1920" width="1280" height="2" rx="0" fill="#dce5df" stroke="none"/>
+<text x="60" y="1952" font-size="20" fill="#286449" font-weight="700" text-anchor="start">axelgamer.com/minecraft/potion-brewing-chart/</text>
+<text x="1340" y="1952" font-size="17" fill="#526b6c" font-weight="400" text-anchor="end">1.21+ vanilla • Checked 2026-10-09</text>
+</g></svg>
