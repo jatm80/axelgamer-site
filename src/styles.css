@@ -756,6 +756,9 @@ code {
 .topic-links { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
 .topic-links a { padding: .35rem .7rem; border: 1px solid var(--border); border-radius: 999px; color: var(--green-1); }
 .article-image { width: 100%; height: auto; border-radius: var(--radius); margin: 1.25rem 0; }
+.article-figure { width: 50%; margin: 1.25rem auto; }
+.article-figure img { width: 100%; height: auto; border-radius: var(--radius); }
+.article-figure figcaption { margin-top: 0.5rem; font-size: 0.875rem; line-height: 1.5; }
 .related-content { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--border); }
 .related-content a { color: var(--green-1); text-decoration: underline; }
 .section-more { margin-top: 1.5rem; }

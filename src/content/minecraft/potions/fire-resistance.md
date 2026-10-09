@@ -10,7 +10,7 @@ tags = ["Minecraft", "Potions", "Java Edition", "Bedrock Edition"]
 
 **Brew an Awkward Potion with magma cream to make Fire Resistance.** Start with water bottles and nether wart, then add magma cream. The drinkable potion lasts three minutes in Java and Bedrock; adding redstone dust makes it last eight minutes.
 
-<figure class="article-image">
+<figure class="article-figure">
   <img src="/assets/posts/fire-resistance/minecraft-nether-fire-resistance.png" alt="Lava falls feeding a pool surrounded by burning netherrack in Minecraft's Nether" width="1920" height="960" decoding="async">
   <figcaption>Fire Resistance protects against the Nether's fire and lava, but you still need a way back to solid ground. Screenshot by <a href="https://www.youtube.com/@xboxmexico">Xbox México</a>, via <a href="https://commons.wikimedia.org/wiki/File:Screenshot_from_the_Minecraft_Nether.png">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. Image unchanged.</figcaption>
 </figure>
@@ -44,7 +44,7 @@ Fire Resistance has no level II version; glowstone dust cannot make it stronger.
 
 The drinkable recipe and duration match across both editions. Fire Resistance protects against fire and lava damage, including blaze fireballs. It does not stop ordinary melee attacks, explosions, falling, or drowning. A blaze can still hurt you with a close-range attack.
 
-<figure class="article-image">
+<figure class="article-figure">
   <img src="/assets/posts/fire-resistance/minecraft-piglins-nether-travel.jpg" alt="Two sword-carrying piglins examining gold ingots in a Minecraft crimson forest" width="1920" height="960" loading="lazy" decoding="async">
   <figcaption>Piglins carry weapons: Fire Resistance does not protect you from melee damage. Screenshot by <a href="https://www.youtube.com/@xboxmexico">Xbox México</a>, via <a href="https://commons.wikimedia.org/wiki/File:Minecraft_-_Piglins_bartering.jpg">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. Image unchanged.</figcaption>
 </figure>
