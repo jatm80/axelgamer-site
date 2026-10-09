@@ -10,11 +10,11 @@
     </div>
 
     <div class="posts-grid">
-      {{ range .RegularPages.ByDate.Reverse }}
+      {{ range (partial "article-pages.html" .).ByDate.Reverse }}
       <article class="post-card">
         <p class="post-card-date">{{ .Date.Format "2 January 2006" }}</p>
         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        <p>{{ .Params.summary }}</p>
+        <p>{{ .Params.description | default .Params.summary | default .Summary }}</p>
         <div class="post-card-actions">
           <a class="card-btn secondary" href="{{ .RelPermalink }}">Read article</a>
         </div>

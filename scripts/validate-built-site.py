@@ -11,6 +11,26 @@ from urllib.parse import unquote, urlsplit
 from xml.etree import ElementTree
 
 SITE_HOST = "axelgamer.com"
+REQUIRED_NAVIGATION_LINKS = {
+    "posts/index.html": {
+        "/minecraft/potions/",
+        "/minecraft/potions/fire-resistance/",
+        "/minecraft/chaos-cubed/how-to-find-sulfur-caves/",
+        "/nintendo/is-kirby-and-the-forgotten-land-two-player/",
+    },
+    "minecraft/index.html": {
+        "/minecraft/potions/",
+        "/minecraft/potions/fire-resistance/",
+        "/minecraft/chaos-cubed/",
+    },
+    "minecraft/potions/index.html": {
+        "/posts/minecraft-night-vision-potion-beginner-guide/",
+        "/minecraft/potions/water-breathing/",
+        "/minecraft/potions/fire-resistance/",
+        "/minecraft/potions/invisibility/",
+        "/minecraft/potions/strength/",
+    },
+}
 REQUIRED_SITEMAP_PATHS = {
     "/videos/",
     "/games/",
@@ -27,11 +47,14 @@ class ReferenceParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
         self.references: list[str] = []
+        self.links: list[str] = []
         self.json_ld: list[str] = []
         self._json_ld_parts: list[str] | None = None
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         values = dict(attrs)
+        if tag == "a" and values.get("href"):
+            self.links.append(values["href"] or "")
         if tag in {"a", "link"} and values.get("href"):
             self.references.append(values["href"] or "")
         if tag in {"img", "script", "iframe", "source", "video"} and values.get("src"):
@@ -108,9 +131,22 @@ def main() -> int:
     json_ld_count = 0
     reference_count = 0
 
+    for source in REQUIRED_NAVIGATION_LINKS:
+        if not safe_generated_file(public, public / source):
+            errors.append(f"missing or unsafe navigation page: {source}")
+
     for html_file in html_files:
         parser = ReferenceParser()
         parser.feed(html_file.read_text(encoding="utf-8"))
+        source = html_file.relative_to(public).as_posix()
+        link_paths = {
+            urlsplit(link).path
+            for link in parser.links
+            if not urlsplit(link).netloc
+            or urlsplit(link).hostname in {SITE_HOST, f"www.{SITE_HOST}"}
+        }
+        for required in sorted(REQUIRED_NAVIGATION_LINKS.get(source, set()) - link_paths):
+            errors.append(f"missing navigation link: {source} -> {required}")
         for index, block in enumerate(parser.json_ld, start=1):
             json_ld_count += 1
             try:

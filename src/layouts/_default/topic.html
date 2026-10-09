@@ -1,8 +1,8 @@
 {{ define "main" }}
 {{ $topic := .Params.topic }}
 {{ $items := slice }}
-{{ range site.RegularPages }}
-  {{ if and (in (.Params.topics | default (slice)) $topic) (not (hasPrefix .RelPermalink "/sections/homepage/")) }}
+{{ range site.Pages }}
+  {{ if and (or .IsPage .IsSection) (ne .RelPermalink $.RelPermalink) (in (.Params.topics | default (slice)) $topic) (not (hasPrefix .RelPermalink "/sections/")) (not .Params.noindex) }}
     {{ $items = $items | append . }}
   {{ end }}
 {{ end }}
@@ -17,7 +17,7 @@
     <div class="posts-grid">
       {{ range $items.ByTitle }}
       <article class="post-card">
-        <p class="eyebrow">{{ if eq .Type "video" }}Video{{ else if eq .Type "games" }}Game{{ else }}Article{{ end }}</p>
+        <p class="eyebrow">{{ if .IsSection }}Guide collection{{ else if eq .Type "video" }}Video{{ else if eq .Type "games" }}Game{{ else }}Article{{ end }}</p>
         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         <p>{{ .Params.description | default .Params.summary | default .Summary }}</p>
         <div class="post-card-actions"><a class="card-btn secondary" href="{{ .RelPermalink }}">Explore</a></div>

@@ -1,7 +1,6 @@
 {{ $articlesContent := site.GetPage "/sections/homepage/articles" }}
 {{ $limit := $articlesContent.Params.limit | default 3 }}
-{{ $postsSection := site.GetPage "/sections/posts" }}
-{{ $posts := where $postsSection.RegularPages "Draft" "ne" true }}
+{{ $posts := partial "article-pages.html" . }}
 <section class="section posts-section" id="articles">
   <div class="container">
     <div class="section-heading">
@@ -15,7 +14,7 @@
       <article class="post-card">
         <p class="post-card-date">{{ .Date.Format "2 January 2006" }}</p>
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        <p>{{ .Params.summary }}</p>
+        <p>{{ .Params.description | default .Params.summary | default .Summary }}</p>
         <div class="post-card-actions">
           <a class="card-btn secondary" href="{{ .RelPermalink }}">Read article</a>
         </div>
