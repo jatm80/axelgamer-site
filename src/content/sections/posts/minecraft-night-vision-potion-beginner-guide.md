@@ -1,20 +1,22 @@
 +++
-title = "Brew a Minecraft Night Vision potion without getting lost"
+title = "How to Make a Night Vision Potion in Minecraft"
+description = "Brew Night Vision with a golden carrot in Java and Bedrock. Follow the ingredients and steps, extend it to eight minutes, and avoid common brewing mistakes."
+lastmod = 2026-10-09
 type = "posts"
 date = 2026-10-08T21:01:21+11:00
 draft = false
 summary = "Turn one golden carrot into three Night Vision potions with this simple brewing guide for Minecraft Java and Bedrock Edition."
 tags = ["Minecraft", "Potions", "Tutorials", "Java Edition", "Bedrock Edition"]
-topics = ['minecraft', 'family-gaming']
+topics = ['minecraft', 'potions', 'family-gaming']
 slug = "minecraft-night-vision-potion-beginner-guide"
 url = "/posts/minecraft-night-vision-potion-beginner-guide/"
 +++
 
-Ever explored a huge cave, placed your last torch, and then realised the tunnel keeps going? A Night Vision potion fixes that problem in seconds. Drink one and dark places become bright enough to explore, even though it is still night or pitch black underground.
+**To make Night Vision, brew nether wart into water bottles, then add a golden carrot to the Awkward Potions.** The drinkable potion lasts three minutes; adding redstone dust extends it to eight minutes. It makes dark places easier to see, including caves and underwater builds.
 
 The recipe works in both Minecraft Java Edition and Bedrock Edition. The buttons and menus may look a little different, but the ingredients and brewing order are the same.
 
-## What you need
+## Ingredients
 
 Gather a brewing stand, one blaze powder, one nether wart, one golden carrot, three glass bottles, and some water.
 
@@ -22,7 +24,7 @@ A brewing stand is the block that mixes potions. Blaze powder is its fuel. You c
 
 Make a golden carrot by placing eight gold nuggets around a carrot in a crafting grid. One carrot can brew three potions at once, so filling every bottle slot saves ingredients.
 
-## Brew it in five steps
+## Step-by-step brewing
 
 1. Fill three glass bottles with water and place them in the three bottom slots of the brewing stand.
 
@@ -42,4 +44,28 @@ Do not use glowstone dust for this one. Night Vision has no stronger second leve
 
 One warning: bright vision does not remove danger. Hostile mobs can still appear in dark areas, and the potion can make it harder to notice which spots need torches. Keep placing lights if you want a cave or base to stay safer after the effect ends.
 
-That first sip is especially fun underwater. Instead of staring into murky blue, you can spot ruins, coral, and the sea floor much more clearly. Pack a Water Breathing potion as well if you plan to stay down there, because seeing underwater does not give you extra air.
+That first sip is especially fun underwater. Instead of staring into murky blue, you can spot ruins, coral, and the sea floor much more clearly. Pack a [Water Breathing potion](/minecraft/potions/water-breathing/) as well if you plan to stay down there, because seeing underwater does not give you extra air.
+
+## Java and Bedrock notes
+
+The brewing order and drinkable durations are identical in both editions: 3:00 normally or 8:00 with redstone. The effect brightens your view, but it does not change the world’s actual light level. It neither prevents hostile spawning nor lets you breathe underwater.
+
+## Common mistakes
+
+- Use a **golden carrot**, not an ordinary carrot or golden apple.
+- Check that the bottle says **Awkward Potion** before adding the carrot. A water bottle alone is the wrong base.
+- Do not add glowstone expecting Night Vision II; this effect has no stronger version.
+- Adding a fermented spider eye converts the potion into [Invisibility](/minecraft/potions/invisibility/), replacing its Night Vision effect.
+
+For a cave trip, keep torches and a marked return route. Bright vision makes exploration easier but can hide how dark an area will look after the effect expires. Drinking milk clears the effect early.
+
+Mojang’s [Taking Inventory: Golden Carrot](https://www.minecraft.net/en-us/article/taking-inventory--golden-carrot) confirms the carrot’s brewing use.
+
+## Related potion guides
+
+- [Water Breathing potion](/minecraft/potions/water-breathing/)
+- [Fire Resistance potion](/minecraft/potions/fire-resistance/)
+- [Invisibility potion](/minecraft/potions/invisibility/)
+- [Strength potion](/minecraft/potions/strength/)
+
+See the [Minecraft potion brewing guide](/minecraft/potions/) for the recipe table, or return to [Minecraft guides and videos](/minecraft/).
