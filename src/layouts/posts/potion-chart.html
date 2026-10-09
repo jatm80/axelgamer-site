@@ -1,0 +1,55 @@
+{{ define "main" }}
+{{ $chart := site.Data.potion_chart }}
+{{ $assets := "assets/minecraft/potion-brewing-chart/minecraft-potion-brewing-chart" }}
+<main class="section">
+  <div class="container">
+    <article class="potion-chart-page">
+      <header class="section-heading">
+        <p class="eyebrow">Free Minecraft cheat sheet</p>
+        <h1>{{ .Title }}</h1>
+        <p>All 19 brewable Survival potions on one sheet. Find your ingredient, follow the brewing flow, then choose a longer or stronger effect.</p>
+        <p class="potion-chart-scope">Java + Bedrock · Vanilla 1.21+ · Drinkable timers · Checked {{ $chart.checked }}</p>
+      </header>
+      <nav class="potion-chart-actions" aria-label="Chart downloads and recipes">
+        <a class="btn btn-primary" href="{{ printf "%s.png" $assets | relURL }}" download>Download high-res PNG</a>
+        <a class="btn btn-secondary" href="{{ printf "%s.pdf" $assets | relURL }}" download>Download printable PDF</a>
+        <a class="btn btn-secondary" href="#quick-recipes">Quick recipes</a>
+      </nav>
+      <p class="potion-chart-print-note">PNG: 3508 × 4961 pixels. PDF: one A3 page; choose “Fit to page” to print on A4. Tap the chart to open it full-size.</p>
+      <figure class="potion-chart-preview">
+        <a href="{{ printf "%s.png" $assets | relURL }}" aria-label="Open the full-resolution Minecraft potion brewing chart">
+          <picture>
+            <source type="image/svg+xml" srcset="{{ printf "%s.svg" $assets | relURL }}">
+            <img src="{{ .Params.image | relURL }}" alt="{{ .Params.image_alt }}" width="3508" height="4961" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <figcaption>Original AxelGamer chart. The purple rows use a different starting bottle; J = Java, B = Bedrock, and — means no upgrade.</figcaption>
+      </figure>
+      <section id="quick-recipes" aria-labelledby="quick-recipes-title">
+        <h2 id="quick-recipes-title">Recipes at a glance</h2>
+        <p>Fuel the brewing stand with blaze powder. Most recipes start with water bottles + nether wart → Awkward Potion. One ingredient brews up to three bottles at once.</p>
+        <p>Craft the stand with one blaze rod and three cobblestone. Three glass blocks craft three bottles. Fermented spider eye = spider eye + sugar + brown mushroom.</p>
+        <div class="potion-recipe-grid">
+          {{ range $chart.recipes }}
+          <article class="potion-recipe" id="recipe-{{ .id }}">
+            <h3>{{ .name }}</h3>
+            <p class="potion-recipe-path"><strong>{{ .base }}</strong> + {{ .ingredient }}</p>
+            <dl>
+              <div><dt>Normal</dt><dd>{{ .normal }}</dd></div>
+              <div><dt>+ Redstone</dt><dd>{{ if eq .extended "—" }}No upgrade{{ else }}{{ .extended }}{{ end }}</dd></div>
+              <div><dt>+ Glowstone</dt><dd>{{ if eq .enhanced "—" }}No upgrade{{ else }}{{ .enhanced }}{{ end }}</dd></div>
+            </dl>
+          </article>
+          {{ end }}
+        </div>
+      </section>
+      <div class="potion-chart-notes">{{ .Content }}</div>
+      <details class="potion-chart-sources">
+        <summary>Recipe sources and checks</summary>
+        <p>Ingredients and conversion rules were checked against Mojang and Microsoft references. Bottle timers and edition differences were cross-checked with the Minecraft Wiki. Times use the displayed bottle timer, rather than fractional internal ticks.</p>
+        <ul>{{ range $chart.sources }}<li><a href="{{ .url }}">{{ .title }}</a></li>{{ end }}</ul>
+      </details>
+    </article>
+  </div>
+</main>
+{{ end }}

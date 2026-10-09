@@ -13,17 +13,20 @@ from xml.etree import ElementTree
 SITE_HOST = "axelgamer.com"
 REQUIRED_NAVIGATION_LINKS = {
     "posts/index.html": {
+        "/minecraft/potion-brewing-chart/",
         "/minecraft/potions/",
         "/minecraft/potions/fire-resistance/",
         "/minecraft/chaos-cubed/how-to-find-sulfur-caves/",
         "/nintendo/is-kirby-and-the-forgotten-land-two-player/",
     },
     "minecraft/index.html": {
+        "/minecraft/potion-brewing-chart/",
         "/minecraft/potions/",
         "/minecraft/potions/fire-resistance/",
         "/minecraft/chaos-cubed/",
     },
     "minecraft/potions/index.html": {
+        "/minecraft/potion-brewing-chart/",
         "/posts/minecraft-night-vision-potion-beginner-guide/",
         "/minecraft/potions/water-breathing/",
         "/minecraft/potions/fire-resistance/",
@@ -32,6 +35,7 @@ REQUIRED_NAVIGATION_LINKS = {
     },
 }
 REQUIRED_SITEMAP_PATHS = {
+    "/minecraft/potion-brewing-chart/",
     "/videos/",
     "/games/",
     "/games/snake/",

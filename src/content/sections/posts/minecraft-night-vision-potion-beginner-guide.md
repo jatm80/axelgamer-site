@@ -63,6 +63,8 @@ Mojang’s [Taking Inventory: Golden Carrot](https://www.minecraft.net/en-us/art
 
 ## Related potion guides
 
+Keep the [printable Minecraft Potion Brewing Chart](/minecraft/potion-brewing-chart/) beside your brewing stand for ingredients, upgrades and timers for all 19 Survival potions.
+
 - [Water Breathing potion](/minecraft/potions/water-breathing/)
 - [Fire Resistance potion](/minecraft/potions/fire-resistance/)
 - [Invisibility potion](/minecraft/potions/invisibility/)

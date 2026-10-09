@@ -1,0 +1,35 @@
+{
+  "checked": "2026-10-09",
+  "scope": "Vanilla Java and Bedrock, 1.21+; Survival brewing; drinkable potion timers",
+  "recipes": [
+    {"id":"night-vision","name":"Night Vision","base":"Awkward","ingredient":"Golden carrot","normal":"3:00","extended":"8:00","enhanced":"—","colour":"#406dc4"},
+    {"id":"water-breathing","name":"Water Breathing","base":"Awkward","ingredient":"Pufferfish","normal":"3:00","extended":"8:00","enhanced":"—","colour":"#197fba"},
+    {"id":"fire-resistance","name":"Fire Resistance","base":"Awkward","ingredient":"Magma cream","normal":"3:00","extended":"8:00","enhanced":"—","colour":"#bd5a1d"},
+    {"id":"strength","name":"Strength","base":"Awkward","ingredient":"Blaze powder","normal":"3:00","extended":"8:00","enhanced":"II · 1:30","colour":"#b7434a"},
+    {"id":"swiftness","name":"Swiftness","base":"Awkward","ingredient":"Sugar","normal":"3:00","extended":"8:00","enhanced":"II · 1:30","colour":"#328c9d"},
+    {"id":"leaping","name":"Leaping","base":"Awkward","ingredient":"Rabbit’s foot","normal":"3:00","extended":"8:00","enhanced":"II · 1:30","colour":"#428136"},
+    {"id":"healing","name":"Healing","base":"Awkward","ingredient":"Glistering melon slice","normal":"Instant","extended":"—","enhanced":"II · Instant","colour":"#bb3348"},
+    {"id":"regeneration","name":"Regeneration","base":"Awkward","ingredient":"Ghast tear","normal":"0:45","extended":"J 1:30 / B 2:00","enhanced":"II · 0:22","colour":"#a14893"},
+    {"id":"poison","name":"Poison","base":"Awkward","ingredient":"Spider eye","normal":"0:45","extended":"J 1:30 / B 2:00","enhanced":"II · J 0:21 / B 0:22","colour":"#6e8735"},
+    {"id":"slow-falling","name":"Slow Falling","base":"Awkward","ingredient":"Phantom membrane","normal":"1:30","extended":"4:00","enhanced":"—","colour":"#527f86"},
+    {"id":"turtle-master","name":"Turtle Master","base":"Awkward","ingredient":"Turtle shell","normal":"0:20","extended":"0:40","enhanced":"II · 0:20","colour":"#357e66"},
+    {"id":"wind-charging","name":"Wind Charging","base":"Awkward","ingredient":"Breeze rod","normal":"3:00","extended":"—","enhanced":"—","colour":"#4988a1"},
+    {"id":"weaving","name":"Weaving","base":"Awkward","ingredient":"Cobweb","normal":"3:00","extended":"—","enhanced":"—","colour":"#7b7295"},
+    {"id":"oozing","name":"Oozing","base":"Awkward","ingredient":"Slime block","normal":"3:00","extended":"—","enhanced":"—","colour":"#50853f"},
+    {"id":"infestation","name":"Infestation","base":"Awkward","ingredient":"Stone","normal":"3:00","extended":"—","enhanced":"—","colour":"#70788a"},
+    {"id":"invisibility","name":"Invisibility","base":"Night Vision","ingredient":"Fermented spider eye","normal":"3:00","extended":"8:00","enhanced":"—","colour":"#727cb7"},
+    {"id":"slowness","name":"Slowness","base":"Swiftness or Leaping","ingredient":"Fermented spider eye","normal":"1:30","extended":"4:00","enhanced":"IV · 0:20","colour":"#526ca0"},
+    {"id":"harming","name":"Harming","base":"Healing or Poison","ingredient":"Fermented spider eye","normal":"Instant","extended":"—","enhanced":"II · Instant","colour":"#8a4962"},
+    {"id":"weakness","name":"Weakness","base":"Water bottle","ingredient":"Fermented spider eye","normal":"1:30","extended":"4:00","enhanced":"—","colour":"#756652"}
+  ],
+  "sources": [
+    {"title":"Mojang: brewing basics and effect ingredients","url":"https://www.minecraft.net/en-us/article/ten-rare-recipes"},
+    {"title":"Mojang: splash potion conversion","url":"https://www.minecraft.net/en-us/article/how-brew-and-use-splash-potions"},
+    {"title":"Mojang: Tricky Trials recipes in Bedrock 1.21","url":"https://feedback.minecraft.net/hc/en-us/articles/27451789924237-Minecraft-Bedrock-Edition-1-21-Tricky-Trials"},
+    {"title":"Mojang: phantom membrane and Slow Falling","url":"https://www.minecraft.net/en-us/article/taking-inventory--phantom-membrane"},
+    {"title":"Mojang: turtle shell and Turtle Master","url":"https://www.minecraft.net/en-us/article/taking-inventory-turtle-shell"},
+    {"title":"Microsoft: normal, long and enhanced potion variants","url":"https://learn.microsoft.com/en-us/minecraft/creator/documents/create-custom-potions?view=minecraft-bedrock-stable"},
+    {"title":"Minecraft Wiki: potion durations and edition differences","url":"https://minecraft.wiki/w/Potion"},
+    {"title":"Minecraft Wiki: brewing and conversion recipes","url":"https://minecraft.wiki/w/Brewing"}
+  ]
+}

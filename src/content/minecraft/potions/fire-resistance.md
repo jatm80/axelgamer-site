@@ -61,6 +61,8 @@ Mojang’s [Ten Rare Recipes](https://www.minecraft.net/en-us/article/ten-rare-r
 
 ## Related potion guides
 
+Keep the [printable Minecraft Potion Brewing Chart](/minecraft/potion-brewing-chart/) beside your brewing stand for ingredients, upgrades and timers for all 19 Survival potions.
+
 - [Night Vision potion](/posts/minecraft-night-vision-potion-beginner-guide/)
 - [Water Breathing potion](/minecraft/potions/water-breathing/)
 - [Invisibility potion](/minecraft/potions/invisibility/)
