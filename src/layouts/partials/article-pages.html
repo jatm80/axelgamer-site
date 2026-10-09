@@ -1,0 +1,7 @@
+{{- $articles := slice -}}
+{{- range where site.RegularPages "Type" "posts" -}}
+  {{- if and (not (hasPrefix .RelPermalink "/sections/")) (not .Params.noindex) -}}
+    {{- $articles = $articles | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- return $articles -}}
