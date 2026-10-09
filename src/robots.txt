@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.axelgamer.com/sitemap.xml
-Host: https://www.axelgamer.com
+Sitemap: https://axelgamer.com/sitemap.xml

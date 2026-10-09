@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /sections/
 
 Sitemap: {{ "sitemap.xml" | absURL }}
-Host: {{ site.BaseURL }}
