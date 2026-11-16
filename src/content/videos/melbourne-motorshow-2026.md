@@ -2,7 +2,7 @@
 title = "Melbourne Motorshow 2026"
 type = "video"
 video_id = "85KKWAbUlT4"
-upload_date = "2026-04-11"
+upload_date = "2026-04-11T00:00:00Z"
 duration = "PT7M42S"
 summary = "Watch Axel Gamer explore Melbourne Motorshow 2026, with family-friendly highlights and gameplay context."
 topics = ['family-gaming']

@@ -2,7 +2,7 @@
 title = "Cooking tuna casserole with my dad"
 type = "video"
 video_id = "vAImg84kS_w"
-upload_date = "2026-06-20"
+upload_date = "2026-06-20T00:00:00Z"
 duration = "PT22M5S"
 summary = "Watch Axel Gamer explore Cooking tuna casserole with my dad, with family-friendly highlights and gameplay context."
 topics = ['family-gaming']

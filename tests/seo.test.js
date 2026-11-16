@@ -30,12 +30,12 @@ describe('AxelGamer SEO architecture', () => {
     assert.doesNotMatch(head, /duration"\s+"PT/);
   });
 
-  it('stores only the verified YouTube date and duration for confirmed public videos', () => {
+  it('stores only verified YouTube datetimes with timezones and durations for confirmed public videos', () => {
     const confirmed = {
-      'melbourne-motorshow-2026.md': ['85KKWAbUlT4', '2026-04-11', 'PT7M42S'],
-      'camping-day-upper-yarra.md': ['5ukjMUGGssA', '2026-03-26', 'PT13M25S'],
-      'cooking-tuna-casserole-with-my-dad.md': ['vAImg84kS_w', '2026-06-20', 'PT22M5S'],
-      'axel-gamer-on-a-roll-3d.md': ['f4GemvGLqGw', '2024-06-02', 'PT15M29S'],
+      'melbourne-motorshow-2026.md': ['85KKWAbUlT4', '2026-04-11T00:00:00Z', 'PT7M42S'],
+      'camping-day-upper-yarra.md': ['5ukjMUGGssA', '2026-03-26T00:00:00Z', 'PT13M25S'],
+      'cooking-tuna-casserole-with-my-dad.md': ['vAImg84kS_w', '2026-06-20T00:00:00Z', 'PT22M5S'],
+      'axel-gamer-on-a-roll-3d.md': ['f4GemvGLqGw', '2024-06-02T00:00:00Z', 'PT15M29S'],
     };
     const videoDir = path.join(root, 'src/content/videos');
     for (const filename of fs.readdirSync(videoDir).filter((name) => name.endsWith('.md') && name !== '_index.md')) {
